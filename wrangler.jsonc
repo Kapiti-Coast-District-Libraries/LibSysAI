@@ -1,9 +1,0 @@
-{
-  "name": "libsysai",
-  "account_id": "19ecd8798a7c00f76c2ba32fcc0b0332",
-  "compatibility_date": "2026-01-29",
-  "main": "services/index.js",
-  "site": {
-    "bucket": "./dist"
-  }
-}
