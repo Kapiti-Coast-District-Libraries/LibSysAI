@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '')
 
   return {
-    base: '/libsys-support-ai-deployment/',
+    base: '/LibSysAi/',
 
     server: {
       port: 3000,
