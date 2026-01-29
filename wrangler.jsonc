@@ -1,7 +1,10 @@
 {
-	    "name": "libsysai",
-	    "compatibility_date": "2026-01-29",
-	    "assets": {
-	      "directory": "./dist"
-	    }
+  "name": "libsysai",
+  "type": "javascript",
+  "account_id": "19ecd8798a7c00f76c2ba32fcc0b0332",
+  "compatibility_date": "2026-01-29",
+  "site": {
+    "bucket": "./dist",
+    "entry-point": "."
+  }
 }
