@@ -1,11 +1,11 @@
 {
-  "name": "libsys-support-ai-deployment",
+  "name": "LibSysAI",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
