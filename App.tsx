@@ -88,7 +88,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
   const KNOWLEDGE_BASE_URL =
-'https://raw.githubusercontent.com/Kapiti-Coast-District-Libraries/LibSysAI/main/manifest.json';
+'https://raw.githubusercontent.com/Kapiti-Coast-District-Libraries/LibSysAI/main/';
 
   const syncKnowledgeBase = async () => {
     let skipped = 0;
