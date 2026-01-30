@@ -90,96 +90,102 @@ const App: React.FC = () => {
   const KNOWLEDGE_BASE_URL =
 'https://raw.githubusercontent.com/Kapiti-Coast-District-Libraries/LibSysAI/main/';
 
-  const syncKnowledgeBase = async () => {
-    let skipped = 0;
-    let processed = 0;
-    const newSopFiles: SopFile[] = [];  
+  const MAX_CONCURRENT_FETCHES = 200; // adjust based on your network speed
 
-    try {
-      const manifestRes = await fetch(`${KNOWLEDGE_BASE_URL}manifest.json`);
-      if (!manifestRes.ok) throw new Error("Manifest not found");
+const syncKnowledgeBase = async () => {
+  let skipped = 0;
+  let processed = 0;
+  const newSopFiles: SopFile[] = [];
 
-      const manifest: string[] = await manifestRes.json();
+  try {
+    const manifestRes = await fetch(`${KNOWLEDGE_BASE_URL}manifest.json`);
+    if (!manifestRes.ok) throw new Error("Manifest not found");
 
-      for (const filePath of manifest) {
-        const fileName = filePath.split('/').pop() ?? filePath;
-        const fileUrl = `${KNOWLEDGE_BASE_URL}${filePath}`;
+    const manifest: string[] = await manifestRes.json();
 
-        const isExcel = /\.(xlsx|xls)$/i.test(fileName);
-        const isText =
-          /\.(txt|md|html|csv|log|pdf)$/i.test(fileName);
-        const isVQD = fileName === 'vqd.json';
-        const isLKP = fileName === 'lkp.json';
+    // Split manifest into chunks to limit concurrent fetches
+    const chunked = (arr: string[], size: number) =>
+      Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+        arr.slice(i * size, i * size + size)
+      );
 
-        try {
-          // ---------------- VQD ----------------
-          if (isVQD) {
+    const fileChunks = chunked(manifest, MAX_CONCURRENT_FETCHES);
+
+    for (const chunk of fileChunks) {
+      // Fetch all files in the chunk in parallel
+      const results = await Promise.all(
+        chunk.map(async (filePath) => {
+          const fileName = filePath.split("/").pop() ?? filePath;
+          const fileUrl = `${KNOWLEDGE_BASE_URL}${filePath}`;
+
+          try {
             const res = await fetch(fileUrl);
-            const text = await res.text();
-            const file = new File([text], fileName, { type: 'application/json' });
+            if (!res.ok) throw new Error(`Failed to fetch ${filePath}`);
 
-            const { list } = await parseVQDFile(file);
-            setVqdIndex(list);
-            console.log("Loaded VQD entries:", list.length);
-            processed++;
-            continue;
-          }
+            const isExcel = /\.(xlsx|xls)$/i.test(fileName);
+            const isText = /\.(txt|md|html|csv|log|pdf)$/i.test(fileName);
+            const isVQD = fileName === "vqd.json";
+            const isLKP = fileName === "lkp.json";
 
-          // ---------------- LKP ----------------
-          if (isLKP) {
-            const res = await fetch(fileUrl);
-            const text = await res.text();
-            const file = new File([text], fileName, { type: 'application/json' });
+            const textContent = await res.text();
 
-            const { tables } = await parseLKPFile(file);
-            setLkpTables(tables);
-            console.log("Loaded LKP tables:", tables.length);
-            processed++;
-            continue;
-          }
-
-          // ---------------- Text ----------------
-          if (isText) {
-            const res = await fetch(fileUrl);
-            let textContent = await res.text();
-
-            if (fileName.endsWith('.html')) {
-              textContent = stripHTML(textContent);
+            // ---------------- VQD ----------------
+            if (isVQD) {
+              const file = new File([textContent], fileName, { type: "application/json" });
+              const { list } = await parseVQDFile(file);
+              setVqdIndex(list);
+              processed++;
+              return null;
             }
 
-            newSopFiles.push({
-              name: fileName,
-              path: filePath,
-              content: textContent
-            });
+            // ---------------- LKP ----------------
+            if (isLKP) {
+              const file = new File([textContent], fileName, { type: "application/json" });
+              const { tables } = await parseLKPFile(file);
+              setLkpTables(tables);
+              processed++;
+              return null;
+            }
 
-            processed++;
-            continue;
+            // ---------------- Text ----------------
+            if (isText) {
+              const content = fileName.endsWith(".html") ? stripHTML(textContent) : textContent;
+              processed++;
+              return { name: fileName, path: filePath, content };
+            }
+
+            skipped++;
+            return null;
+          } catch (err) {
+            console.error(`Error processing ${filePath}:`, err);
+            skipped++;
+            return null;
           }
+        })
+      );
 
-          skipped++;
-        } catch (err) {
-          console.error(`Error processing ${filePath}:`, err);
-          skipped++;
-        }
-      }
+      // Add fetched SOPs from this chunk
+      results.forEach((file) => {
+        if (file) newSopFiles.push(file);
+      });
+    }
 
-      setSopFiles(prev => [...prev, ...newSopFiles]);
+    setSopFiles((prev) => [...prev, ...newSopFiles]);
 
-      alert(
-        `Knowledge Base Synced!\n\n` +
+    alert(
+      `Knowledge Base Synced!\n\n` +
         `- Processed: ${processed} files\n` +
         `- Skipped: ${skipped}\n` +
         `- Source: GitHub\n` +
         `- Path awareness enabled`
-      );
-    } catch (err) {
-      console.warn("Auto-sync skipped or failed:", err);
-    }
-  };
+    );
+  } catch (err) {
+    console.warn("Auto-sync skipped or failed:", err);
+  }
+};
 
-  syncKnowledgeBase();
-}, []);
+// Call it once on page load
+syncKnowledgeBase();
 
 
 
