@@ -186,7 +186,7 @@ const syncKnowledgeBase = async () => {
 
 // Call it once on page load
 syncKnowledgeBase();
-})
+}, []);
 
   useEffect(() => {
     if (scrollRef.current) {
