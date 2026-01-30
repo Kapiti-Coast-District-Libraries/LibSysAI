@@ -40,20 +40,24 @@ export const sendMessageToGemini = async (
     ? `${SYSTEM_INSTRUCTION}\n\n### SUPPLEMENTAL BUSINESS SOPs:\n${sopContext}`
     : SYSTEM_INSTRUCTION;
 
-  const res = await fetch(SUPABASE_GEMINI_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      message,
-      history,
-      instructions: fullInstructions,
-      tools: [
-        { functionDeclarations: [inkRequestTool, chatHistoryTool] }
-      ]
-    })
-  });
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0enRtdGNkZnFwYW1oaXR5YXF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3MjE3ODEsImV4cCI6MjA4NTI5Nzc4MX0.abhbWGpaAEZZgS_IJ6MaoU5e-enZ11dX3sSkKBem8k8"; // safe to put in GitHub
+
+const res = await fetch(SUPABASE_GEMINI_URL, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+  },
+  body: JSON.stringify({
+    message,
+    history,
+    instructions: fullInstructions,
+    tools: [
+      { functionDeclarations: [inkRequestTool, chatHistoryTool] }
+    ]
+  })
+});
+
 
   if (!res.ok) {
     throw new Error(await res.text());
