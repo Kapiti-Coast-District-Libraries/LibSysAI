@@ -1,46 +1,42 @@
+// generateManifest.cjs
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// __dirname replacement for ES modules
+// Resolve __dirname in ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SOP_ROOT = path.join(__dirname, 'SOP');
-const MANIFEST_PATH = path.join(__dirname, 'manifest.json');
+// Root of the repo
+const ROOT_DIR = path.resolve(__dirname, '..');  // adjust if script is in root
 
-function walkDir(dir) {
-  const result = {};
+// Folder containing SOPs
+const SOP_DIR = path.join(ROOT_DIR, 'SOP');
+
+// Function to recursively get all files
+function getAllFiles(dir, basePath = '') {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
-
+  let files = [];
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
+    const relativePath = path.join(basePath, entry.name);
     if (entry.isDirectory()) {
-      const subFiles = walkDir(fullPath);
-      if (Object.keys(subFiles).length > 0) {
-        result[entry.name] = subFiles;
-      }
-    } else if (entry.isFile()) {
-      if (!result.files) result.files = [];
-      result.files.push(path.relative(__dirname, fullPath).replace(/\\/g, '/'));
-    }
-  }
-  return result;
-}
-
-function flattenManifest(obj) {
-  const flattened = {};
-  for (const [key, value] of Object.entries(obj)) {
-    if (value.files) {
-      flattened[key] = value.files;
+      files = files.concat(getAllFiles(fullPath, relativePath));
     } else {
-      flattened[key] = flattenManifest(value);
+      files.push(relativePath.replace(/\\/g, '/')); // normalize slashes
     }
   }
-  return flattened;
+  return files;
 }
 
-const manifest = walkDir(SOP_ROOT);
-fs.writeFileSync(MANIFEST_PATH, JSON.stringify(flattenManifest(manifest), null, 2));
+// Generate manifest
+const manifest = {
+  sops: getAllFiles(SOP_DIR),
+  generatedAt: new Date().toISOString(),
+};
 
-console.log('manifest.json generated successfully.');
+// Write to repo root
+const manifestPath = path.join(ROOT_DIR, 'manifest.json');
+fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+
+console.log(`Manifest generated at ${manifestPath}`);
