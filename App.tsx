@@ -88,7 +88,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
   const KNOWLEDGE_BASE_URL =
-    'https://raw.githubusercontent.com/Kapiti-Coast-District-Libraries/SOP-API-TEST/main/';
+    'https://raw.githubusercontent.com/Kapiti-Coast-District-Libraries/LibSysAI/main/SOP/';
 
   const syncKnowledgeBase = async () => {
     let skipped = 0;
