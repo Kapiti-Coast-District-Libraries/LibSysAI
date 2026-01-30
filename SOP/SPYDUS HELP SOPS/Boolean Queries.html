@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%ItemTitle%%</title>" --><title>Boolean queries</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content="Boolean queries"/><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="https://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery/script/default/jquery.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="https://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery-ui/script/default/jquery-ui.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="https://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery-ui/css/default/jquery-ui.min.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TemplateSettingsJson" format="<script type=""text/javascript"">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{isHideBodyDuringLoadDisabled:true,dynamictoc:{isEnabled:true},inthistopic:{isSupported:true},dynamicstyles:{isDynamicWordWrapEnabled:true}}},{settings:%%TemplateSettingsJson%%});</script>" --><script type="text/javascript">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{isHideBodyDuringLoadDisabled:true,dynamictoc:{isEnabled:true},inthistopic:{isSupported:true},dynamicstyles:{isDynamicWordWrapEnabled:true}}},{settings:{"dynamictoc":{"initialNodeId":"n2254","initialNodeContainer":"c0","isResizable":true},"inthistopic":{"isEnabled":true},"darkmode":{"isEnabled":true},"currentLocale":"-","isFrameless":true,"navigationKind":"inpage","versions":{"locale":{"currentId":"-"}}}});</script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="light" filetype="css"--><link rel="stylesheet" type="text/css" href="https://kapiti.spydus.co.nz/onlinehelp/template/packages/light/css/dynamic-toc.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><meta name="Description" content="These queries are the result of requests from libraries to Spydus Support for reports which cannot be satisfied from either web Enquiry or from the Reports module." /><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-topics" filetype="css"--><link rel="stylesheet" type="text/css" href="https://kapiti.spydus.co.nz/onlinehelp/template/packages/plugins-topics/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-topics" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-topics/topics.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-topics/topics.mshv1.css"" data-responsive-mobile=""template/packages/core-topics/topics.mobile.css"" data-responsive-tablet=""template/packages/core-topics/topics.tablet.css"""--><link rel="stylesheet" type="text/css" href="https://kapiti.spydus.co.nz/onlinehelp/template/packages/core-topics/css/topics.css"  data-mshv2-stylesheet="/template/packages/core-topics/topics.mshv2.css" data-mshv1-stylesheet="/template/packages/core-topics/topics.mshv1.css" data-responsive-mobile="template/packages/core-topics/topics.mobile.css" data-responsive-tablet="template/packages/core-topics/topics.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-topics" filetype="script"--><script src="https://kapiti.spydus.co.nz/onlinehelp/template/packages/plugins-topics/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-topics" filetype="script"--><script src="https://kapiti.spydus.co.nz/onlinehelp/template/packages/core-topics/script/topics.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="510b7bff-068e-400f-a995-eec3f7a29cd0"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><meta name="Microsoft.Help.TocParent" content="e6593cc0-f960-4e8c-bbdf-b73e33abd856"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocOrdinal" format="<meta name=""Microsoft.Help.TocOrder"" content=""%%TocOrdinal%%""/>" --><meta name="Microsoft.Help.TocOrder" content="1"/><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.F1" content=""/>
+    <meta name="Microsoft.Help.ContentType" content="Concepts" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="https://kapiti.spydus.co.nz/onlinehelp/stylesheets/hs-heading-expandcollapse.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://kapiti.spydus.co.nz/onlinehelp/stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="StylePropertyValues" format="<style>%%StylePropertyValues%%</style>" --><style>.i-is-new .i-page-title-text::after, ul#i-dt-root li.i-is-new>a::after { content: "New" }
+</style><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><script src="https://kapiti.spydus.co.nz/onlinehelp/script/hs-common.js" type="text/javascript"></script>
+    <script src="https://kapiti.spydus.co.nz/onlinehelp/script/hs-heading-expandcollapse.js" type="text/javascript"></script>
+    <script src="https://kapiti.spydus.co.nz/onlinehelp/scripts/headings-initially-collapsed.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+    <!--DXMETADATA start type="CanonicalLink" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="CustomHeadContent" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="DARKMODE" format="<meta name=""color-scheme"" content=""dark light"" />" --><meta name="color-scheme" content="dark light" /><!--DXMETADATA end-->
+	
+    <script type="text/javascript">
+        try
+        {
+            window.addEventListener('load', function() {
+                if (location.hash) location.href = location.hash;
+            });
+        }
+        catch (e) { }
+        finally {}
+    </script>
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+
+    <div id="i-header-container">
+        <div id="i-header-content" class="i-header-content i-content-width-container">
+            <!--DXMETADATA start type="LogoImage" --><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->Spydus Help<!--DXMETADATA end--></div>
+            <div class="i-flex-spacer"></div>
+            <div class="i-header-buttons-container">
+                <div class="i-search-container">
+                    <!--DXMETADATA start type="outputfileextension" format="<form action=""websearch%%outputfileextension%%"">" --><form action="https://kapiti.spydus.co.nz/onlinehelp/websearch.html"><!--DXMETADATA end-->
+                    <!--DXMETADATA start type="Phrase" name="SEARCH_OPERATORTIP" format="<input id=""i-search"" name=""query"" title=""%%phrase%%""/>" --><input id="i-search" name="query" title="(Words can be combined using OR and AND)"/><!--DXMETADATA end-->
+                    <input type="submit" id="i-search-button" value="" />
+                    <!--DXMETADATA start type="Literal" value="</form>" --></form><!--DXMETADATA end-->
+                </div>
+                <!--DXMETADATA start type="outputfileextension" format="<a id=""i-index-button"" href=""webindex%%outputfileextension%%""></a>" --><a id="i-index-button" href="https://kapiti.spydus.co.nz/onlinehelp/webindex.html"></a><!--DXMETADATA end-->
+            </div>
+        </div>
+    </div>
+    
+    <div class="i-content-width-container"><div class="i-busy-overlay"></div></div>
+
+    <div id="i-breadcrumbs-outer-container" class="i-content-width-container"><!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><div class="i-breadcrumbs-container">
+<a href="Factsheets.html">Factsheets </a>
+ / Boolean queries</div><!--DXMETADATA end --></div>
+
+    
+
+    <div id="i-actions-outer-container" class="i-content-width-container">
+        <div id="i-actions-container">
+            <div id="i-actions-content" class="i-fixed-to-top">
+                <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+                <div class="i-in-this-topic-container">
+                    <span class="i-action-group-heading"><!--DXMETADATA start type="Phrase" Name="IN_THIS_TOPIC" -->In This Topic<!--DXMETADATA end--></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="i-toc-outer-container" class="i-content-width-container">
+        <div id="i-toc-container">
+            <div id="i-toc-content" class="i-fixed-to-top">
+                <div class="i-toc-content-scroll-container">
+                    <div id="i-dynamic-toc-container"><ul id="i-dt-root"></ul></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="i-body-content-container" class="i-content-width-container">
+        <div id="i-body-content" class="i-body-content">
+            <div class="i-page-title"><div class="i-page-title-text"><!--DXMETADATA start type="ItemTitle" -->Boolean queries<!--DXMETADATA end--></div></div>
+            <div class="i-in-this-topic-container">
+                <span class="i-action-group-heading"><!--DXMETADATA start type="Phrase" Name="IN_THIS_TOPIC" -->In This Topic<!--DXMETADATA end--></span>
+            </div>
+            <!--DXMETADATA start type="TopicSection" name="BodyText"--><P>These queries are the result of requests from libraries to Spydus Support for reports which cannot be satisfied from either web Enquiry or from the Reports module.</P>
+<P>For further information on creating Boolean searches, please refer to the Web Enquiry and Advanced Enquiry training notes.</P>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-note">Unless otherwise stated, these queries should be run in Enquiry (Staff -&nbsp;cat.html or WBA) from <STRONG>Search Holdings</STRONG> &gt; <STRONG>Boolean Query</STRONG> . </DIV></TD></TR></TBODY></TABLE> 
+<P>&nbsp;<IMG class=ThinNavyBorder border=0 alt="" src="https://kapiti.spydus.co.nz/onlinehelp/images/FS_Boolean_1.png"></P>
+<H1>Borrowers</H1>
+<H2>Inactive borrowers</H2>
+<P>All Junior borrowers who have not borrowed an item or placed a reservation since 30 JUN 2005.&nbsp; Change dates and borrower category (BRWCATX) as required.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: BRW - ((BRWLOAN&gt; (ISSDTE: "&gt; 30 JUN 2005") / BRWRSV&gt; (RSVPDTE:"&gt; 30 MAR 2005"))) + BDC&lt; BRWCATX: J</P></BLOCKQUOTE>
+<H2>Borrowers with notices sent via telephone and/or email</H2>
+<P>All borrowers with notices sent via telephone (1) or telephone and email (2). This query must be run with the first part in the Boolean query field and the second part in the SQL options field.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: BRWD</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>JOIN QNT ON #TBLID.IRN = QNT.IRN WHERE TEL = 1 OR TEL = 2</P></BLOCKQUOTE>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="https://kapiti.spydus.co.nz/onlinehelp/images/FS_Boolean_2.png"></P>
+<H2>Borrower gender identity</H2>
+<P>This query must be run with the first part in the Boolean query field and the second part in the SQL options field.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BRWSEX: <STRONG>X</STRONG></P></BLOCKQUOTE>
+<P>The value of&nbsp;<STRONG>X</STRONG> in the SQL section must be a value present in the NPDS lookup table (which can be managed via&nbsp;<A href="TableManager.html">Table Manager</A>).&nbsp;</P>
+<H2>Translate&nbsp;between BRW&nbsp;and BRWD records</H2>
+<P>To use the bulk change facility, you may need to translate from the BRW format to BRWD.&nbsp; The following query selects borrowers in a particular borrower category (“A” in this example) and translates them to a set of BRWD records for updating, e.g. changing residential area code.</P>
+<P>BRWDBRW&gt; (BDC&lt; BRWCATX: A)</P>
+<P></P>
+<P>To translate BRWD records to BRW, use the less than operator (&lt;) on the BRWDBRW term instead or the greater than operator. The following query selects all borrower details records&nbsp;with email addresses (BDE: *) and translates them to BRW records.</P>
+<P>BRWDBRW&lt; (BDE: *)</P>
+<H1>Items</H1>
+<H2>Low use items</H2>
+<P>Low-use items report.&nbsp; This query must be run with the first part in the Boolean query field and the second part in the SQL options field.</P>
+<P>Change the item acquired date (ITD.DTE) and loan count (in this case 3) as required.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT:ITM</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>JOIN ITD ON #TBLID.IRN = ITD.IRN LEFT OUTER JOIN OND ON ITD.IRN = OND.ITM WHERE ITD.DTE &lt; '1 JUL 2016' GROUP BY #TBLID.IRN HAVING COUNT(OND.IRN) &lt; 3</P></BLOCKQUOTE>
+<H2>Loans with resolved claims returned</H2>
+<P>Loans with Claims Returned status resolved by borrower (change to \L for resolved by library) within a particular date range.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>LOANSDTE: "01 JUL 2015 - 30 JUN 2017" + CRR01\B</P></BLOCKQUOTE>
+<H2>Lost items that have been paid for</H2>
+<P>Lost items that have been paid for.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>LOANITM&gt; (LOANCHRG&lt; (CHRGCDE: L + CHRGCF: 1) + LOANSCDE: L)</P></BLOCKQUOTE>
+<H2>Items with specific GMD</H2>
+<P>Items with a specific GMD. Change "DVD" to the GMD required.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBITM&lt; GMD:DVD</P></BLOCKQUOTE>
+<H2>Items never borrowed</H2>
+<P>Here are three approaches. This first approach includes bibliographic records where other copies have been loaned.</P>
+<OL>
+<LI>Do an <B>Item Search</B> and specify the <B>Collection</B> and <B>Date first available</B> (e.g. &lt; 1 JUL 2017). </LI></OL>
+<OL style="COUNTER-RESET: item 1" start=2>
+<LI>Then click <B>Refine Set</B>, select the <B>Not the following</B> option, and specify the <B>Boolean query:</B> </LI></OL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>LOANITM&gt; (FORMAT: LOAN)</P></BLOCKQUOTE>
+<P>A second approach might be as follow. This excludes bibliographic records where other copies have been loaned.</P>
+<OL>
+<LI>Do an <B>Item Search</B> and specify the <B>Collection</B> and <B>Date first available</B> (e.g. &lt; 1 JUL 2017). </LI></OL>
+<OL style="COUNTER-RESET: item 1" start=2>
+<LI>Then click <B>Translate Set</B>, select <B>Bibliographic records linked to these items</B>, and click <B>Translate Set.</B> </LI></OL>
+<OL style="COUNTER-RESET: item 2" start=3>
+<LI>Then click <B>Refine Set</B>, select the <B>NOT the following</B> option, and specify the <B>Boolean Query:</B> </LI></OL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBLOAN&gt; (FORMAT: LOAN)</P></BLOCKQUOTE>
+<P>A third approach might be as follow. This takes a set of items in a given collection and added after a given date, and then takes from that set any items which have links to loans.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>(ITMCOL&lt; COLX: NF) + CD: "&lt; 1 JAN 2017 - (LOANITM&gt; FORMAT: LOAN)</P></BLOCKQUOTE>
+<H2 dir=ltr>Items with content in the Notes field</H2>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>This query must be run with the first part in the Boolean query field and the second part in the SQL options field.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>FORMAT: ITM</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>INNER JOIN ITD ON #TBLID.IRN = ITD.IRN WHERE (ITD.NTE IS NOT NULL)</P></BLOCKQUOTE>
+<H2 dir=ltr>Items with a status added on a specific date</H2>
+<P dir=ltr>As Item Status and Status Date are two separate fields, searching across both could return unintended results where an item has multiple statuses. e.g. if searching for status code ABC, and status date of&nbsp;01-01-2020, the search will retrieve:</P>
+<UL>
+<LI>any items with status code&nbsp;ABC applied, <EM>and</EM> 
+<LI>any items with <EM>any </EM>status applied on 01/01/2020</LI></UL>
+<P>While this set might <EM>include</EM> items with status code&nbsp;ABC applied on 01/01/2020, it would also include items that have status&nbsp;ABC applied at any time, and any other status applied on 01/01/2020. To search for items with a selected status applied on a selected date, use the following (substituting the status code and date):</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><STRONG>Boolean</STRONG>: FORMAT: ITM</P>
+<P><STRONG>SQL statement</STRONG>: JOIN IST ON IST.IRN = #TBLID.IRN WHERE&nbsp;CDE = 'ABC' AND DTESET = '01 JAN 2020' </P></BLOCKQUOTE>
+<H1>Loans</H1>
+<H2>Items on loan on a given day</H2>
+<P>Items on loan on a given day for a given location. Change the dates and location code.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>(ISSDTE: "&lt; 2 MAR 2017") + (LOANCF: 0 / RTNDTE: "&gt; 1 MAR 2015") + LOANILOC&lt; LOCX: ABC</P></BLOCKQUOTE>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-note">The location will be the issuing location and may be a Circulation line rather than a branch. </DIV></TD></TR></TBODY></TABLE> 
+<H2>Claims Returned</H2>
+<P><STRONG>Claims Returned lodged this year</STRONG></P>
+<P>This is complex because when the CR is removed, the data is moved to the loan status history table, which is not indexed.&nbsp;</P>
+<P>To get a list (and count) of CR set this year whether complete or not, you need to combine the Boolean Query with an SQL query:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: LOAN</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>JOIN ONS ON #TBLID.IRN = ONS.IRN JOIN ONT ON #TBLID.IRN = ONT.IRN WHERE (ONS.CDE = 'CR' AND ONS.DTE &gt; '01 JAN 2015') OR (ONT.CDE = 'CR' AND ONT.DTE &gt; '01 JAN 2017')</P></BLOCKQUOTE>
+<P>Change the date as required.&nbsp; Please call the Service Desk if you need assistance with running this query.</P>
+<P>If you are only interested in incomplete CR, then you can use just the following Boolean Query:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>LOANSCDE: CR + LOANSDTE: "&gt; 1 JAN 2017"</P></BLOCKQUOTE>
+<P><STRONG>&nbsp;Resolution types</STRONG></P>
+<P>To get the number of resolved CR based on the resolution type use the query:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>CRR01\B</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>JOIN ONT ON #TBLID.IRN = ONT.IRN WHERE ONT.DTE &gt; '1 JAN 2017'</P></BLOCKQUOTE>
+<P>Change the code in the Boolean for the different types:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>B = Found by Borrower</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>C = Charge for Replacement</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>L = Found by Library</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>S = Resolved (Stat. Dec.)</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>W = Write-off</P></BLOCKQUOTE>
+<H1>Reservations</H1>
+<H2>Lost item with reservations: 1</H2>
+<P>Lost items with reservations.&nbsp; This query will return reservation records.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBRSV&lt; (BIBLOAN&gt; LOANSCDE: L) + RSVCF: 0</P></BLOCKQUOTE>
+<H2>Lost items with reservations: 2</H2>
+<P>Lost items with reservations.&nbsp; This query will return the item records.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>LOANITM&gt; (BIBLOAN&lt; (BIBRSV&gt; RSVCF: 0) + LOANSCDE: L)</P></BLOCKQUOTE>
+<H2>Reserved items on loan</H2>
+<P>Reserved items on loan.&nbsp; This query will return reservation records.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBRSV&lt; (BIBLOAN&gt; LOANCF: 0) + RSVCF: 0</P></BLOCKQUOTE>
+<H2>Active orders with reservations</H2>
+<P>Active orders with reservations.&nbsp; Returns reservation records.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBRSV&lt; (BIBORD&gt; (FORMAT: LI - LICD)) + RSVCF: 0</P></BLOCKQUOTE>
+<H2>Reservations on titles with no holdings</H2>
+<P>Reservations on titles with no holdings.&nbsp; Note this query must be run in Cataloguing / Bibliographic Search / Boolean Query.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBRSV&gt; (RSVCF: 0 + FILTER: 1) - MAJOR: 06601</P></BLOCKQUOTE>
+<H2>Reservations for a specific collection</H2>
+<P>Reservations for a specific collection, excluding allocated reservations.&nbsp; Change "AF" to the appropriate collection code.&nbsp; Returns reservation records.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>(BIBRSV&lt; (BIBITM&gt; (ITMCOL&lt; XCODE: NF)) - RVC07\*)</P></BLOCKQUOTE>
+<H2>“In process” items linked to bib records with reservations: 1</H2>
+<P>"In Process" items linked to bibliographic records with reservations.&nbsp; Returns item records.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBITM&lt; (BIBRSV&gt; (RSVCF: 0)) + ITMSCDE: IP</P></BLOCKQUOTE>
+<H2>“In process” items linked to bib records with reservations: 2</H2>
+<P>"In Process" items linked to bibliographic records with reservations.&nbsp; Returns reservation records.</P>
+<P>BIBRSV&lt; (BIBITM&gt; (ITMSCDE: IP)) + RSVCF: 0</P>
+<H2>Shelf check assigned items excluding those for borrowers in specific categories</H2>
+<P>In this example there are two borrower categories to exclude: A and HB.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>RVS06\0 - BRWRSV&lt; (BDC&lt; (BRWCATX: A / BRWCATX: HB))</P></BLOCKQUOTE>
+<P>This takes all reservations with a shelf check completed flag of 0, and removes from that set any reservations for borrowers in the nominated categories.</P>
+<H2>Expired reservations at the current location</H2>
+<P>We added three “placeholders” in Spydus9. The three placeholders are #NAMEIRN#, #USERIRN# and #LOCIRN#.&nbsp; For example, use #LOCIRN# in your Boolean query and we’ll use the current location.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: RSV + RSVCTYP: E + RSVTLOC: #LOCIRN#</P></BLOCKQUOTE>
+<P>This lists all the expired reservations where the pickup location is the same as the current location.</P>
+<H1>Bookings</H1>
+<H2>Bookings placed at a specific location/branch</H2>
+<P>Bookings placed at one specific location/branch for a month. Change "ABC" to the branch code required and change the date range.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BKGBRW&gt; (BKGITMMAT&lt; (ITMLOC&lt; (LOCX: ABC)) + BKGPDTE: "1 SEP 16 - 30 SEP 17")</P></BLOCKQUOTE>
+<H1>Notices</H1>
+<H2>Notice documents in specified period</H2>
+<P>Count number of notice documents sent in a specified period.&nbsp; NDDDELMTH can be ‘M’ for mail, ‘SMS’ for SMS or ‘TEL’ for telephone.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: NDD + CD: "1 SEP 2016 - 30 SEP 2017" + NDDDELMTH: M</P></BLOCKQUOTE>
+<H2>Notices generated on specified date</H2>
+<P>Check for notices generated on a specified date:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: NTC + LUPD: "30 MAY 2017"</P></BLOCKQUOTE>
+<H2>Notice documents generated on specified date</H2>
+<P>Check for notice documents generated on a specified date:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: NDD + LUPD: "TODAY"</P></BLOCKQUOTE>
+<H2>Notices of a specified type with a specified delivery method</H2>
+<P>Check for the long overdue notices (NTCCDE: LLO) delivered by e-mail (NDDDELMTH = ‘E’).</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>NTD03\&gt; NTCCDE: O + NDDDELMTH: E</P></BLOCKQUOTE>
+<P>Change NTCCDE and NDDDELMTH as required. For example, NTCCDE might be O for overdue notices, V for reservation available notices or LL for lost notices. The notice codes used here are the same ones used in the notice policy. As well as ‘E’ for e-mail, NDDDELMTH can also be ‘M’ for mail, ‘SMS’ for SMS or ‘TEL’ for telephone.</P>
+<P>You can use CD to search for notices created on a specific date or date range, for example:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>NTD03\&gt; NTCCDE: O + NDDDELMTH: E + CD: "TODAY"</P></BLOCKQUOTE>
+<H1>Cataloguing</H1>
+<H2>Spine label requested by specific user</H2>
+<P>Find all the spine labels queued for a specific user.&nbsp; Replace ABC with the user ID.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>ISP04\&lt; XCODE: ABC</P></BLOCKQUOTE>
+<H2>Bibliographic records with no holdings</H2>
+<P>Here’s how to find the bibliographic records with active items:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBITM&gt; (FORMAT: ITM - <SPAN lang=EN-AU style='FONT-SIZE: 10pt; FONT-FAMILY: "Segoe UI",sans-serif; COLOR: black'>DYN: DEACTDTE)</SPAN></P></BLOCKQUOTE>
+<P>If you subtract these records from the full set of bibliographic records then you’re left with the bibliographic records with no current items:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>FORMAT: BIB - BIBITM&gt; (FORMAT: ITM -&nbsp;<SPAN lang=EN-AU style='FONT-SIZE: 10pt; FONT-FAMILY: "Segoe UI",sans-serif; COLOR: black'>DYN: DEACTDTE)</SPAN></P></BLOCKQUOTE>
+<P>You could also subtract these records from the set of bibliographic records which had an item deactivated after a specified date. This gives you the bibliographic records with no current items where an item (presumably the last) was deactivated after the specified date (when the query was last run).</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBITM&gt; (ITMDDTE: "&gt; 1 MAR 2017 ") - BIBITM&gt; (FORMAT: ITM -&nbsp;<SPAN lang=EN-AU style='FONT-SIZE: 10pt; FONT-FAMILY: "Segoe UI",sans-serif; COLOR: black'>DYN: DEACTDTE)</SPAN>)</P></BLOCKQUOTE>
+<P>As this deals with deactivated / deleted items, it must either be run in Cataloguing / Bibliographic Search / Boolean Query, or in the regular Boolean Query page with the <B>Include deleted records</B> checkbox selected.</P>
+<H1>Requests</H1>
+<H2>Bibliographic records with a current request</H2>
+<P>Find the bibliographic records with a current request:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBRQ&gt; (QTP: * + (RQS: 18 / RQS: 20 / RQS: 22))</P></BLOCKQUOTE>
+<P>where RQS is the Request Status (see table PAP in Table Manager), QTP is the Request Type (see table PAT in Table Manager) and 05501 translates between the Request and Bibliographic formats.</P>
+<H2>Bibliographic records with a current interlibrary loan request</H2>
+<P>Find the bibliographic records with a current interlibrary loan request:</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>BIBRQ&gt; ((QTP: QII / QTP: QIA)&nbsp; + (RQS: 18 / RQS: 20 / RQS: 22))</P></BLOCKQUOTE>
+<H1>Serials</H1>
+<H2>Retrieve all current reservations for a serial title</H2>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>BIBRSV&lt; (BIBISS&lt; BRN: 1234) + RSVCF: 0&nbsp;(change RSVCF: 0&nbsp;to RSVCG: 1&nbsp;</P>
+<P>for completed reservations, or remove for reservation count).</P>
+<H2>Retrieve all current loans for a serial title</H2>
+<P>BIBLOAN&lt; (BIBISS&lt; BRN: 1234) + LOANCF: 0</P>
+<H2>Retrieve all loans for past year for a serial title</H2>
+<P>BIBLOAN&lt; (BIBISS&lt; BRN: 1234) + ISSDTE: "TODAY(-365) - TODAY"</P>
+<H2>Retrieve all loans for given date range for a serial title</H2>
+<P>BIBLOAN&lt; (BIBISS&lt; BRN: 1234) + ISSDTE: "1 NOV 2016 - 31 OCT 2017</P>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-note">Replace 1234 with the BRN of the title. </DIV></TD></TR></TBODY></TABLE> 
+<H1>Waive requests</H1>
+<H2>Approved in last 30 days &amp;&nbsp;Location Created = Current Branch</H2>
+<P>WVQSTS: A + WVQLOCX: $(CURRENT.BRANCH.CODE) + WVQPDTE:"&gt;= TODAY(-30)"</P>
+<H2>Pending for approval &amp;&nbsp;Location Created = Current Branch</H2>
+<P>WVQSTS: P + WVQLOCX: $(CURRENT.BRANCH.CODE)</P>
+<H2>Declined in last 30 days &amp; Location Created = Current Branch</H2>
+<P>WVQSTS: X + WVQLOCX: $(CURRENT.BRANCH.CODE) + WVQPDTE:"&gt;= TODAY(-30)"</P>
+<H1>Weeding lists</H1>
+<H2>Processed in last 30 days &amp;&nbsp;Location Created =&nbsp;Current Branch</H2>
+<P>WDQSTS: C + WDQLOCX: $(CURRENT.BRANCH.CODE) + WDQPDTE:"&gt;= TODAY(-30)"</P>
+<H2>Pending and Location Created =&nbsp;Current Branch &amp; Last updated in last 60 days</H2>
+<P>WDQSTS: P + WDQLOCX: $(CURRENT.BRANCH.CODE) + LUPD:"&gt;= TODAY(-60)"</P>
+<H2>Declined &amp; Location Created =&nbsp;Current Branch</H2>
+<P>WDQSTS: D + WDQLOCX: $(CURRENT.BRANCH.CODE)</P>
+<H2>Approval requested &amp; Location Created =&nbsp;Current Branch</H2>
+<P>WDQSTS: Q + WDQLOCX: $(CURRENT.BRANCH.CODE)</P>
+<H1>SQL queries</H1>
+<P>SQL Enterprise Manager, SQL Query Analyser, SQL Management Studio, MS Access or similar can be used but care must be taken that no data is changed whilst using these tools.</P>
+<H2>Total cost of whole collection</H2>
+<P>Query for total cost of the whole collection. Change date or date range as required.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(31,73,125)"><SPAN style="COLOR: rgb(0,84,144)"><SPAN>SELECT</SPAN></SPAN>&nbsp;</SPAN><SPAN style="COLOR: rgb(245,6,208)">SUM</SPAN>(PRC) <SPAN style="COLOR: rgb(54,96,146)">FROM</SPAN> ITD</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(127,127,127)">INNER&nbsp;JOIN</SPAN> MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = MAIN.IRN</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE&nbsp;</SPAN>MAIN.DEACT_DATE <SPAN style="COLOR: rgb(127,127,127)">IS NULL</SPAN></P>
+<P><SPAN style="COLOR: rgb(127,127,127)">AND&nbsp;</SPAN>ITD.DTE &lt; <SPAN style="COLOR: rgb(255,0,0)">'1 NOV 2017'</SPAN></P></BLOCKQUOTE>
+<H2>Total cost of whole collection by institution</H2>
+<P>Query for total cost of each collection at 1 NOV 2017. Change date as required and replace XXX with your institution code. This query will total results by collection.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> XCODE, <SPAN style="COLOR: rgb(245,6,208)">SUM</SPAN>(PRC) <SPAN style="COLOR: rgb(54,96,146)">FROM</SPAN> ITD</P>
+<P>INNER JOIN INS ON ITD.IRN=INS.IRN</P>
+<P>INNER JOIN ICO ON INS.IRN=ICO.IRN</P>
+<P>INNER JOIN MAIN ON ICO.COL = MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> ITD.DTE &lt; <SPAN style="COLOR: rgb(255,0,0)">'1 NOV 2017'</SPAN> &nbsp;&nbsp;&nbsp;</P>
+<P>AND MAIN.DEACT_DATE IS NULL</P>
+<P>AND INS.CODE=’XXX’</P>
+<P>GROUP BY MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Average cost of whole collection</H2>
+<P>Query for average cost of the whole collection. Change date or date range as required.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> AVG(PRC) <SPAN style="COLOR: rgb(54,96,146)">FROM</SPAN> ITD</P>
+<P>INNER JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> MAIN.DEACT_DATE IS NULL</P>
+<P>AND ITD.DTE &lt;<SPAN style="COLOR: rgb(255,0,0)">&nbsp;'1 NOV 2017'</SPAN></P></BLOCKQUOTE>
+<H2>Average cost of whole collection by institution</H2>
+<P>Query for average cost of the whole collection. Change date or date range as required and replace XXX with your institution code.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> <SPAN style="COLOR: rgb(245,6,208)">SUM</SPAN>(PRC) FROM ITD</P>
+<P>INNER JOIN INS ON ITD.IRN=INS.IRN</P>
+<P>INNER JOIN MAIN ON INS.IRN=MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> MAIN.DEACT_DATE IS NULL</P>
+<P>AND INS.CODE='XXX'</P>
+<P>AND ITD.DTE &lt; '1 NOV 2017'</P></BLOCKQUOTE>
+<H2>Total cost for each collection</H2>
+<P>Query for total cost of each collection at 1 NOV 2017. Change date as required.&nbsp; Will total results by collection.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN>XCODE, <SPAN style="COLOR: rgb(245,6,208)">SUM</SPAN>(PRC) FROM ITD</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>INNER&nbsp;JOIN ICO <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = ICO.IRN</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>INNER&nbsp;JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ICO.COL = MAIN.IRN</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE&nbsp;</SPAN>ITD.DTE &lt; <SPAN style="COLOR: rgb(255,0,0)">'1 NOV 2017'</SPAN></P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>AND&nbsp;MAIN.DEACT_DATE IS NULL</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">GROUP&nbsp;BY</SPAN> MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Total cost of each collection by institution</H2>
+<P>Query for total cost of each collection at 1 JUL 2017. Change date as required and replace XXX with your institution code. This query will total results by collection.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> XCODE, <SPAN style="COLOR: rgb(245,6,208)">SUM</SPAN>(PRC) FROM ITD</P>
+<P>INNER JOIN INS ON ITD.IRN=INS.IRN</P>
+<P>INNER JOIN ICO ON INS.IRN=ICO.IRN</P>
+<P>INNER JOIN MAIN ON ICO.COL=MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> ITD.DTE &lt; '1 JUL 2017'</P>
+<P>AND MAIN.DEACT_DATE IS NULL</P>
+<P>AND INS.CODE='XXX'</P>
+<P>GROUP BY MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Average cost of each collection</H2>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> XCODE, AVG(PRC) FROM ITD</P>
+<P>INNER JOIN ICO <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = ICO.IRN</P>
+<P>INNER JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ICO.COL = MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> ITD.DTE &lt; <SPAN style="COLOR: rgb(255,0,0)">'1 NOV 2017'</SPAN> &nbsp;&nbsp;&nbsp;</P>
+<P>AND MAIN.DEACT_DATE IS NULL</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">GROUP BY</SPAN> MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Average cost of each collection by institution</H2>
+<P>SQL query for the average age of the whole collection (provides an average creation date from which you should be able to calculate the average age). Replace XXX with your institution code.</P>
+<BLOCKQUOTE>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> CAST( AVG( CAST( DTE AS FLOAT )) AS DATETIME) FROM ITD</P>
+<P>INNER JOIN INS ON ITD.IRN=INS.IRN</P>
+<P>INNER JOIN MAIN ON INS.IRN=MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> MAIN.DEACT_DATE IS NULL</P>AND INS.CODE='XXX' </BLOCKQUOTE>
+<H2>Highest priced item in each collection</H2>
+<P>Use this query to find anomalies if the above queries return unrealistic figures.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN>XCODE, <SPAN style="COLOR: rgb(245,6,208)">MAX</SPAN>(PRC) <SPAN style="COLOR: rgb(54,96,146)">FROM</SPAN> ITD</P>
+<P>INNER&nbsp;JOIN ICO <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = ICO.IRN</P>
+<P>INNER&nbsp;JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ICO.COL = MAIN.IRN</P>
+<P>AND&nbsp;MAIN.DEACT_DATE IS NULL</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">GROUP&nbsp;BY</SPAN> MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Average age of whole collection</H2>
+<P>SQL query for the average age of the whole collection (provides an average creation date from which you should be able to calculate the average age).</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN><SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( AVG( <SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( DTE <SPAN style="COLOR: rgb(54,96,146)">AS FLOAT</SPAN> )) <SPAN style="COLOR: rgb(54,96,146)">AS DATETIME</SPAN>)</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">FROM&nbsp;</SPAN>ITD</P>
+<P>INNER&nbsp;JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE&nbsp;</SPAN>MAIN.DEACT_DATE IS NULL</P></BLOCKQUOTE>
+<H2>Average age of specific collection</H2>
+<P>SQL query for the average age of a specific collection.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN><SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( AVG( <SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( DTE <SPAN style="COLOR: rgb(54,96,146)">AS FLOAT</SPAN> )) <SPAN style="COLOR: rgb(54,96,146)">AS DATETIME</SPAN>)</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">FROM</SPAN> ITD</P>
+<P>INNER&nbsp;JOIN ICO <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = ICO.IRN</P>
+<P>INNER&nbsp;JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ICO.COL = MAIN.IRN</P>
+<P>AND&nbsp;MAIN.DEACT_DATE IS NULL <SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> MAIN.XCODE = <SPAN style="COLOR: rgb(255,0,0)">'AF'</SPAN></P></BLOCKQUOTE>
+<P>Replace ‘AF’ with your collection code.</P>
+<H2>Average age of specific collection by institution</H2>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> <SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( AVG( <SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( DTE AS FLOAT )) AS DATETIME) FROM ITD</P>
+<P>INNER JOIN INS ON ITD.IRN=INS.IRN</P>
+<P>INNER JOIN ICO ON INS.IRN=ICO.IRN</P>
+<P>INNER JOIN MAIN ON ICO.COL=MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> MAIN.DEACT_DATE IS NULL</P>
+<P>AND INS.CODE='XXX'</P>
+<P>AND MAIN.XCODE=<SPAN style="COLOR: rgb(255,0,0)">'FIC'</SPAN></P></BLOCKQUOTE>
+<P>Replace ‘XXX’ with your institution code and ‘FIC’ with your collection code.</P>
+<H2>Average age of each collection</H2>
+<P>SQL query for the average age of each collection (see above).</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN>XCODE, <SPAN style="COLOR: rgb(245,6,208)">COUNT</SPAN>(ITD.IRN) AS <SPAN style="COLOR: rgb(246,11,245)">COUNT</SPAN> FROM ITD</P>
+<P>INNER&nbsp;JOIN ICO <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = ICO.IRN</P>
+<P>INNER&nbsp;JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ICO.COL = MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE&nbsp;</SPAN>ITD.DTE &lt; <SPAN style="COLOR: rgb(255,0,0)">'1 NOV 2017'</SPAN> &nbsp;&nbsp;&nbsp;</P>
+<P>AND&nbsp;MAIN.DEACT_DATE IS NULL</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">GROUP&nbsp;BY</SPAN> MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Average age of each collection by year</H2>
+<P>SQL query for the average age of each collection expressed as rounded year.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN>XCODE, <SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>(GETDATE() - <SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( AVG( <SPAN style="COLOR: rgb(246,11,245)">CAST</SPAN>( DTE <SPAN style="COLOR: rgb(54,96,146)">AS FLOAT</SPAN> )) <SPAN style="COLOR: rgb(54,96,146)">AS DATETIME</SPAN>) <SPAN style="COLOR: rgb(54,96,146)">AS INT</SPAN>)/365 <SPAN style="COLOR: rgb(54,96,146)">FROM</SPAN> ITD</P>
+<P>INNER&nbsp;JOIN ICO <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ITD.IRN = ICO.IRN</P>
+<P>INNER&nbsp;JOIN MAIN <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> ICO.COL = MAIN.IRN</P>
+<P>AND&nbsp;MAIN.DEACT_DATE IS NULL&nbsp;</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">GROUP&nbsp;BY</SPAN> MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Average age of each collection by institution</H2>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> XCODE, CAST( AVG( CAST( DTE AS FLOAT )) AS DATETIME) FROM ITD</P>
+<P style="COLOR: rgb(0,0,0)">INNER JOIN INS ON ITD.IRN=INS.IRN</P>
+<P style="COLOR: rgb(0,0,0)">INNER JOIN ICO ON INS.IRN=ICO.IRN</P>
+<P style="COLOR: rgb(0,0,0)">INNER JOIN MAIN ON ICO.COL=MAIN.IRN</P>
+<P style="COLOR: rgb(0,0,0)"><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> MAIN.DEACT_DATE IS NULL</P>
+<P style="COLOR: rgb(0,0,0)">AND INS.CODE='XXX'</P>
+<P style="COLOR: rgb(0,0,0)">GROUP BY MAIN.XCODE</P></BLOCKQUOTE>
+<P>Replace ‘XXX’ with your institution code.</P>
+<H2>Number of items in each collection</H2>
+<P>Count the number of items in each collection as at 1 Nov 2017.&nbsp; Change the date as required.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN>XCODE, <SPAN style="COLOR: rgb(246,11,245)">COUNT</SPAN>(ITD.IRN) AS <SPAN style="COLOR: rgb(246,11,245)">COUNT</SPAN> FROM ITD</P>
+<P>INNER&nbsp;JOIN ICO ON ITD.IRN = ICO.IRN</P>
+<P>INNER&nbsp;JOIN MAIN ON ICO.COL = MAIN.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE&nbsp;</SPAN>ITD.DTE &lt; <SPAN style="COLOR: rgb(255,0,0)">'1 NOV 2017'</SPAN> &nbsp;&nbsp;&nbsp;</P>
+<P>AND&nbsp;MAIN.DEACT_DATE IS NULL</P>
+<P>GROUP&nbsp;BY MAIN.XCODE</P></BLOCKQUOTE>
+<H2>Number of items in each collection by institution</H2>
+<P>Count the number of items in each collection as at 1 Jul 2017.&nbsp; Change the date as required. Replace XXX with your institution code.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P>SELECT MAIN.XCODE, HEADING.HEAD, COUNT(ITD.IRN) AS COUNT FROM ITD</P>
+<P>INNER JOIN INS ON ITD.IRN=INS.IRN</P>
+<P>INNER JOIN ICO ON INS.IRN=ICO.IRN</P>
+<P>INNER JOIN MAIN ON ICO.COL=MAIN.IRN</P>
+<P>INNER JOIN HEADING ON MAIN.IRN=HEADING.IRN</P>
+<P>WHERE ITD.DTE &lt; '1 JUL 2017'</P>
+<P>AND MAIN.DEACT_DATE IS NULL</P>
+<P>AND INS.CODE='XXX'</P>
+<P>GROUP BY MAIN.XCODE, HEADING.HEAD</P></BLOCKQUOTE>
+<H2>Outstanding charges</H2>
+<P>Summary report of outstanding charges by charge type by borrower category.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN>HEADING.HEAD<SPAN style="COLOR: rgb(255,0,0)">&nbsp;'CATEGORY'</SPAN>, CRG.TYP <SPAN style="COLOR: rgb(255,0,0)">'TYPE'</SPAN>, SUM(CRG.DAMT)<SPAN style="COLOR: rgb(255,0,0)">'TOTAL</SPAN> <SPAN style="COLOR: rgb(255,0,0)">CHARGES'</SPAN> FROM CRG</P>
+<P>INNER&nbsp;JOIN CHD ON CRG.IRN = CHD.IRN</P>
+<P>INNER&nbsp;JOIN BDC ON CHD.BRW = BDC.IRN</P>
+<P>INNER&nbsp;JOIN HEADING ON BDC.LNK = HEADING.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE&nbsp;</SPAN>CRG.CFLG = <SPAN style="COLOR: rgb(255,0,0)">'0'</SPAN> &nbsp;&nbsp;&nbsp;</P>
+<P>GROUP&nbsp;BY CRG.TYP, HEADING.HEAD</P></BLOCKQUOTE>
+<H2>Outstanding charges by institution</H2>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT</SPAN> HEADING.HEAD 'CATEGORY', CRG.TYP 'TYPE', <SPAN style="COLOR: rgb(246,11,245)">SUM</SPAN>(CRG.DAMT)'TOTAL CHARGES' FROM CRG</P>
+<P>INNER JOIN INS ON CRG.IRN=INS.IRN</P>
+<P>INNER JOIN CHD ON CRG.IRN=CHD.IRN</P>
+<P>INNER JOIN BDC ON CHD.BRW=BDC.IRN</P>
+<P>INNER JOIN HEADING ON BDC.LNK=HEADING.IRN</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE</SPAN> CRG.CFLG = '0'</P>
+<P>AND INS.CODE='XXX'</P>
+<P>GROUP BY CRG.TYP, HEADING.HEAD</P></BLOCKQUOTE>
+<P>Replace ‘XXX’ with your institution code.</P>
+<H2>Value of items with a given status</H2>
+<P>The following SQL query will give the total value based on the Acquisition Price, Retail Price or (failing either of these) the average price (defaulting to $10 if this is null) for all items with a given status.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">SELECT&nbsp;</SPAN><SPAN style="COLOR: rgb(246,11,245)">SUM</SPAN>(</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="COLOR: rgb(54,96,146)">CASE</P></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHEN</SPAN> <SPAN style="COLOR: rgb(73,113,30)">PRC</SPAN> IS NOT NULL <SPAN style="COLOR: rgb(54,96,146)">THEN</SPAN> PRC</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHEN</SPAN> <SPAN style="COLOR: rgb(73,113,30)">RETPRC</SPAN> IS NOT NULL AND PRC IS NULL <SPAN style="COLOR: rgb(54,96,146)">THEN</SPAN> RETPRC</P>
+<P><SPAN style="COLOR: rgb(54,96,146)">ELSE</SPAN> ISNULL(AVP,10)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><SPAN style="COLOR: rgb(54,96,146)">END</SPAN>)</P></BLOCKQUOTE>
+<P><SPAN style="COLOR: rgb(54,96,146)">FROM&nbsp;</SPAN>IST</P>
+<P>JOIN&nbsp;<SPAN style="COLOR: rgb(73,113,30)">ITD</SPAN> <SPAN style="COLOR: rgb(54,96,146)">ON<SPAN style="COLOR: rgb(73,113,30)">&nbsp;</SPAN></SPAN><SPAN style="COLOR: rgb(73,113,30)">IST.IRN</SPAN> = <SPAN style="COLOR: rgb(73,113,30)">ITD.IRN</SPAN></P>
+<P>JOIN&nbsp;ICO <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> <SPAN style="COLOR: rgb(73,113,30)">ITD.IRN</SPAN> =<SPAN style="COLOR: rgb(73,113,30)">&nbsp;ICO.IRN</SPAN></P>
+<P>JOIN&nbsp;<SPAN style="COLOR: rgb(73,113,30)">COD</SPAN> <SPAN style="COLOR: rgb(54,96,146)">ON</SPAN> <SPAN style="COLOR: rgb(73,113,30)">ICO.COL</SPAN> = <SPAN style="COLOR: rgb(73,113,30)">COD.IRN</SPAN></P>
+<P><SPAN style="COLOR: rgb(54,96,146)">WHERE&nbsp;</SPAN>CDE = <SPAN style="COLOR: rgb(255,0,0)">'S'</SPAN></P></BLOCKQUOTE>
+<H1>Most commonly used dictionaries</H1>
+<H2>Data dictionaries</H2>
+<TABLE>
+<TBODY>
+<TR>
+<TD>XCODE</TD>
+<TD>Retrieves all records by code (e.g. collection, location, user ID)</TD></TR>
+<TR>
+<TD>FORMAT</TD>
+<TD>Retrieves all records in a given format e.g. FORMAT: BIB will retrieve all bibliographic records (with holdings)</TD></TR>
+<TR>
+<TD>CD</TD>
+<TD>Created date – applies to all formats</TD></TR>
+<TR>
+<TD>LUPD</TD>
+<TD>Last update date</TD></TR>
+<TR>
+<TD>DEACTDTE</TD>
+<TD>Deactivation date (must have ‘Include deleted records’ ticked)</TD></TR>
+<TR>
+<TD>GMD</TD>
+<TD>GMD</TD></TR>
+<TR>
+<TD>BFRMT</TD>
+<TD>Bibliographic format (lookup table Y)</TD></TR>
+<TR>
+<TD>ITMLOCX</TD>
+<TD>Retrieves items by location code</TD></TR>
+<TR>
+<TD>ITMCOLX</TD>
+<TD>Retrieves items by collection code</TD></TR>
+<TR>
+<TD>ITMSCDE</TD>
+<TD>Retrieves items by status code (lookup table KCS)</TD></TR>
+<TR>
+<TD>ITMDDTE</TD>
+<TD>Item deactivation date (must have ‘Include deleted records’ ticked)</TD></TR>
+<TR>
+<TD>BDD</TD>
+<TD>Retrieves BRWD records by date of birth</TD></TR>
+<TR>
+<TD>BRWCATX</TD>
+<TD>Retrieves BRW records by borrower category code</TD></TR>
+<TR>
+<TD>BRWSEX</TD>
+<TD>Retrieves BRW records by SEX</TD></TR>
+<TR>
+<TD>LOANCF</TD>
+<TD>Loan complete flag (1 = complete (returned), 0 = incomplete (active))</TD></TR>
+<TR>
+<TD>ISSDTE</TD>
+<TD>Date item issued</TD></TR>
+<TR>
+<TD>LOANSCDE</TD>
+<TD>Loan status code (lookup table KCS)</TD></TR>
+<TR>
+<TD>DUEDTE</TD>
+<TD>Item due date</TD></TR>
+<TR>
+<TD>RTNDTE</TD>
+<TD>Date item returned</TD></TR>
+<TR>
+<TD>RSVPDTE</TD>
+<TD>Reservation placement date</TD></TR>
+<TR>
+<TD>RSVCF</TD>
+<TD>Reservation complete flag</TD></TR>
+<TR>
+<TD>RSVCTYP</TD>
+<TD>Reservation complete type (lookup table ZCK)</TD></TR>
+<TR>
+<TD>RSVTLOC</TD>
+<TD>Reservation pickup location</TD></TR>
+<TR>
+<TD>LICF</TD>
+<TD>Line Item (Order) complete flag</TD></TR>
+<TR>
+<TD>LIOT</TD>
+<TD>Line Item Order type</TD></TR>
+<TR>
+<TD>LIS</TD>
+<TD>Line Item Status</TD></TR></TBODY></TABLE>
+<H2>Translating dictionaries</H2>
+<TABLE>
+<TBODY>
+<TR>
+<TD>BIBITM</TD>
+<TD>Bibliographic &lt;-&gt; Items</TD></TR>
+<TR>
+<TD>BIBRSV</TD>
+<TD>Bibliographic &lt;-&gt; Reservations</TD></TR>
+<TR>
+<TD height=19>BIBISS</TD>
+<TD height=19>Bibliographic &lt;-&gt; Issue</TD></TR>
+<TR>
+<TD>BIBLOAN</TD>
+<TD>Bibliographic &lt;-&gt; Loan</TD></TR>
+<TR>
+<TD>BRWRSV</TD>
+<TD>Borrower Account &lt;-&gt; Reservations</TD></TR>
+<TR>
+<TD>BDC</TD>
+<TD>Borrower Category &lt;-&gt; Borrower</TD></TR>
+<TR>
+<TD>BRWDBRW</TD>
+<TD>Borrower Account &lt;-&gt; Borrower Details</TD></TR>
+<TR>
+<TD>LOANITM</TD>
+<TD>Loan &lt;-&gt; Item</TD></TR></TBODY></TABLE><!--DXMETADATA end-->
+            <a name="seealsobookmark"></a>
+            <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORISED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""%%phrase:name=SeeAlso%%%%designlist:tagidentifier=seealso,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><!--DXMETADATA end-->
+            
+            <div id="i-footer-content" class="i-footer-content">
+                <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><p>&nbsp;</p><p>&nbsp;</p><hr style="height: 1px" /><p>© Civica Pty Ltd 2025. All rights reserved   |   Version: 2025R1</p><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" --><!--DXMETADATA end-->
+            </div>
+        </div>
+    </div>
+        
+    <script type="text/javascript">
+        $(function () {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,588 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%ItemTitle%%</title>" --><title>Spydus Maintenance features in 2023R1</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content="Spydus Maintenance features in 2023R1"/><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery/script/default/jquery.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery-ui/script/default/jquery-ui.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery-ui/css/default/jquery-ui.min.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TemplateSettingsJson" format="<script type=""text/javascript"">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{isHideBodyDuringLoadDisabled:true,dynamictoc:{isEnabled:true},inthistopic:{isSupported:true},dynamicstyles:{isDynamicWordWrapEnabled:true}}},{settings:%%TemplateSettingsJson%%});</script>" --><script type="text/javascript">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{isHideBodyDuringLoadDisabled:true,dynamictoc:{isEnabled:true},inthistopic:{isSupported:true},dynamicstyles:{isDynamicWordWrapEnabled:true}}},{settings:{"dynamictoc":{"initialNodeId":"n0","initialNodeContainer":"c0","isResizable":true},"inthistopic":{"isEnabled":true},"darkmode":{"isEnabled":true},"currentLocale":"-","isFrameless":true,"navigationKind":"inpage","versions":{"locale":{"currentId":"-"}}}});</script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="light" filetype="css"--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/light/css/dynamic-toc.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><meta name="Description" content="OPAC HTML Configurator
+In order to more clearly distinguish from the Enquiry HTML Configurator in Spydus 11, what was previously known simply as the HTML Configurator has been renamed the OPAC HTML Configurator. Features indented below are available" /><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-topics" filetype="css"--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/plugins-topics/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-topics" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-topics/topics.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-topics/topics.mshv1.css"" data-responsive-mobile=""template/packages/core-topics/topics.mobile.css"" data-responsive-tablet=""template/packages/core-topics/topics.tablet.css"""--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/core-topics/css/topics.css"  data-mshv2-stylesheet="/template/packages/core-topics/topics.mshv2.css" data-mshv1-stylesheet="/template/packages/core-topics/topics.mshv1.css" data-responsive-mobile="template/packages/core-topics/topics.mobile.css" data-responsive-tablet="template/packages/core-topics/topics.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-topics" filetype="script"--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/plugins-topics/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-topics" filetype="script"--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/core-topics/script/topics.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="9fe1c35d-66cd-487d-a377-222f0fc10e77"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocOrdinal" format="<meta name=""Microsoft.Help.TocOrder"" content=""%%TocOrdinal%%""/>" --><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.F1" content=""/>
+    <meta name="Microsoft.Help.ContentType" content="Concepts" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/stylesheets/hs-heading-expandcollapse.css"></link>
+    <link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="StylePropertyValues" format="<style>%%StylePropertyValues%%</style>" --><style>.i-is-new .i-page-title-text::after, ul#i-dt-root li.i-is-new>a::after { content: "New" }
+</style><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><script src="http://kapiti.spydus.co.nz/onlinehelp/script/hs-common.js" type="text/javascript"></script>
+    <script src="http://kapiti.spydus.co.nz/onlinehelp/script/hs-heading-expandcollapse.js" type="text/javascript"></script>
+    <script src="http://kapiti.spydus.co.nz/onlinehelp/scripts/headings-initially-collapsed.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+    <!--DXMETADATA start type="CanonicalLink" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="CustomHeadContent" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="DARKMODE" format="<meta name=""color-scheme"" content=""dark light"" />" --><meta name="color-scheme" content="dark light" /><!--DXMETADATA end-->
+	
+    <script type="text/javascript">
+        try
+        {
+            window.addEventListener('load', function() {
+                if (location.hash) location.href = location.hash;
+            });
+        }
+        catch (e) { }
+        finally {}
+    </script>
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+
+    <div id="i-header-container">
+        <div id="i-header-content" class="i-header-content i-content-width-container">
+            <!--DXMETADATA start type="LogoImage" --><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->Spydus Help<!--DXMETADATA end--></div>
+            <div class="i-flex-spacer"></div>
+            <div class="i-header-buttons-container">
+                <div class="i-search-container">
+                    <!--DXMETADATA start type="outputfileextension" format="<form action=""websearch%%outputfileextension%%"">" --><form action="http://kapiti.spydus.co.nz/onlinehelp/websearch.html"><!--DXMETADATA end-->
+                    <!--DXMETADATA start type="Phrase" name="SEARCH_OPERATORTIP" format="<input id=""i-search"" name=""query"" title=""%%phrase%%""/>" --><input id="i-search" name="query" title="(Words can be combined using OR and AND)"/><!--DXMETADATA end-->
+                    <input type="submit" id="i-search-button" value="" />
+                    <!--DXMETADATA start type="Literal" value="</form>" --></form><!--DXMETADATA end-->
+                </div>
+                <!--DXMETADATA start type="outputfileextension" format="<a id=""i-index-button"" href=""webindex%%outputfileextension%%""></a>" --><a id="i-index-button" href="webindex.html"></a><!--DXMETADATA end-->
+            </div>
+        </div>
+    </div>
+    
+    <div class="i-content-width-container"><div class="i-busy-overlay"></div></div>
+
+    <div id="i-breadcrumbs-outer-container" class="i-content-width-container"><!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><!--DXMETADATA end --></div>
+
+    
+
+    <div id="i-actions-outer-container" class="i-content-width-container">
+        <div id="i-actions-container">
+            <div id="i-actions-content" class="i-fixed-to-top">
+                <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+                <div class="i-in-this-topic-container">
+                    <span class="i-action-group-heading"><!--DXMETADATA start type="Phrase" Name="IN_THIS_TOPIC" -->In This Topic<!--DXMETADATA end--></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="i-toc-outer-container" class="i-content-width-container">
+        <div id="i-toc-container">
+            <div id="i-toc-content" class="i-fixed-to-top">
+                <div class="i-toc-content-scroll-container">
+                    <div id="i-dynamic-toc-container"><ul id="i-dt-root"></ul></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="i-body-content-container" class="i-content-width-container">
+        <div id="i-body-content" class="i-body-content">
+            <div class="i-page-title"><div class="i-page-title-text"><!--DXMETADATA start type="ItemTitle" -->Spydus Maintenance features in 2023R1<!--DXMETADATA end--></div></div>
+            <div class="i-in-this-topic-container">
+                <span class="i-action-group-heading"><!--DXMETADATA start type="Phrase" Name="IN_THIS_TOPIC" -->In This Topic<!--DXMETADATA end--></span>
+            </div>
+            <!--DXMETADATA start type="TopicSection" name="BodyText"--><H1>OPAC HTML Configurator</H1>
+<P>In order to more clearly distinguish from the <STRONG>Enquiry HTML Configurator</STRONG> in Spydus 11, what was previously known simply as the <STRONG>HTML Configurator</STRONG> has been renamed the <STRONG>OPAC HTML Configurator</STRONG>. Features indented below are available in the <STRONG>OPAC HTML Configurator</STRONG>.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<H2> Enhancements to My Account dashboard and menu</H2>
+<P>The <A href="http://kapiti.spydus.co.nz/onlinehelp/OPACHTMLConfigurator_My_account_tab.html">My Account tab</A> of the <STRONG>OPAC HTML Configurator</STRONG> has had a number of updates and changes.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_MY_ACCT.png"></P>
+<UL>
+<LI>The <STRONG>Messages</STRONG> &amp; <STRONG>Recommendation alerts</STRONG> sections, and a number of options (including OPAC membership cancellation) have been moved into the <STRONG>Menu options</STRONG> section 
+<UL>
+<LI>Each link in the <STRONG>My account</STRONG> menu at the OPAC can now be enabled or disabled in the <STRONG>Menu options</STRONG> section 
+<LI>Each link in the <STRONG>My account</STRONG> menu at the OPAC can now have its <STRONG>Label</STRONG> set 
+<LI>Each link in the <STRONG>My account</STRONG> menu at the OPAC can now have its tooltip (displayed on mouse hover) set </LI></UL>
+<LI>The <STRONG>Dashboard</STRONG> section now allows users to; 
+<UL>
+<LI>enable or disable transaction buttons from display at the OPAC dashboard 
+<LI>set the tooltip (displayed on mouse hover) for transaction buttons at the OPAC dashboard </LI></UL></LI></UL>
+<H2> Additional configuration options for Reservations in OPAC</H2>
+<P>The <STRONG>Reservation</STRONG> section of the <STRONG>OPAC HTML Configurator</STRONG> has been expanded to accommodate a number of options.</P>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/111_OPAC_CONFIG_RSV_SECTION_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/111_OPAC_CONFIG_RSV_SECTION.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_RSV_SECTION_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV> 
+<UL>
+<LI><STRONG>Enable reservation placement</STRONG> - If set, reservation placement will be enabled at the OPAC 
+<UL>
+<LI>Additional configurations such as reservation policy or item status may still prevent specific titles from being reserved </LI></UL>
+<LI><STRONG>Enable standing reservation placement</STRONG> - If set, <A href="ReservationsStanding.html">standing reservations</A> may be placed at the bibliographic level on serials at the OPAC 
+<LI><STRONG>Display 'Not required after' field</STRONG> - If set, allows borrowers to set the expiry period (or specific date of expiry) for an unallocated reservation by displaying the 'Not required after' field when placing a reservation 
+<UL>
+<LI>If set, two tables will be displayed in the configurator allowing staff to configure pre-set expiry periods - one table for standard reservations, the other for standing reservations </LI></UL>
+<LI><STRONG>Display 'Suspend until' field</STRONG> - If set, allows borrowers to suspend allocation of a reservation until the specified date when placing a reservation at the OPAC 
+<LI><STRONG>Display notes field</STRONG> - If set, a free-text 'Notes' field will be displayed for the borrower when placing a reservation at the OPAC 
+<LI><STRONG>Display items and collections in 'Items to reserve' dropdown</STRONG> - If set, the 'Items to reserve' dropdown field will be displayed when placing a reservation at the OPAC, allowing the borrower to select item/s from a specific location or collection to reserve 
+<UL>
+<LI>The default selection (which will also be applied if the field is not displayed) is to allow any item from any library branch or collection to be allocated </LI></UL>
+<LI><STRONG>Pre-select local institution</STRONG> - <EM>This parameter only applies to libraries operating as part of a consortium</EM> - If set, the reservation will be pre-set limited to local holdings if the title(s) selected has both local and external holdings and the search is network-wide 
+<UL>
+<LI>If the <A href="CirculationGeneralParameters.html">Circulation General Parameter</A> <STRONG>Global reservations - select institution first</STRONG> is set to 1 or 2 then <STRONG>Pre-select local institution</STRONG> will be ignored </LI></UL>
+<LI><STRONG>Work reservation information alert text</STRONG> - This parameter will display the configured text when a borrower places a work-level reservation at the OPAC, where there is more than one reservable title. This text is intended to convey that a single title will satisfy the reservation, but may include additional information if desired. </LI></UL>
+<H2> Quick review - thumb up and down fields added&nbsp;to HTML configurator</H2>
+<P>The <STRONG>Quick review</STRONG> section has been added to the <STRONG>General</STRONG> tab of the <STRONG>OPAC HTML Configurator</STRONG>.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_QUICK_RVW.png"></P>
+<P>Setting the <STRONG>Enable quick review</STRONG> parameter allows borrowers who have logged in at the OPAC to click either a 'thumbs up' or 'thumbs down' icon to give a quick review of a title (no star rating or comments can be given with a quick review).</P>
+<P>The 'Thumbs up' and 'Thumbs down' labels will be displayed with the title when hovering over the respective buttons at the Brief or Full Display of the title.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_QUICK_RVW_LABELS.png"></P>
+<H2> Display ratings, comments and tags&nbsp;settings in a single section</H2>
+<P>Prior to&nbsp;Spydus 11, ratings, comment and tag parameters were located separately throughout the HTML Configurator. In the reorganisation of the <STRONG>OPAC HTML&nbsp;Configurator</STRONG> these parameters have been grouped together under the <STRONG>Ratings, comments &amp; tags</STRONG> section.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CFG_RTG_COM_TAG.png"></P>
+<H2> Cookie options for OPAC</H2>
+<P>To ensure compliance with GDPR and other similar legislation, OPAC users can now choose whether to allow all cookies or just the ones that are necessary. In addition, a cookies policy page has been added detailing all cookies set by the OPAC application, what they used for and how long they will persist.</P>
+<TABLE>
+<TBODY>
+<TR>
+<TD width=600>
+<P>The <STRONG>Cookies</STRONG> section in the <STRONG>OPAC HTML Configurator</STRONG> allows library staff to configure:</P>
+<UL>
+<LI>whether to disable or <STRONG>Enable cookie pop-up</STRONG> 
+<LI>the <STRONG>Title</STRONG> of the cookie pop-up 
+<LI>the <STRONG>Description</STRONG> of the cookie pop-up 
+<LI>whether to <STRONG>Show cookie policy link</STRONG>, and the link label<STRONG>&nbsp;</STRONG> 
+<UL>
+<LI>content of the cookie policy is consistent across all Spydus libraries </LI></UL>
+<LI>whether to <STRONG>Show accept required cookies button</STRONG>, and the label for the button 
+<LI>the label and FontAwesome icon for the <STRONG>Manage cookies</STRONG> link (displayed below the menu bar at the OPAC) </LI></UL>
+<P align=center><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_COOKIES.png"></P></TD>
+<TD>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/111_OPAC_CONFIG_COOKIES_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/111_OPAC_CONFIG_COOKIES.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_COOKIES_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV></TD></TR></TBODY></TABLE>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-tip">This feature was introduced after being requested by Richmond Upon Thames Libraries on the Spydus Ideas Portal (SPY-I-852). This idea received <STRONG>14</STRONG> votes! </DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P></P>&nbsp;&nbsp;&nbsp; 
+<H2> Turn Autocomplete On/Off in OPAC</H2>
+<P>The <STRONG>Enable Autocomplete</STRONG> option has been added to the <A href="http://kapiti.spydus.co.nz/onlinehelp/HTMLConfigurator_Search.html">Search</A> tab of the <STRONG>OPAC HTML Configurator</STRONG>.</P>
+<P>Autocomplete has always been (and still is) enabled by default, but can now be disabled by un-checking the <STRONG>Enable Autocomplete</STRONG> option.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_AUTOCOMPLETE.png"></P>
+<H2> Add library name to navigation bar - OPAC HTML configurator</H2>
+<P>A parameter has been added to the <A href="http://kapiti.spydus.co.nz/onlinehelp/HTMLConfigurator_General_Logo.html">Logo section</A> of the <STRONG>OPAC HTML Configurator</STRONG> to allow libraries to <STRONG>Show library name in navigation bar</STRONG>.</P>&nbsp;&nbsp;&nbsp; 
+<P>If this parameter is set, the library name (as set in the <STRONG>Library name - appended to page title</STRONG> parameter) will be displayed above the search bar at the OPAC.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_LIBNAME_NAVBAR.png"></P>
+<H2> Allow Register Online page title to be editable</H2>
+<P>If online registration is enabled in the <A href="http://kapiti.spydus.co.nz/onlinehelp/ffb2d229-8eab-450a-b5fc-1b5a162f1cbd">Register online</A> section of the <STRONG>OPAC HTML Configurator</STRONG>, it is now possible to set the <STRONG>Page title</STRONG> of the registration form page at the OPAC.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_BRWREG_TITLE.png"></P>
+<P>Once set, the <STRONG>Page title</STRONG> will display:</P>
+<UL>
+<LI>in the browser tab page title for both the 'Conditions of membership' page and the borrower registration page 
+<LI>in the breadcrumbs for navigation </LI></UL>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_BRWREG_TITLE_display.png"></P>
+<H2>&nbsp; Choose thumbnail size at the OPAC &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </H2>
+<P>In the <STRONG>Brief Display</STRONG> &amp; <STRONG>Full Display</STRONG> sections of the&nbsp;<A href="http://kapiti.spydus.co.nz/onlinehelp/HTMLConfigurator_General.html">General</A> tab, the <STRONG>Thumbnail size</STRONG> parameter has been added.</P>
+<TABLE>
+<TBODY>
+<TR>
+<TD><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/112_OPAC_CONF_BRIEF_THUMB.png"></TD>
+<TD><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/112_OPAC_CONF_FULL_THUMB.png"></TD></TR></TBODY></TABLE>
+<P>Where a Bibliographic or Archive record is linked to an image loaded in&nbsp;<A href="ERM_Digital_Assets.html">Digital Assets</A>, and the thumbnail of the image is being displayed at the OPAC, staff may now choose the resolution of thumbnail to display (at the Brief &amp; Full Display independently).</P>
+<P>The sizes of the thumbnails are:</P>
+<UL>
+<LI>Small | 120px 
+<LI>Medium&nbsp;| 240px 
+<LI>Large | 360px </LI></UL>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-tip">The thumbnail size selected here will not apply to images retrieved from enrichment services (e.g. Syndetics, BDS).&nbsp; </DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<H2> Allow event attendees to provide additional information regarding their registration &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </H2>
+<P>An optional field has been added to the OPAC registration form for events to allow those registering for events to provide any relevant additional information regarding their registration. This field is enabled or disabled for all registrations in the&nbsp;<A href="http://kapiti.spydus.co.nz/onlinehelp/HTMLConfigurator_General.html">General tab of the OPAC HTML Configurator</A>, in the <STRONG>Event registration</STRONG> section.</P>
+<P><IMG class=ThinNavyBorder border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/112_MAINT_EVENTS_ADD_INFO.png"></P>
+<P>Checking the <STRONG>Show&nbsp;'Additional information'</STRONG>&nbsp;opton will reveal the <STRONG>Additional information label</STRONG> field, which allows staff to set the text label for the field.</P>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-tip">The <STRONG>Additional information</STRONG> field might be used for details such as accessibility requirements. </DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<H1>Enquiry HTML Configurator</H1>
+<P>The <STRONG>Enquiry HTML Configurator</STRONG> (found in the <STRONG>Maintenance</STRONG> module &gt; <STRONG>OPAC &amp; Enquiry</STRONG> menu) has been introduced to allow front-end configuration of parameters related to the Enquiry module. Features indented below are available in the <STRONG>Enquiry HTML Configurator</STRONG>.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<H2> Add instant reports settings to Enquiry HTML Configurator</H2>
+<P>The <STRONG>Instant Reports</STRONG> tab has been introduced to allow customisation of the content of instant reports.</P>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/111_ENQ_CONFIG_INST_RPT_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/111_ENQ_CONFIG_INST_RPT.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_ENQ_CONFIG_INST_RPT_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV> 
+<P>In Spydus 11, the first Instant Report available for customisation is the 'Available for Allocation' report. Customisation options for the 'Available for Allocation' report are:</P>
+<UL>
+<LI>the ability to enable or disable the listed columns (set <STRONG>Enabled</STRONG> to true or false) 
+<UL>
+<LI>Enabled columns will appear in the report, disabled columns will not </LI></UL>
+<LI>the ability to set the <STRONG>Label</STRONG> for any listed columns 
+<UL>
+<LI>e.g. 'Accession No' might be labelled 'Barcode' </LI></UL>
+<LI>the ability to set the <STRONG>Width</STRONG> of any listed columns (as a % of the total width of the report table) 
+<UL>
+<LI>the '%' character must be included </LI></UL>
+<LI>the ability to Move Up/Move Down the columns in the list 
+<UL>
+<LI>the top-to-bottom order of the column list will correspond to the left-to-right order in the report </LI></UL></LI></UL></BLOCKQUOTE>
+<H1> Automatic scrolling of Gallery Display containers at OPAC</H1>
+<P>Gallery Display containers can now be set to scroll automatically through the records in the container. The option to <STRONG>Auto scroll</STRONG> can be set in the <A href="ContainerParams_Tabs_Zones_WPAC.html">Tab properties</A> of <A href="ContainerParameters.html">Container Parameters</A> (Maintenance &gt; OPAC &amp; Enquiry).</P>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/111_CONTAINER_PARAMS_AUTO_SCROLL_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/111_CONTAINER_PARAMS_AUTO_SCROLL.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_CONTAINER_PARAMS_AUTO_SCROLL_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV> 
+<P>If the <STRONG>Auto scroll</STRONG> option is set, then the <STRONG>Scrolling interval</STRONG> option will become available. The <STRONG>Scrolling interval</STRONG> period determines how frequently the records in the container will be automatically scrolled through.</P>
+<P>The NRECS string in the container query will determine how many records are loaded into a Gallery Display, and an automatically scrolling container will scroll one record at a time through the records loaded into the container.</P>
+<P>If the automatic scrolling reaches the end of the loaded records, it will cycle back to the beginning.</P>
+<H1> Carousel container type&nbsp;</H1>
+<P>A new container type, the Carousel, may be created in&nbsp;<A href="ContainerParameters.html">Container Parameters</A> for OPAC display.&nbsp;The carousel is a new type of container used for displaying images &amp; text at the OPAC. The carousel is a borderless container, which may contain multiple images, with a user-provided title &amp; description optionally overlaid on the image.</P>
+<P>After setting the <STRONG>Type</STRONG> to Carousel in the&nbsp;<A href="ContainerParams_Tabs_Zones_WPAC.html">Tab properties</A>, set the <STRONG>Scrolling interval</STRONG> (minimum 2 seconds) to control how often the container images&nbsp;are cycled through. Once the tab is saved, multiple containers may be added to it to compose the carousel.</P>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-tip">
+<P>Images in the carousel will be scaled based on the bootstrap class, so ensure that your images are displaying in a suitable resolution, and optionally modify the <STRONG>Class</STRONG> value of the tab appropriately.</P>
+<P>&nbsp;</P>
+<P>Additionally, all images in the carousel will be displayed at the same size (as the tab size is consistent), so it is advised to use images of the same size and dimensions.</P></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>&nbsp;Container parameters for carousels:</P>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/112_MAINT_CONTAINERS_CAROUSEL_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/112_MAINT_CONTAINERS_CAROUSEL.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/112_MAINT_CONTAINERS_CAROUSEL_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV> 
+<UL>
+<LI><STRONG>Container ID</STRONG> - a unique ID within the tab to identify this container 
+<LI><STRONG>Text</STRONG> (optional) - This plain text will be displayed when a user hovers their mouse over the image (alt text) 
+<LI><STRONG>Title</STRONG> (optional) - A bolded title text displayed above the Description 
+<LI><STRONG>Description</STRONG> (optional) - Additional contextual information about the image or link 
+<LI><STRONG>Image</STRONG> - The URL of the image to be displayed. This can be an image hosted on the web outside Spydus, or uploaded into File Manager. 
+<LI><STRONG>URL</STRONG> (optional) - Link to another web page, either within or outside of the OPAC. </LI></UL>
+<H1> Provide sample containers &amp; pages for OPAC content</H1>
+<P>Civica now provides a selection of containers &amp; pages to assist in the commissioning of new content.</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<H2>Sample Containers</H2>
+<P>To review the provided sample containers in&nbsp;<A href="ContainerParameters.html">Container Parameters</A>;</P>
+<UL>
+<LI>from the <STRONG>View</STRONG> dropdown, select<STRONG>&nbsp;</STRONG>'OPAC_WP' 
+<LI>from the <STRONG>Format</STRONG> dropdown, select 'SAMPLEPARAMS' </LI></UL>
+<P>These sample containers can be copied and pasted into a tab in another <STRONG>Format</STRONG>,&nbsp;then modified, rather than building the entire container from scratch.</P>
+<P>The following containers are provided:</P>
+<DIV style="MARGIN-LEFT: 2em">
+<TABLE>
+<TBODY>
+<TR>
+<TD>
+<H3>ID</H3></TD>
+<TD>
+<H3>Title</H3></TD>
+<TD>
+<H3>Description</H3></TD></TR>
+<TR>
+<TD>CAROUSEL</TD>
+<TD>Important Links</TD>
+<TD>A carousel&nbsp;tab with two containers.</TD></TR>
+<TR>
+<TD>GDB</TD>
+<TD>Gallery container type (new bibs)</TD>
+<TD>A gallery display container showing bibliographic records, using a boolean query retrieving titles that became available within the last&nbsp;two months</TD></TR>
+<TR>
+<TD>GDW</TD>
+<TD>Gallery container type (new works)</TD>
+<TD>A gallery display container showing work records, using a boolean query retrieving&nbsp;titles that became available within the last&nbsp;two months</TD></TR>
+<TR>
+<TD>GV</TD>
+<TD>Grid view (magazines)</TD>
+<TD>A grid view container showing magazines (bibliographic level - not issues) that are not eResources</TD></TR>
+<TR>
+<TD>NEWS</TD>
+<TD>Information Container</TD>
+<TD>An information container populated using a page created in the&nbsp;<A href="PageGenerator.html">Page Generator</A>&nbsp;(using the SNIPPET=1 string)</TD></TR>
+<TR>
+<TD>SUBJECTS</TD>
+<TD>Browse cloud (subjects)</TD>
+<TD>A word cloud populated with the top 20 subject authorities of titles issued in the last three years, returning bibliographic records</TD></TR>
+<TR>
+<TD>SUBJECTSW</TD>
+<TD>Browse cloud (subjects - works)</TD>
+<TD>A word cloud populated with the top 20 subject authorities of titles issued in the last three years, returning work records</TD></TR>
+<TR>
+<TD>BLB</TD>
+<TD>Browse list (popular authors)</TD>
+<TD>A browse list container displaying the top 10 authors linked to loans issued in the last three years, returning bibliographic records</TD></TR>
+<TR>
+<TD>BLW</TD>
+<TD>Browse list (popular works - works)</TD>
+<TD>A browse list container displaying the top 10 authors linked to loans issued in the last three years, returning work records</TD></TR>
+<TR>
+<TD>TWITTER</TD>
+<TD>Sample Twitter feed</TD>
+<TD>An information container displaying a Twitter feed, where the code snippet has been added using a page created in the&nbsp;<A href="PageGenerator.html">Page Generator</A>&nbsp;(and using the SNIPPET=1 string in the container query)</TD></TR>
+<TR>
+<TD>LIST1</TD>
+<TD>List container</TD>
+<TD>A list container displaying a set of common &amp; useful links (login, pasword reset, etc)</TD></TR>
+<TR>
+<TD>LIST2</TD>
+<TD>List container 2</TD>
+<TD>A list container displaying links to OPAC request forms and external search</TD></TR>
+<TR>
+<TD>NEW</TD>
+<TD>List container 3</TD>
+<TD>A list container displaying links to common queries for bibliographic searches</TD></TR>
+<TR>
+<TD>IMAGE</TD>
+<TD>Image</TD>
+<TD>A rich text container displaying a single image</TD></TR>
+<TR>
+<TD>VIDEO</TD>
+<TD>Rich text container - video</TD>
+<TD>A rich text container displaying an embedded YouTube video</TD></TR></TBODY></TABLE></DIV>
+<H2>Sample pages&nbsp;</H2>
+<P>A number of previously available 'out-of-the-box' pages have been migrated to allow them to be editable from the&nbsp;<A href="PageGenerator.html">Page Generator</A>.</P>
+<TABLE>
+<TBODY>
+<TR>
+<TD>
+<H3>Page ID</H3></TD>
+<TD>
+<H3>Page Title</H3></TD>
+<TD>
+<H3>Description</H3></TD></TR>
+<TR>
+<TD style="VERTICAL-ALIGN: middle">SAMPLE</TD>
+<TD style="VERTICAL-ALIGN: middle">Sample containers</TD>
+<TD style="VERTICAL-ALIGN: middle">
+<P>A placeholder page to be used with the sample containers listed above. Add the following string to the URL to call the SAMPLEPARAMS containers:</P>
+<UL>
+<LI>?HOMEPRMS=SAMPLEPARAMS </LI></UL></TD></TR>
+<TR>
+<TD style="VERTICAL-ALIGN: middle">FAQ</TD>
+<TD style="VERTICAL-ALIGN: middle">Frequently Asked Questions</TD>
+<TD style="VERTICAL-ALIGN: middle">
+<P>A placeholder page to be used with the FAQPARAMS containers. These containers may be modified to produce an FAQ for the OPAC that is relevant to the library's needs. Add the following string to the URL to call the FAQPARAMS containers:</P>
+<UL>
+<LI>?HOMEPRMS=FAQPARAMS </LI></UL></TD></TR>
+<TR>
+<TD style="VERTICAL-ALIGN: middle">HLPSVLPARAMS</TD>
+<TD style="VERTICAL-ALIGN: middle">Savedlists</TD>
+<TD style="VERTICAL-ALIGN: middle">
+<P>A placeholder page to be used with the HLPSVLPARAMS containers. These containers may be modified to produce a help page for OPAC users to understand SavedList functionality. Add the following string to the URL to call the HLPSVLPARAMS containers:</P>
+<UL>
+<LI>?HOMEPRMS=HLPSVLPARAMS </LI></UL></TD></TR>
+<TR>
+<TD style="VERTICAL-ALIGN: middle">INFO</TD>
+<TD style="VERTICAL-ALIGN: middle">Text for an Information container</TD>
+<TD style="VERTICAL-ALIGN: middle">A small HTML page that is used as a demonstration of the use&nbsp;of&nbsp;the&nbsp;Information container type in the SAMPLEPARAMS container set.</TD></TR>
+<TR>
+<TD style="VERTICAL-ALIGN: middle">TWITTER</TD>
+<TD style="VERTICAL-ALIGN: middle">Twitter Feed</TD>
+<TD style="VERTICAL-ALIGN: middle">A sample Twitter feed code snippet that is used as an alternate demonstration&nbsp;of the use of the Information container type in the SAMPLEPARAMS container set.</TD></TR>
+<TR>
+<TD style="VERTICAL-ALIGN: middle">HOWTO</TD>
+<TD style="VERTICAL-ALIGN: middle">How to ...</TD>
+<TD style="VERTICAL-ALIGN: middle">
+<P>A placeholder page to be used with the HOWTOPARAMS containers. These containers may be modified to produce a guide for common features a borrower might use at the OPAC. Add the following string to the URL to call the HOWTOPARAMS containers:</P>
+<UL>
+<LI>?HOMEPRMS=HOWTOPARAMS </LI></UL></TD></TR>
+<TR>
+<TD style="VERTICAL-ALIGN: middle">HLPMYLIB</TD>
+<TD style="VERTICAL-ALIGN: middle">Using my account</TD>
+<TD style="VERTICAL-ALIGN: middle">
+<P>A placeholder page to be used with the HLPMYLIB containers. These containers may be modified to provide some detail about the My account features for a borrower logged in at the OPAC. Add the following string to the URL to call the HLPMYLIB containers:</P>
+<UL>
+<LI>?HOMEPRMS=HLPMYLIB </LI></UL></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<H1> Use generated pages in Information (code snippet) container types</H1>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-note">
+<P>This feature requires a minimum&nbsp;server version and patch:&nbsp;&nbsp;</P>
+<UL>
+<LI>10.2.21, 
+<LI>10.5.16, 
+<LI>10.6.10, 
+<LI>10.7.8, 
+<LI>10.8.6, 
+<LI>10.9.4, 
+<LI>11.2.1 </LI></UL></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>It is now possible to use a generated page in an Information container type by using an additional string in the container URL.</P>
+<P>Previously, if a generated page URL was used, the entire page (including the OPAC header and footer) would be loaded into the container. Adding the string&nbsp;<EM>?SNIPPET=1</EM> to the container URL will insert <EM>only</EM> the body of the generated page into the container.</P>
+<P>e.g. where the name of the generated page is <STRONG>CONTAINER</STRONG>, the URL would look something like:</P>
+<UL>
+<LI>/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/CONTAINER?SNIPPET=1 </LI></UL>
+<P>Note that from Spydus 10.2 through until 10.9, the URL will use the WPAC path, so the URL for a page named CONTAINER would look like:</P>
+<UL>
+<LI>/cgi-bin/spydus.exe/MSGTRNGEN/WPAC/CONTAINER?SNIPPET=1 </LI></UL>
+<H1> File Manager</H1>
+<P>A new <STRONG>File Manager</STRONG> interface has been implemented into <STRONG>Maintenance</STRONG> &gt; <STRONG>OPAC &amp; Enquiry</STRONG>.</P>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/111_MAINT_FILE_MGR_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/111_MAINT_FILE_MGR.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_MAINT_FILE_MGR_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV> 
+<P>Current functionality of the File Manager allows users to:</P>
+<UL>
+<LI><STRONG>Create</STRONG>, <STRONG>Rename</STRONG> and <STRONG>Delete</STRONG> Folders (and sub-folders) 
+<LI><STRONG>Upload</STRONG> files into folders, <STRONG>Rename</STRONG> and <STRONG>Delete</STRONG> files 
+<LI><STRONG>Generate</STRONG> <STRONG>URL</STRONG> to create a HTTPS URL for the file 
+<LI>Switch between <STRONG>List View</STRONG> and <STRONG>Grid View</STRONG> 
+<LI><STRONG>Sort</STRONG> by file name, type or size, Date Created or Date Modified 
+<UL>
+<LI>Sorting can also be applied by clicking column headers in List View </LI></UL>
+<LI><STRONG>View Details</STRONG> to see the file <STRONG>Type</STRONG>, <STRONG>Size</STRONG>, <STRONG>Created</STRONG> &amp; last <STRONG>Modified</STRONG> date/timestamps, and the Spydus user the file was <STRONG>Created By</STRONG> </LI></UL>
+<P>As the first iteration of File Manager, some functionality is not yet implemented e.g. moving files between folders</P>
+<P>Additionally there are some limitations of the UI framework library (Kendo) that should be noted:</P>
+<UL>
+<LI>keyboard navigation with arrow keys is not supproted 
+<LI>multi-select (Ctrl+click) is not supported 
+<LI>no image preview/thumbnail in View Details pane </LI></UL>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-caution">
+<P>File Manager is <U>not</U> intended to reproduce the functionality of the previous File Manager (AjaXplorer) web application, which allowed libraries access to Spydus files, and the ability to make changes to those files and configure as desired. All Spydus configuration in Spydus 11 and forward will be performed from the Spydus web-based apps.</P>
+<P>The new File Manager allows libraries to upload their own files to Spydus without creating records linked to them (i.e. outside the ERM Digital Assets module), and to use those files on the web. Examples of uses for these files might be:</P>
+<UL>
+<LI>files to be downloaded that don't require linking to a descriptive record 
+<LI>logo image files to be displayed at the OPAC, or used in the HTML Email &amp; Slips Configurator 
+<LI>images or other files to be used in the&nbsp;<A href="PageGenerator.html">Page Generator</A> or&nbsp;<A href="ContainerParameters.html">Container Parameters</A> content 
+<LI>thumbnail images for descriptive records that are not able to be supplied by enrichment services vendors (e.g. Syndetics, BDS) </LI></UL></DIV></TD></TR></TBODY></TABLE>
+<H1> Allow tabs to be maintained for online borrower registration form</H1>
+<P>Library staff can now create and manage tabs in the Register Online Parameters interface. This allows content in the online registration form to be arranged in a more organised way.</P>
+<P>As in other similar forms, the hierarchy remains:</P>
+<OL>
+<LI>Tab 
+<LI>Section 
+<LI>Field 
+<LI>Sub-field </LI></OL>
+<P>With the re-development of the online registration form in Spydus 11, each tab is now presented as a single page, with the potential for multiple sections in each tab. As with previous versions of the OPAC the page is responsive to the display size, but on a large size screen a tab can accommodate up to 3 sections on a line. If more sections are added to a tab than can be displayed on a line, additional sections will be pushed to the next line.</P>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/111_OPAC_CONFIG_BRWREG_TABS_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/111_OPAC_CONFIG_BRWREG_TABS.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/111_OPAC_CONFIG_BRWREG_TABS_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV> 
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-note">While each tab is <EM>presented</EM> in the browser as a single page, the browser treats the form as a single page (each tab is hidden as the user navigates through the form). </DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<H1>Application Settings</H1>
+<P>A new interface has been provided to configure elements of the Spydus front-end.</P>
+<BLOCKQUOTE>
+<H2> Allow custom menu configuration&nbsp;</H2>
+<P>Under&nbsp;<A href="GENERAL_ApplicationSettings.html">Application Settings</A> in&nbsp;the Maintenance module, it is now possible to configure custom menus in the Spydus modules, and add custom options that can&nbsp;link to functions&nbsp;from within or outside of Spydus.</P>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/MAINT_GENERAL_APPSETTINGS_NAVMENU_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/MAINT_GENERAL_APPSETTINGS_NAVMENU.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/MAINT_GENERAL_APPSETTINGS_NAVMENU_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV> 
+<H2> Allow Audio Settings for Circulation to be configured</H2>
+<P>Under&nbsp;<A href="GENERAL_ApplicationSettings.html">Application Settings</A> in&nbsp;the Maintenance module, it is now possible to configure notification sounds played in Circulation. It is possible to:</P></BLOCKQUOTE>
+<DIV style="MARGIN-LEFT: 2em">
+<BLOCKQUOTE>
+<UL>
+<LI>enable or disable a notification sound 
+<LI>upload a custom audio file to be used (in MP3 format) 
+<LI>play a preview of the notification sound </LI></UL></BLOCKQUOTE>
+<DIV title="Image title" class=i-thumbnail-container style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px"><SPAN style="DISPLAY: none">images/MAINT_GENERAL_APPSETTINGS_AUDIO_thumb.png</SPAN> <A title="" class=i-thumbnail rel=lightbox data-href="images/MAINT_GENERAL_APPSETTINGS_AUDIO.png"><IMG style="BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid; BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid" alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/MAINT_GENERAL_APPSETTINGS_AUDIO_thumb.png"></A> 
+<P></P>
+<CENTER><SMALL>Click image to enlarge</SMALL> </CENTER>
+<P></P></DIV></DIV>
+<H1> Modify behaviour of stocktake parameter</H1>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-note">
+<P>This feature requires a minimum&nbsp;server version and patch:&nbsp;&nbsp;</P>
+<UL>
+<LI>10.9.5 (<STRONG>commissioning required by Civica Support</STRONG>),&nbsp; 
+<LI>11.2.1 </LI></UL></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr></BLOCKQUOTE>
+<P dir=ltr>The&nbsp;'Do not update last sighted date and time during stocktake' parameter in&nbsp;<A href="CirculationGeneralParameters.html">Circulation General Parameters maintenance</A>&nbsp;has been renamed <STRONG>Stocktake processing mode.</STRONG> The options for the parameter will apply&nbsp;when:</P>
+<UL>
+<LI>returning items in&nbsp;<A href="Stocktake.html">Stocktake items</A>&nbsp;mode, or 
+<LI>when using API endpoint&nbsp;'PUT /api/circulation/1.0/items/id/{id}/loans' and stockTake is set to true </LI></UL>
+<P>The parameter options and their functions are:</P>
+<UL>
+<LI><STRONG>Process as return</STRONG> - when stocktaking items, the Last stocktake date will be updated, the item will be checked in, and the Last sighted date will be updated 
+<LI><STRONG>Process as return - do not update last sighted</STRONG> - when stocktaking items, the Last stocktake date will be updated, the item will be checked in,&nbsp;but the Last sighted date will <U>not</U> be updated 
+<LI><STRONG>Update stocktake date only</STRONG> - when stocktaking items, the Last stocktake date will be updated, but the item will <U>not</U> be checked in,&nbsp;and the Last sighted date will <U>not</U> be updated </LI></UL><!--DXMETADATA end-->
+            <a name="seealsobookmark"></a>
+            <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORISED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""%%phrase:name=SeeAlso%%%%designlist:tagidentifier=seealso,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><!--DXMETADATA end-->
+            
+            <div id="i-footer-content" class="i-footer-content">
+                <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><p>&nbsp;</p><p>&nbsp;</p><hr style="height: 1px" /><p>© Civica Pty Ltd 2025. All rights reserved   |   Version: 2025R1</p><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" --><!--DXMETADATA end-->
+            </div>
+        </div>
+    </div>
+        
+    <script type="text/javascript">
+        $(function () {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>
+

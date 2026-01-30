@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--DXMETADATA start type="MetaCharset" --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><!--DXMETADATA end-->
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!--DXMETADATA start type="Literal" condition="helpversion:value=3" value="<meta name=""Microsoft.Help.SelfBranded"" content=""true"" />" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<title>%%ItemTitle%%</title>" --><title>Change records using Select/Change</title><!--DXMETADATA end-->
+    <!--DXMETADATA start type="ItemTitle" format="<meta name=""Title"" content=""%%ItemTitleNoQuotes%%""/>" --><meta name="Title" content="Change records using Select/Change"/><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="PackageLink" packagename="jquery" filetype="script" firstlinkattributes="id=""mshs_support_script"""--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery/script/default/jquery.min.js" type="text/javascript" id="mshs_support_script"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="script"--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery-ui/script/default/jquery-ui.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="jquery-ui" filetype="css"--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/jquery-ui/css/default/jquery-ui.min.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TemplateSettingsJson" format="<script type=""text/javascript"">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{isHideBodyDuringLoadDisabled:true,dynamictoc:{isEnabled:true},inthistopic:{isSupported:true},dynamicstyles:{isDynamicWordWrapEnabled:true}}},{settings:%%TemplateSettingsJson%%});</script>" --><script type="text/javascript">var Innovasys=(Innovasys||{});$.extend(true,Innovasys,{settings:{isHideBodyDuringLoadDisabled:true,dynamictoc:{isEnabled:true},inthistopic:{isSupported:true},dynamicstyles:{isDynamicWordWrapEnabled:true}}},{settings:{"dynamictoc":{"initialNodeId":"n423","initialNodeContainer":"c0","isResizable":true},"inthistopic":{"isEnabled":true},"darkmode":{"isEnabled":true},"currentLocale":"-","isFrameless":true,"navigationKind":"inpage","versions":{"locale":{"currentId":"-"}}}});</script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="light" filetype="css"--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/light/css/dynamic-toc.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Synopsis" StripHtmlTags="True" MaxLength="250" format="<meta name=""Description"" content=""%%Synopsis%%"" />"--><meta name="Description" content="Once you have opened a file of MARC records, you can use the Select/Change option to select specific records and make the same change to all of them." /><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-topics" filetype="css"--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/plugins-topics/css/default/jquery-plugins.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-topics" filetype="css" firstlinkattributes=" data-mshv2-stylesheet=""/template/packages/core-topics/topics.mshv2.css"" data-mshv1-stylesheet=""/template/packages/core-topics/topics.mshv1.css"" data-responsive-mobile=""template/packages/core-topics/topics.mobile.css"" data-responsive-tablet=""template/packages/core-topics/topics.tablet.css"""--><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/template/packages/core-topics/css/topics.css"  data-mshv2-stylesheet="/template/packages/core-topics/topics.mshv2.css" data-mshv1-stylesheet="/template/packages/core-topics/topics.mshv1.css" data-responsive-mobile="template/packages/core-topics/topics.mobile.css" data-responsive-tablet="template/packages/core-topics/topics.tablet.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="plugins-topics" filetype="script"--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/plugins-topics/script/default/jquery-plugins.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="PackageLink" packagename="core-topics" filetype="script"--><script src="http://kapiti.spydus.co.nz/onlinehelp/template/packages/core-topics/script/topics.min.js" type="text/javascript"></script><!--DXMETADATA end-->
+    
+    <!--DXMETADATA start type="TopicId" format="<meta name=""Microsoft.Help.Id"" content=""%%TopicId%%""/>" --><meta name="Microsoft.Help.Id" content="cc21f992-9518-4ce1-b5a0-a9cf786bae78"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocParentId" format="<meta name=""Microsoft.Help.TocParent"" content=""%%TocParentId%%""/>" --><meta name="Microsoft.Help.TocParent" content="30ce6b99-67d7-4004-b9fb-84fad05e4a1c"/><!--DXMETADATA end-->
+    <!--DXMETADATA start type="TocOrdinal" format="<meta name=""Microsoft.Help.TocOrder"" content=""%%TocOrdinal%%""/>" --><meta name="Microsoft.Help.TocOrder" content="3"/><!--DXMETADATA end-->
+    <meta name="Microsoft.Help.F1" content=""/>
+    <meta name="Microsoft.Help.ContentType" content="Concepts" />
+    <!--DXMETADATA start type="MshvKeywords" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="MshvMetaTags" condition="helpversion:value=3" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.Locale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Help3CatalogLocale" condition="helpversion:value=3" format="<meta name=""Microsoft.Help.TopicLocale"" content=""%%Help3CatalogLocale%%"" />"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Stylesheets" --><link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/stylesheets/hs-heading-expandcollapse.css"></link>
+    <link rel="stylesheet" type="text/css" href="http://kapiti.spydus.co.nz/onlinehelp/stylesheets/customstyles.css"></link><!--DXMETADATA end-->
+    <!--DXMETADATA start type="StylePropertyValues" format="<style>%%StylePropertyValues%%</style>" --><style>.i-is-new .i-page-title-text::after, ul#i-dt-root li.i-is-new>a::after { content: "New" }
+</style><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scripts" --><script src="http://kapiti.spydus.co.nz/onlinehelp/script/hs-common.js" type="text/javascript"></script>
+    <script src="http://kapiti.spydus.co.nz/onlinehelp/script/hs-heading-expandcollapse.js" type="text/javascript"></script>
+    <script src="http://kapiti.spydus.co.nz/onlinehelp/scripts/headings-initially-collapsed.js" type="text/javascript"></script><!--DXMETADATA end-->
+    <!--DXMETADATA start type="DesignTime"--><!--DXMETADATA end-->
+    <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_PROPERTIES" --><!--DXMETADATA end -->
+    <!--DXMETADATA start type="CanonicalLink" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="CustomHeadContent" --><!--DXMETADATA end-->
+    <!--DXMETADATA start type="IsTemplateFileFeatureEnabled" name="DARKMODE" format="<meta name=""color-scheme"" content=""dark light"" />" --><meta name="color-scheme" content="dark light" /><!--DXMETADATA end-->
+	
+    <script type="text/javascript">
+        try
+        {
+            window.addEventListener('load', function() {
+                if (location.hash) location.href = location.hash;
+            });
+        }
+        catch (e) { }
+        finally {}
+    </script>
+</head>
+
+<body>
+    <div id="i-before-header-content" class="i-before-header-content">
+        
+    </div>
+
+    <div id="i-header-container">
+        <div id="i-header-content" class="i-header-content i-content-width-container">
+            <!--DXMETADATA start type="LogoImage" --><!--DXMETADATA end-->
+            <div class="i-project-title"><!--DXMETADATA start type="ProjectTitle" -->Spydus Help<!--DXMETADATA end--></div>
+            <div class="i-flex-spacer"></div>
+            <div class="i-header-buttons-container">
+                <div class="i-search-container">
+                    <!--DXMETADATA start type="outputfileextension" format="<form action=""websearch%%outputfileextension%%"">" --><form action="http://kapiti.spydus.co.nz/onlinehelp/websearch.html"><!--DXMETADATA end-->
+                    <!--DXMETADATA start type="Phrase" name="SEARCH_OPERATORTIP" format="<input id=""i-search"" name=""query"" title=""%%phrase%%""/>" --><input id="i-search" name="query" title="(Words can be combined using OR and AND)"/><!--DXMETADATA end-->
+                    <input type="submit" id="i-search-button" value="" />
+                    <!--DXMETADATA start type="Literal" value="</form>" --></form><!--DXMETADATA end-->
+                </div>
+                <!--DXMETADATA start type="outputfileextension" format="<a id=""i-index-button"" href=""webindex%%outputfileextension%%""></a>" --><a id="i-index-button" href="webindex.html"></a><!--DXMETADATA end-->
+            </div>
+        </div>
+    </div>
+    
+    <div class="i-content-width-container"><div class="i-busy-overlay"></div></div>
+
+    <div id="i-breadcrumbs-outer-container" class="i-content-width-container"><!--DXMETADATA start type="Breadcrumbs" scrap="_BREADCRUMBS" --><div class="i-breadcrumbs-container">
+<a href="Cataloguing.html">Cataloguing</a>
+ / <a href="WorkingFileMARCRecords.html">Working with a file of MARC records</a>
+ / Change records using Select/Change</div><!--DXMETADATA end --></div>
+
+    
+
+    <div id="i-actions-outer-container" class="i-content-width-container">
+        <div id="i-actions-container">
+            <div id="i-actions-content" class="i-fixed-to-top">
+                <!-- Spacing --> <span class="i-toggle-all-sections i-function-link">
+                <label class="i-collapse-all"><!--DXMETADATA start type="Phrase" name="COLLAPSE_ALL" -->Collapse All<!--DXMETADATA end--></label>
+                <label class="i-expand-all" style="display: none;"><!--DXMETADATA start type="Phrase" name="EXPAND_ALL" -->Expand All<!--DXMETADATA end--></label>
+            </span><!--DXMETADATA start type="Literal" condition="communityenabled" value="%%scrap:name=_COMMUNITY_DROPDOWN%%" --><!--DXMETADATA end -->
+                <div class="i-in-this-topic-container">
+                    <span class="i-action-group-heading"><!--DXMETADATA start type="Phrase" Name="IN_THIS_TOPIC" -->In This Topic<!--DXMETADATA end--></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="i-toc-outer-container" class="i-content-width-container">
+        <div id="i-toc-container">
+            <div id="i-toc-content" class="i-fixed-to-top">
+                <div class="i-toc-content-scroll-container">
+                    <div id="i-dynamic-toc-container"><ul id="i-dt-root"></ul></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="i-body-content-container" class="i-content-width-container">
+        <div id="i-body-content" class="i-body-content">
+            <div class="i-page-title"><div class="i-page-title-text"><!--DXMETADATA start type="ItemTitle" -->Change records using Select/Change<!--DXMETADATA end--></div></div>
+            <div class="i-in-this-topic-container">
+                <span class="i-action-group-heading"><!--DXMETADATA start type="Phrase" Name="IN_THIS_TOPIC" -->In This Topic<!--DXMETADATA end--></span>
+            </div>
+            <!--DXMETADATA start type="TopicSection" name="BodyText"--><P>Once you have&nbsp;<A href="OpenFileOfMARCRecords.html">opened a file of MARC records</A>, you can use&nbsp;the <STRONG>Select/Change</STRONG> option&nbsp;to select specific records and make the same change to all of them.</P>
+<P>To do this:</P>
+<OL>
+<LI>Do one of the following to select the records you want to change. 
+<UL>
+<LI><A href="SelectMARCRecords.html">Select the records using the mouse</A>, click <STRONG>Select/Change</STRONG> on the <STRONG>Edit</STRONG> menu, click <STRONG>Current selection</STRONG> and then click <STRONG>Next</STRONG>. 
+<LI>Click <STRONG>Select/Change</STRONG> on the <STRONG>Edit</STRONG> menu, click <STRONG>Select all</STRONG> and then click <STRONG>Next</STRONG>. 
+<LI>Click <STRONG>Select/Change</STRONG> on the <STRONG>Edit</STRONG> menu, click <STRONG>Select</STRONG>, specify your select criteria and then click <STRONG>Next</STRONG>. </LI></UL>
+<LI>Click the <STRONG>Change</STRONG> checkbox. 
+<LI>To restrict the change to a particular field, do one of the following: 
+<UL>
+<LI>Select the <STRONG>Leader</STRONG> checkbox. 
+<LI>Enter the tag number in the <STRONG>Tag</STRONG> box. </LI></UL>
+<LI>Do one of the following: 
+<UL>
+<LI>Select the <STRONG>Whole field</STRONG> option to apply the change to the whole field. 
+<LI>Select the <STRONG>Field content</STRONG> option to restrict the change to specific text or character positions within the field. 
+<LI>Select the <STRONG>Indicator</STRONG> option to restrict the change to a specific indicator. This option is not available if you've selected the <STRONG>Leader</STRONG> checkbox. 
+<LI>Select the <STRONG>Tag</STRONG> option to change a tag.&nbsp;This option is not available if you've selected the <STRONG>Leader</STRONG> checkbox. </LI></UL>
+<LI>Do one of the following: </LI></OL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><STRONG>If you have selected the Leader checkbox and the Whole field option</STRONG></P></BLOCKQUOTE>
+<DIV style="MARGIN-LEFT: 2em">
+<UL>
+<LI>Enter the new text in the <STRONG>Replacement text</STRONG> box. </LI></UL></DIV>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><STRONG>If you have selected the Leader checkbox and the Field content option</STRONG></P>
+<UL>
+<LI>Specify the <STRONG>Start position</STRONG> and <STRONG>Length</STRONG>, and then enter the new text in the <STRONG>Replacement text</STRONG> box. </LI></UL>
+<P><STRONG>If you have entered a tag number and selected the Whole field option</STRONG></P>
+<UL>
+<LI>Select <STRONG>Replace</STRONG> and enter the new text in the <STRONG>Replacement text</STRONG> box, OR 
+<LI>Select <STRONG>Delete</STRONG>, OR 
+<LI>Select <STRONG>Append</STRONG> and enter the new text in the <STRONG>Replacement text</STRONG> box. </LI></UL>
+<P><STRONG>If you have entered a tag number and selected the Field content option</STRONG></P>
+<UL>
+<LI>Select <STRONG>Replace</STRONG>, enter the existing text in the <STRONG>Variable field text</STRONG> box and the new text in the <STRONG>Replacement text</STRONG> box, OR 
+<LI>Select <STRONG>Delete</STRONG> and enter the existing text in the <STRONG>Variable field text</STRONG> box, OR 
+<LI>Select <STRONG>Append</STRONG> and enter the new text in the <STRONG>Replacement text</STRONG> box. </LI></UL>
+<P><STRONG>If you have entered a tag number and selected the Indicator option</STRONG></P>
+<UL>
+<LI>Select indicator <STRONG>1</STRONG> or <STRONG>2</STRONG>, enter the existing text in the <STRONG>Text</STRONG> box, and then enter the new text in the <STRONG>Replacement</STRONG> text box. </LI></UL>
+<P><STRONG>If you have entered a tag number and selected the Tag option</STRONG></P>
+<UL>
+<LI>Select <STRONG>Replace</STRONG> and type the new tag in the <STRONG>Tag number</STRONG> box. </LI></UL></BLOCKQUOTE>
+<OL style="COUNTER-RESET: item 5" start=6>
+<LI>Click <STRONG>OK</STRONG> to make the change. </LI></OL>
+<TABLE style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px">
+<TBODY>
+<TR>
+<TD style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px">
+<DIV class="i-box i-box-note">The <STRONG>Delete</STRONG> and <STRONG>Append</STRONG> options are not available if you've selected the <STRONG>Leader</STRONG> checkbox. </DIV></TD></TR></TBODY></TABLE> 
+<H1>Example 1: changing indicators</H1>
+<P>Let’s work through an example.</P>
+<P>At one time the MARC standards specified that hyphenated surnames had indicator 2 in tags 100, 400, 600 and 800 set to “2”, but now have indicator 2 set to “1”. We can use the <STRONG>Select/Change</STRONG> command to make this change to the records in a file.</P>
+<OL>
+<LI>Open a file of MARC records. 
+<LI>Click <STRONG>Select/Change</STRONG> on the <STRONG>Edit</STRONG> menu. 
+<LI>Click <STRONG>Select All</STRONG> and then click <STRONG>Next</STRONG>. 
+<LI>Click <STRONG>Change</STRONG>. 
+<LI>First we’ll make the change in tag 100, so enter 100 in the <STRONG>Tag</STRONG> box. 
+<LI>Select the <STRONG>Indicator</STRONG> option. 
+<LI>Select Indicator <STRONG>2</STRONG>, enter 2 in the <STRONG>Text</STRONG> box, and 1 in the <STRONG>Replacement</STRONG> box. 
+<LI>Click <STRONG>OK</STRONG> to make the change. 
+<LI>Repeat steps 2 to 8 for tag 400, 600 and&nbsp;800. </LI></OL>
+<H1>Example 2: appending new tags</H1>
+<P>Let’s see another example.</P>
+<P>This time we’ll use <STRONG>Select/Change</STRONG> to append a 984 tag to the records in a file. In the $a subfield we’ll specify the NUC code (the National Union Catalogue code) and in the $c subfield we’ll specify a holdings statement.</P>
+<OL>
+<LI>Open a file of MARC records. 
+<LI>Click <STRONG>Select/Change</STRONG> on the <STRONG>Edit</STRONG> menu. 
+<LI>Click <STRONG>Select All</STRONG> and then click <STRONG>Next</STRONG>. 
+<LI>Click <STRONG>Change</STRONG>. 
+<LI>Enter 984 in the <STRONG>Tag</STRONG> box. 
+<LI>Select the <STRONG>Whole field</STRONG> option. 
+<LI>Select <STRONG>Append</STRONG>. 
+<LI>Enter #aVAB#cHeld in the <STRONG>Replacement text</STRONG> box, i.e. we’re specifying VAB as the NUC code and Held as the holdings statement. 
+<LI>Click <STRONG>OK</STRONG>&nbsp;to make the change. </LI></OL>
+<H1>Example 3: length of 008 tag incorrect</H1>
+<P>In this example, we’ve&nbsp;<A href="ValidateFileOfMARCRecords.html">validated our records</A> and found several cases where the length of the 008 tag is incorrect.</P>
+<P>Let’s see how to correct these errors!</P>
+<OL>
+<LI>Open a file of MARC records. 
+<LI>Click <STRONG>Validate All Records</STRONG> on the <STRONG>Tools</STRONG> menu to validate all the records in the list, and then click <STRONG>List All Validation Messages</STRONG> on the <STRONG>Tools</STRONG> menu to display the messages. <STRONG>Count</STRONG> shows the number of records that have each message. </LI></OL>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><IMG border=0 alt="" src="http://kapiti.spydus.co.nz/onlinehelp/images/CAT_SelectChangeExample1.jpg"></P></BLOCKQUOTE>
+<OL style="COUNTER-RESET: item 2" start=3>
+<LI>Click the message you want, and then click <STRONG>Select</STRONG> to select these records. 
+<LI>Click <STRONG>Select/Change</STRONG> on the <STRONG>Edit</STRONG> menu. 
+<LI>Click <STRONG>Use current selection</STRONG> and then click <STRONG>Next</STRONG>. 
+<LI>Click <STRONG>Change</STRONG>. 
+<LI>In this example we’re correcting the length of tag 008, so enter 008 in the <STRONG>Tag</STRONG> box. 
+<LI>Select the <STRONG>Field content</STRONG> option. 
+<LI>Select <STRONG>Replace</STRONG>. 
+<LI>In this example we had only 27 characters when there should be 40. So enter 27 as the <STRONG>Start position</STRONG> and 13 as the <STRONG>Length</STRONG>, i.e. 40 - 27 = 13. 
+<LI>Enter 13 spaces in the <STRONG>Replacement text</STRONG> box, i.e. press the Spacebar 13 times.&nbsp; 
+<LI>Click <STRONG>OK</STRONG> to make the change. </LI></OL>
+<P>In our example above, we had too few characters, i.e. 27 instead of 40. If there are too many characters then use <STRONG>Delete</STRONG> rather than <STRONG>Replace</STRONG>. For example, say there are 43 characters and there should be only 40. On the Change Record(s) Data dialog:</P>
+<UL>
+<LI>Select the <STRONG>Field content</STRONG> option. 
+<LI>Select <STRONG>Delete</STRONG>. 
+<LI>Enter 40 as the <STRONG>Start position</STRONG> and 3 as the <STRONG>Length</STRONG>, i.e. we’ll delete the three characters after the 40th. </LI></UL><!--DXMETADATA end-->
+            <a name="seealsobookmark"></a>
+            <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORISED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""%%phrase:name=SeeAlso%%%%designlist:tagidentifier=seealso,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><!--DXMETADATA end-->
+            
+            <div id="i-footer-content" class="i-footer-content">
+                <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><p>&nbsp;</p><p>&nbsp;</p><hr style="height: 1px" /><p>© Civica Pty Ltd 2025. All rights reserved   |   Version: 2025R1</p><!--DXMETADATA end -->
+<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" --><!--DXMETADATA end-->
+            </div>
+        </div>
+    </div>
+        
+    <script type="text/javascript">
+        $(function () {
+            var documentInstance = new Innovasys.Content.Document(document.body);
+            documentInstance.load();
+        });
+    </script>
+</body>
+</html>
+
