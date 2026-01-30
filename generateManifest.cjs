@@ -16,7 +16,7 @@ function walkDir(dir) {
     const fullPath = path.join(dir, item.name);
     if (item.isDirectory()) {
       results.push(...walkDir(fullPath));
-    } else if (item.isFile() && /\.(pdf|docx?|xlsx?|html?)$/i.test(item.name)) {
+    } else if (item.isFile() && /\.(pdf|docx?|xlsx?|html?|json?)$/i.test(item.name)) {
       results.push(fullPath);
     }
   }
