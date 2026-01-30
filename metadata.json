@@ -1,5 +1,5 @@
 {
-  "name": "LibSys Support AI Deployment",
+  "name": "LibSys Support AI",
   "description": "A specialized technical support chatbot for library staff to troubleshoot systems issues, including ILS, RFID, printing, and connectivity problems.",
   "requestFramePermissions": [
     "microphone"

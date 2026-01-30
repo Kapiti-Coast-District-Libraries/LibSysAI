@@ -88,12 +88,12 @@ const App: React.FC = () => {
 
   useEffect(() => {
   const KNOWLEDGE_BASE_URL =
-    'https://raw.githubusercontent.com/YOUR_USERNAME/ai-knowledge-base/main/';
+    'https://raw.githubusercontent.com/Kapiti-Coast-District-Libraries/SOP-API-TEST/main/';
 
   const syncKnowledgeBase = async () => {
     let skipped = 0;
     let processed = 0;
-    const newSopFiles: SopFile[] = [];
+    const newSopFiles: SopFile[] = [];  
 
     try {
       const manifestRes = await fetch(`${KNOWLEDGE_BASE_URL}manifest.json`);
