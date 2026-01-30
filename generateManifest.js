@@ -1,5 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// __dirname replacement for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const SOP_ROOT = path.join(__dirname, 'SOP');
 const MANIFEST_PATH = path.join(__dirname, 'manifest.json');
@@ -23,9 +28,6 @@ function walkDir(dir) {
   return result;
 }
 
-const manifest = walkDir(SOP_ROOT);
-
-// Optionally flatten so categories point to arrays of files directly
 function flattenManifest(obj) {
   const flattened = {};
   for (const [key, value] of Object.entries(obj)) {
@@ -38,5 +40,7 @@ function flattenManifest(obj) {
   return flattened;
 }
 
+const manifest = walkDir(SOP_ROOT);
 fs.writeFileSync(MANIFEST_PATH, JSON.stringify(flattenManifest(manifest), null, 2));
+
 console.log('manifest.json generated successfully.');
