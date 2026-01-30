@@ -88,105 +88,100 @@ const App: React.FC = () => {
 
   useEffect(() => {
   const KNOWLEDGE_BASE_URL =
-'https://raw.githubusercontent.com/Kapiti-Coast-District-Libraries/LibSysAI/main/';
+    'https://kapiti-coast-district-libraries.github.io/LibSysAI/'; // GitHub Pages version
 
   const MAX_CONCURRENT_FETCHES = 200; // adjust based on your network speed
 
-const syncKnowledgeBase = async () => {
-  let skipped = 0;
-  let processed = 0;
-  const newSopFiles: SopFile[] = [];
+  const syncKnowledgeBase = async () => {
+    let skipped = 0;
+    let processed = 0;
+    const newSopFiles: SopFile[] = [];
 
-  try {
-    const manifestRes = await fetch(`${KNOWLEDGE_BASE_URL}manifest.json`);
-    if (!manifestRes.ok) throw new Error("Manifest not found");
+    try {
+      const manifestRes = await fetch(`${KNOWLEDGE_BASE_URL}manifest.json`);
+      if (!manifestRes.ok) throw new Error("Manifest not found");
 
-    const manifest: string[] = await manifestRes.json();
+      const manifest: string[] = await manifestRes.json();
 
-    // Split manifest into chunks to limit concurrent fetches
-    const chunked = (arr: string[], size: number) =>
-      Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
-        arr.slice(i * size, i * size + size)
-      );
+      const chunked = (arr: string[], size: number) =>
+        Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+          arr.slice(i * size, i * size + size)
+        );
 
-    const fileChunks = chunked(manifest, MAX_CONCURRENT_FETCHES);
+      const fileChunks = chunked(manifest, MAX_CONCURRENT_FETCHES);
 
-    for (const chunk of fileChunks) {
-      // Fetch all files in the chunk in parallel
-      const results = await Promise.all(
-        chunk.map(async (filePath) => {
-          const fileName = filePath.split("/").pop() ?? filePath;
-          const fileUrl = `${KNOWLEDGE_BASE_URL}${filePath}`;
+      for (const chunk of fileChunks) {
+        const results = await Promise.all(
+          chunk.map(async (filePath) => {
+            const fileName = filePath.split("/").pop() ?? filePath;
+            const fileUrl = `${KNOWLEDGE_BASE_URL}${filePath}`;
 
-          try {
-            const res = await fetch(fileUrl);
-            if (!res.ok) throw new Error(`Failed to fetch ${filePath}`);
+            try {
+              const res = await fetch(fileUrl);
+              if (!res.ok) throw new Error(`Failed to fetch ${filePath}`);
 
-            const isExcel = /\.(xlsx|xls)$/i.test(fileName);
-            const isText = /\.(txt|md|html|csv|log|pdf)$/i.test(fileName);
-            const isVQD = fileName === "vqd.json";
-            const isLKP = fileName === "lkp.json";
+              const isExcel = /\.(xlsx|xls)$/i.test(fileName);
+              const isText = /\.(txt|md|html|csv|log|pdf)$/i.test(fileName);
+              const isVQD = fileName === "vqd.json";
+              const isLKP = fileName === "lkp.json";
 
-            const textContent = await res.text();
+              const textContent = await res.text();
 
-            // ---------------- VQD ----------------
-            if (isVQD) {
-              const file = new File([textContent], fileName, { type: "application/json" });
-              const { list } = await parseVQDFile(file);
-              setVqdIndex(list);
-              processed++;
+              if (isVQD) {
+                const file = new File([textContent], fileName, { type: "application/json" });
+                const { list } = await parseVQDFile(file);
+                setVqdIndex(list);
+                processed++;
+                return null;
+              }
+
+              if (isLKP) {
+                const file = new File([textContent], fileName, { type: "application/json" });
+                const { tables } = await parseLKPFile(file);
+                setLkpTables(tables);
+                processed++;
+                return null;
+              }
+
+              if (isText) {
+                const content = fileName.endsWith(".html") ? stripHTML(textContent) : textContent;
+                processed++;
+                return { name: fileName, path: filePath, content };
+              }
+
+              skipped++;
+              return null;
+            } catch (err) {
+              console.error(`Error processing ${filePath}:`, err);
+              skipped++;
               return null;
             }
+          })
+        );
 
-            // ---------------- LKP ----------------
-            if (isLKP) {
-              const file = new File([textContent], fileName, { type: "application/json" });
-              const { tables } = await parseLKPFile(file);
-              setLkpTables(tables);
-              processed++;
-              return null;
-            }
+        results.forEach((file) => {
+          if (file) newSopFiles.push(file);
+        });
+      }
 
-            // ---------------- Text ----------------
-            if (isText) {
-              const content = fileName.endsWith(".html") ? stripHTML(textContent) : textContent;
-              processed++;
-              return { name: fileName, path: filePath, content };
-            }
+      setSopFiles((prev) => [...prev, ...newSopFiles]);
 
-            skipped++;
-            return null;
-          } catch (err) {
-            console.error(`Error processing ${filePath}:`, err);
-            skipped++;
-            return null;
-          }
-        })
-      );
-
-      // Add fetched SOPs from this chunk
-      results.forEach((file) => {
-        if (file) newSopFiles.push(file);
-      });
-    }
-
-    setSopFiles((prev) => [...prev, ...newSopFiles]);
-
-    alert(
-      `Knowledge Base Synced!\n\n` +
+      alert(
+        `Knowledge Base Synced!\n\n` +
         `- Processed: ${processed} files\n` +
         `- Skipped: ${skipped}\n` +
         `- Source: GitHub\n` +
         `- Path awareness enabled`
-    );
-  } catch (err) {
-    console.warn("Auto-sync skipped or failed:", err);
-  }
-};
+      );
+    } catch (err) {
+      console.warn("Auto-sync skipped or failed:", err);
+    }
+  };
 
-// Call it once on page load
-syncKnowledgeBase();
-}, []);
+  // Call it once on page load
+  syncKnowledgeBase();
+}, []); // <- empty dependency array added here
+
 
   useEffect(() => {
     if (scrollRef.current) {
