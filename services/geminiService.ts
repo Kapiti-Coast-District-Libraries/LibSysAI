@@ -3,7 +3,7 @@ import { GoogleGenAI, GenerateContentResponse, Type, FunctionDeclaration } from 
 import { SYSTEM_INSTRUCTION } from "../constants";
 
 const getAIClient = () => {
-  const apiKey = import.meta.env.VITE_KEY;
+  const apiKey = '';
   if (!apiKey) throw new Error("API Key is missing");
   return new GoogleGenAI({ apiKey });
 };
