@@ -9,6 +9,7 @@ async function logUserRPD(userId: string) {
     console.log('RPD logged for user', userId);
   }
 }
+const CLOUD_FLARE_WORKER_URL = "https://libsysai.paraparaumumake.workers.dev/";
 const SUPABASE_GEMINI_URL =
   "https://ytztmtcdfqpamhityaqz.supabase.co/functions/v1/gemini_proxy_func";
 
@@ -55,11 +56,10 @@ const { data: { session }, error } = await supabaseClient.auth.getSession();
 console.log("SESSION:", session);
 console.log("ERROR:", error);
 
-const res = await fetch(SUPABASE_GEMINI_URL, {
+const res = await fetch(CLOUD_FLARE_WORKER_URL, {
   method: "POST",
   headers: {
-    "Content-Type": "application/json",
-    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+    "Content-Type": "application/json"
   },
   body: JSON.stringify({
     message,
