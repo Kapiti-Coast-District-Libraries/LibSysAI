@@ -256,8 +256,8 @@ for (const file of files) {
     queryLower.includes("code");
 
   const isRequestingInk = 
-    queryLower.includes("ink") ||
-    queryLower.includes("toner") ||
+    queryLower.includes(" ink") ||
+    queryLower.includes(" toner") ||
     currentFlow === "Ink";
 
   
@@ -273,11 +273,11 @@ for (const file of files) {
   if (isRequestingBoolean && vqdIndex && vqdIndex.length > 0) {
     limit = 1;
   combinedContext += BOOLEAN_MANDATE;
-    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 125); // get top 100
+    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 125); // get top 125
   
   if (vqdMatches.length > 0) {
     combinedContext +=
-      `--- VQD MATCHES (Top 100 Relevant Variables) ---` +
+      `--- VQD MATCHES (Top 125 Relevant Variables) ---` +
       vqdMatches
         .map(vqd => `ID: ${vqd.id}
 Variable: ${vqd.variable_name}
@@ -285,7 +285,7 @@ Type: ${vqd.type}
 Format: ${vqd.format ?? "None"}
 Record: ${vqd.record_type ?? "None"}
 Description: ${vqd.description}`)
-        .join("");
+        .join("\n");
 
     console.log("[VQD CONTEXT INJECTED]", vqdMatches);
   }
