@@ -249,7 +249,7 @@ for (const file of files) {
   if (files.length === 0 && (!vqdIndex || vqdIndex.length === 0)) return "";
 
   const queryLower = query.toLowerCase();
-  const queryTerms = queryLower.split(/\W+/).filter(t => t.length > 4);
+  const queryTerms = queryLower.split(/\W+/).filter(t => t.length >= 4);
   const isRequestingBoolean =
     queryLower.includes("boolean") ||
     queryLower.includes("query") ||
@@ -273,11 +273,11 @@ for (const file of files) {
   if (isRequestingBoolean && vqdIndex && vqdIndex.length > 0) {
     limit = 1;
   combinedContext += BOOLEAN_MANDATE;
-    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 125); // get top 125
+    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 75); // get top 125
   
   if (vqdMatches.length > 0) {
     combinedContext +=
-      `--- VQD MATCHES (Top 125 Relevant Variables) ---` +
+      `--- VQD MATCHES (Top 75 Relevant Variables) ---` +
       vqdMatches
         .map(vqd => `ID: ${vqd.id}
 Variable: ${vqd.variable_name}
@@ -292,7 +292,7 @@ Description: ${vqd.description}`)
 }
 
 if (isRequestingBoolean && lkpTables && lkpTables.length > 0) {
-  const lkpMatches = searchLKPDescriptions(lkpTables, query, 75);
+  const lkpMatches = searchLKPDescriptions(lkpTables, query, 40);
 
   if (lkpMatches.length > 0) {
     combinedContext +=
