@@ -175,7 +175,12 @@
   </div>
 
   <script type="module">
-    import { supabaseClient } from "./supabase.js"
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+  const supabaseClient = createClient(
+    'https://ytztmtcdfqpamhityaqz.supabase.co',
+    'sb_publishable_QivpXC97wK00Ov2EedYmIg_q_xBc3fk'
+  )
     const ADMIN_UUID = "753c187c-5c83-44c1-a01b-f02d5537ab62";
     const COST_RATE = 4.50 / 100; // $4.50 per 100 RPD
 

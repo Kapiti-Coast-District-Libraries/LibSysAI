@@ -871,7 +871,7 @@ setMessages(prev =>
 
 
         <div className="flex-1 overflow-hidden">
-          view === 'chat' ? (
+          {view === 'chat'} (
             <div className="h-full flex flex-col">
               <div ref={scrollRef} className="flex-1 overflow-y-auto custom-scrollbar p-4 lg:p-10 space-y-4">
                 {messages.length === 0 ? (
