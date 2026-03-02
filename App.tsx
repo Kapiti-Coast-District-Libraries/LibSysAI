@@ -871,7 +871,7 @@ setMessages(prev =>
 
 
         <div className="flex-1 overflow-hidden">
-          {view === 'chat' ? (
+          view === 'chat' ? (
             <div className="h-full flex flex-col">
               <div ref={scrollRef} className="flex-1 overflow-y-auto custom-scrollbar p-4 lg:p-10 space-y-4">
                 {messages.length === 0 ? (
@@ -936,73 +936,7 @@ setMessages(prev =>
                 </form>
               </div>
             </div>
-          ) : (
-            /* Admin View */
-<div className="h-full p-6 lg:p-10 overflow-y-auto custom-scrollbar bg-slate-50/50">
-  <div className="max-w-4xl mx-auto">
-    <div className="mb-10">
-      <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-        Knowledge Base
-      </h2>
-      <p className="text-slate-500 mt-2 font-medium">
-        Files Shown Below Are All The Available Standard Operating Procedures (SOPS) For AI Processing.
-      </p>
-    </div>
-
-    <div className="bg-white p-8 rounded-[2.5rem] border-2 border-slate-100 shadow-sm flex flex-col">
-      <h3 className="text-lg font-black text-slate-800 mb-4 flex items-center justify-between">
-        Indexed SOPs
-        <span className="text-xs font-black bg-slate-100 px-3 py-1 rounded-full text-slate-500">
-          {sopFiles.length} files
-        </span>
-      </h3>
-
-      {sopFiles.length === 0 ? (
-        <div className="flex-1 flex flex-col items-center justify-center py-16 text-center opacity-50">
-          <div className="text-5xl mb-4">📄</div>
-          <div className="text-xs font-bold uppercase tracking-widest">
-            No SOPs indexed
-          </div>
-          <div className="text-[10px] text-slate-400 mt-2">
-            Waiting for GitHub sync
-          </div>
-        </div>
-      ) : (
-        <div className="flex-1 overflow-y-auto custom-scrollbar space-y-2 max-h-[28rem] pr-2">
-          {sopFiles.slice(0, 200).map((file, idx) => (
-            <div
-              key={idx}
-              className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100"
-            >
-              <span className="text-xs font-bold text-slate-600 truncate mr-4">
-                {file.path}
-              </span>
-              <span className="text-[10px] font-black text-green-500 uppercase">
-                Synced
-              </span>
-            </div>
-          ))}
-
-          {sopFiles.length > 200 && (
-            <div className="text-center text-[10px] font-bold text-slate-400 pt-3">
-              + {sopFiles.length - 200} more files indexed
-            </div>
-          )}
-        </div>
-      )}
-
-      {sopFiles.length > 0 && (
-        <button
-          onClick={() => setSopFiles([])}
-          className="mt-6 text-red-500 text-xs font-black uppercase tracking-widest hover:underline text-center"
-        >
-          Clear Local Cache
-        </button>
-      )}
-    </div>
-  </div>
-</div>
-          )}
+          )
         </div>
       </main>
     </div>
