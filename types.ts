@@ -42,13 +42,11 @@ export interface VQD {
 export interface LKP {
   id: string;
   description: string;
-  properties: string | null;
 }
 
 export interface LKPTable {
   table_id: string;
   table_description: string;
-  table_properties: string[];
   rows: LKP[];
 }
 

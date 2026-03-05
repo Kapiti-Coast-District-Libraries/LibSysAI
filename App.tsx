@@ -301,14 +301,12 @@ if (isRequestingBoolean && lkpTables && lkpTables.length > 0) {
         .map(table =>
           `Table ID: ${table.table_id}
 Table Description: ${table.table_description}
-Properties: ${table.table_properties?.join(", ") ?? "None"}
 Rows:
 ${table.matchedRows
   .map(
     row =>
       `  - ID: ${row.id}
-    Description: ${row.description}
-    Properties: ${row.properties ?? "None"}`
+    Description: ${row.description}`
   )
   .join("")}`
         )
@@ -443,7 +441,6 @@ function tokenize(text: string): string[] {
 interface LKPSearchResult {
   table_id: string;
   table_description: string;
-  table_properties: string[];
   matchedRows: LKP[];
 }
 
@@ -490,7 +487,6 @@ function searchLKPDescriptions(
       tableResults.push({
         table_id: table.table_id,
         table_description: table.table_description,
-        table_properties: table.table_properties,
         matchedRows
       });
     }
@@ -662,7 +658,6 @@ async function parseLKPFile(file: File): Promise<{
     const lkpTable: LKPTable = {
       table_id: (table as any).table_id,
       table_description: (table as any).table_description,
-      table_properties: (table as any).table_properties ?? [],
       rows: []
     };
 
@@ -676,9 +671,8 @@ async function parseLKPFile(file: File): Promise<{
 
       const lkp: LKP = {
         id: row.id,
-        description: row.description,
-        properties: row.properties ?? null
-      };
+        description: row.description
+            };
 
       lkpTable.rows.push(lkp);
       list.push(lkp);
