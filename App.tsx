@@ -251,9 +251,9 @@ for (const file of files) {
   const queryLower = query.toLowerCase();
   const queryTerms = queryLower.split(/\W+/).filter(t => t.length >= 4);
   const isRequestingBoolean =
-    queryLower.includes("boolean") ||
-    queryLower.includes("query") ||
-    queryLower.includes("code");
+    queryLower.includes(" boolean") ||
+    queryLower.includes(" query") ||
+    queryLower.includes(" code");
 
   const isRequestingInk = 
     queryLower.includes(" ink") ||
@@ -273,11 +273,11 @@ for (const file of files) {
   if (isRequestingBoolean && vqdIndex && vqdIndex.length > 0) {
     limit = 1;
   combinedContext += BOOLEAN_MANDATE;
-    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 75); // get top 125
+    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 50); // get top 125
   
   if (vqdMatches.length > 0) {
     combinedContext +=
-      `--- VQD MATCHES (Top 75 Relevant Variables) ---` +
+      `--- VQD MATCHES (Top 50 Relevant Variables) ---` +
       vqdMatches
         .map(vqd => `ID: ${vqd.id}
 Variable: ${vqd.variable_name}
@@ -292,7 +292,7 @@ Description: ${vqd.description}`)
 }
 
 if (isRequestingBoolean && lkpTables && lkpTables.length > 0) {
-  const lkpMatches = searchLKPDescriptions(lkpTables, query, 40);
+  const lkpMatches = searchLKPDescriptions(lkpTables, query, 25);
 
   if (lkpMatches.length > 0) {
     combinedContext +=
@@ -458,7 +458,7 @@ function searchLKPDescriptions(
   const collectionKeywords = [ /* ... */ ];
   const itemStatusKeywords = [ /* ... */ ];
 
-  const inputWords = tokenize(inputText);
+  const inputWords = tokenize(inputText).filter(word => word.length >= 4);
   const extendedInputWords = new Set<string>(inputWords);
 
   inputWords.forEach(word => {
@@ -538,7 +538,9 @@ function searchVQDDescriptions(
   const enrichedInputWords = enrichInputText(inputText);
 
   // Tokenize the enriched input words
-  const inputWords = enrichedInputWords.flatMap(word => tokenize(word));
+  const inputWords = enrichedInputWords
+  .flatMap(word => tokenize(word))
+  .filter(word => word.length >= 4);
   if (inputWords.length === 0) return [];
 
   // Score each VQD based on how many words match
