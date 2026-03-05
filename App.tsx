@@ -273,7 +273,7 @@ for (const file of files) {
   if (isRequestingBoolean && vqdIndex && vqdIndex.length > 0) {
     limit = 1;
   combinedContext += BOOLEAN_MANDATE;
-    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 50); // get top 125
+    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 70); // get top 125
   
   if (vqdMatches.length > 0) {
     combinedContext +=
@@ -292,7 +292,7 @@ Description: ${vqd.description}`)
 }
 
 if (isRequestingBoolean && lkpTables && lkpTables.length > 0) {
-  const lkpMatches = searchLKPDescriptions(lkpTables, query, 25);
+  const lkpMatches = searchLKPDescriptions(lkpTables, query, 35);
 
   if (lkpMatches.length > 0) {
     combinedContext +=
