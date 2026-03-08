@@ -249,85 +249,143 @@ for (const file of files) {
   if (files.length === 0 && (!vqdIndex || vqdIndex.length === 0)) return "";
 
   const queryLower = query.toLowerCase();
-  const queryTerms = queryLower.split(/\W+/).filter(t => t.length >= 4);
+  const queryTerms = queryLower.split(/\W+/).filter(t => t.length >= 3);
+
   const isRequestingBoolean =
     queryLower.includes(" boolean") ||
     queryLower.includes(" query") ||
     queryLower.includes(" code");
 
-  const isRequestingInk = 
+  const isRequestingInk =
     queryLower.includes(" ink") ||
     queryLower.includes(" toner") ||
     currentFlow === "Ink";
 
-  
   let combinedContext = "";
 
-
-  if(isRequestingInk){
+  if (isRequestingInk) {
     combinedContext += PRINTER_INSTRUCTION;
     currentFlowRef.current = "Ink";
     return combinedContext;
   }
-  // ===== VQD MATCHES (Boolean / Lookup Context) =====
+
+  // ===== VQD MATCHES (UNCHANGED) =====
   if (isRequestingBoolean && vqdIndex && vqdIndex.length > 0) {
     limit = 1;
-  combinedContext += BOOLEAN_MANDATE;
-    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 70); // get top 125
-  
-  if (vqdMatches.length > 0) {
-    combinedContext +=
-      `--- VQD MATCHES (Top 50 Relevant Variables) ---` +
-      vqdMatches
-        .map(vqd => `ID: ${vqd.id}
+    combinedContext += BOOLEAN_MANDATE;
+
+    const vqdMatches = searchVQDDescriptions(vqdIndex, query, 70);
+
+    if (vqdMatches.length > 0) {
+      combinedContext +=
+        `--- VQD MATCHES (Top Relevant Variables) ---` +
+        vqdMatches
+          .map(
+            vqd => `ID: ${vqd.id}
 Variable: ${vqd.variable_name}
 Type: ${vqd.type}
 Format: ${vqd.format ?? "None"}
 Record: ${vqd.record_type ?? "None"}
-Description: ${vqd.description}`)
-        .join("\n");
-
-    console.log("[VQD CONTEXT INJECTED]", vqdMatches);
+Description: ${vqd.description}`
+          )
+          .join("\n");
+    }
   }
-}
 
-if (isRequestingBoolean && lkpTables && lkpTables.length > 0) {
-  const lkpMatches = searchLKPDescriptions(lkpTables, query, 35);
+  // ===== LKP MATCHES (UNCHANGED) =====
+  if (isRequestingBoolean && lkpTables && lkpTables.length > 0) {
+    const lkpMatches = searchLKPDescriptions(lkpTables, query, 35);
 
-  if (lkpMatches.length > 0) {
-    combinedContext +=
-      `--- LKP MATCHES (Lookup Tables & Values) ---` +
-      lkpMatches
-        .map(table =>
-          `Table ID: ${table.table_id}
+    if (lkpMatches.length > 0) {
+      combinedContext +=
+        `--- LKP MATCHES (Lookup Tables & Values) ---` +
+        lkpMatches
+          .map(
+            table => `Table ID: ${table.table_id}
 Table Description: ${table.table_description}
 Rows:
 ${table.matchedRows
   .map(
-    row =>
-      `  - ID: ${row.id}
+    row => `  - ID: ${row.id}
     Description: ${row.description}`
   )
   .join("")}`
-        )
-        .join("");
-
-    console.log("[LKP CONTEXT INJECTED]", lkpMatches);
+          )
+          .join("");
+    }
   }
-}
 
-
-
-  // ===== SOP FILE SCORING =====
+  // ===== FILE RETRIEVAL =====
   if (files && files.length > 0) {
-    const scoredFiles = files.map((file) => {
+
+    const k1 = 1.5;
+    const b = 0.75;
+
+    // split files by type
+    const textFiles = files.filter(
+      f => f.name.endsWith(".txt") || f.name.endsWith(".html")
+    );
+
+    const jsonFiles = files.filter(f => f.name.endsWith(".json"));
+
+    // ===== BM25 PREP FOR TEXT/HTML =====
+
+    const docLengths = textFiles.map(f =>
+      f.content.split(/\W+/).length
+    );
+
+    const avgDocLength =
+      docLengths.reduce((a, b) => a + b, 0) /
+      (docLengths.length || 1);
+
+    const termDocCount: Record<string, number> = {};
+
+    queryTerms.forEach(term => {
+      termDocCount[term] = textFiles.filter(f =>
+        f.content.toLowerCase().includes(term)
+      ).length;
+    });
+
+    const scoredFiles: { file: SopFile; score: number }[] = [];
+
+    // ===== BM25 SCORING =====
+    textFiles.forEach((file, index) => {
+      const content = file.content.toLowerCase();
+      const words = content.split(/\W+/);
+      const docLength = words.length;
+
       let score = 0;
+
+      queryTerms.forEach(term => {
+        const tf = words.filter(w => w === term).length;
+        if (tf === 0) return;
+
+        const df = termDocCount[term] || 1;
+        const idf = Math.log(
+          (textFiles.length - df + 0.5) / (df + 0.5) + 1
+        );
+
+        const numerator = tf * (k1 + 1);
+        const denominator =
+          tf +
+          k1 *
+            (1 - b + (b * docLength) / avgDocLength);
+
+        score += idf * (numerator / denominator);
+      });
+
+      scoredFiles.push({ file, score });
+    });
+
+    // ===== ORIGINAL SCORING FOR JSON FILES =====
+    jsonFiles.forEach(file => {
+      let score = 0;
+
       const contentLower = file.content.toLowerCase();
       const nameLower = file.name.toLowerCase();
       const pathLower = file.path.toLowerCase();
 
       if (isRequestingBoolean) {
-        // Boost files with boolean/config names or paths
         if (
           nameLower.includes("boolean") ||
           nameLower.includes("lkp") ||
@@ -338,40 +396,45 @@ ${table.matchedRows
           score += 300;
 
         if (nameLower.includes("lkp")) score += 280;
-        if (pathLower.includes("boolean") || pathLower.includes("database"))
+        if (
+          pathLower.includes("boolean") ||
+          pathLower.includes("database")
+        )
           score += 50;
       }
 
-      queryTerms.forEach((term) => {
+      queryTerms.forEach(term => {
         if (nameLower.includes(term)) score += 40;
         if (pathLower.includes(term)) score += 15;
 
         const regex = new RegExp(`\\b${term}\\b`, "gi");
         const matches = contentLower.match(regex);
+
         if (matches) score += matches.length * 10;
 
         if (contentLower.includes(term)) score += 2;
       });
 
-      return { file, score };
+      scoredFiles.push({ file, score });
     });
 
+    // ===== SORT FILES =====
     const sortedFiles = scoredFiles
-      .filter((f) => f.score > 0)
+      .filter(f => f.score > 0)
       .sort((a, b) => b.score - a.score);
 
+    // ===== INJECT FILES =====
     let filesIncluded = 0;
+
     for (const item of sortedFiles) {
-  if (filesIncluded >= limit) break;
+      if (filesIncluded >= limit) break;
 
-  // Start with full file content
-  let contentToInject = item.file.content;
+      const fileHeader = `--- SOURCE_FILE: ${item.file.path} ---`;
 
-  const fileHeader = `--- SOURCE_FILE: ${item.file.path} ---`;
-  combinedContext += fileHeader + contentToInject;
+      combinedContext += fileHeader + item.file.content;
 
-  filesIncluded++;
-}
+      filesIncluded++;
+    }
   }
 
   return combinedContext;
