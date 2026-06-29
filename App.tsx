@@ -898,7 +898,6 @@ setMessages(prev =>
 
           <div className="pt-6 border-t border-slate-100">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Urgent Contacts (Max Unavailable)</h3>
-            <div className="space-y-3">
               <div className="space-y-3">
   {CONTACT_DIRECTORY.map((contact, idx) => (
     <div 
@@ -911,7 +910,6 @@ setMessages(prev =>
     </div>
   ))}
 </div>
-            </div>
           </div>
         </div>
 
