@@ -856,7 +856,7 @@ setMessages(prev =>
   return (
     <div className="flex h-screen bg-slate-50 overflow-hidden text-slate-900 font-sans text-sm">
       {/* Sidebar */}
-      <aside className="hidden lg:flex flex-col w-80 bg-white border-r border-slate-200">
+      <aside className="hidden lg:flex flex-col w-80 bg-white border-r border-slate-200 relative z-20">
         <div className="p-6 border-b border-slate-100 bg-slate-50/50">
           <div className="flex items-center gap-3">
             <span className="p-2.5 bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-100 text-xl font-bold">L</span>
