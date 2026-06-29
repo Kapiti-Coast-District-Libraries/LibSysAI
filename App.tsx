@@ -261,6 +261,10 @@ for (const file of files) {
     queryLower.includes(" toner") ||
     currentFlow === "Ink";
 
+  const isRequestingContainer =
+    queryLower.includes(" container") ||
+    queryLower.includes(" containers");
+  
   let combinedContext = "";
 
   if (isRequestingInk) {
@@ -385,6 +389,10 @@ ${table.matchedRows
       const nameLower = file.name.toLowerCase();
       const pathLower = file.path.toLowerCase();
 
+      if (isRequestingContainer) {
+        if(nameLower.includes("building") || nameLower.includes("containers")){
+          score += 350;
+        }
       if (isRequestingBoolean) {
         if (
           nameLower.includes("boolean") ||
