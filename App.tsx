@@ -899,6 +899,13 @@ setMessages(prev =>
           <div className="pt-6 border-t border-slate-100">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Urgent Contacts (Max Unavailable)</h3>
               <div className="space-y-3">
+                <button
+  type="button"
+  onClick={() => alert("works")}
+  className="w-full p-4 bg-red-500 text-white rounded-xl"
+>
+  Test Button
+</button>
   {CONTACT_DIRECTORY.map((contact, idx) => (
     <div 
       key={idx} 
