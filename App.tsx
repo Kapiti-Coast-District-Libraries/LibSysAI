@@ -1002,7 +1002,6 @@ setMessages(prev =>
                 </form>
               </div>
             </div>
-          )
         </div>
       </main>
     </div>
