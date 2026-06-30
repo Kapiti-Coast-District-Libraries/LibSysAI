@@ -446,7 +446,8 @@ ${table.matchedRows
     }
   }
 
-  )return combinedContext;
+  );
+    return combinedContext;
 };
 
 
