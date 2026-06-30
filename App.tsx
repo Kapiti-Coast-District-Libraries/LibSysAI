@@ -891,11 +891,23 @@ setMessages(prev =>
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Urgent Contacts (Max Unavailable)</h3>
             <div className="space-y-3">
               {CONTACT_DIRECTORY.map((contact, idx) => (
-                <div key={idx} className="p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm">
-                  <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">{contact.department}</div>
-                  <div className="text-lg font-black text-slate-800 tracking-tight">{contact.number}</div>
-                </div>
-              ))}
+  <button
+    key={idx}
+    type="button"
+    onClick={() => {
+      console.log("clicked", contact);
+      setSelectedContact(contact);
+    }}
+    className="w-full text-left p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
+  >
+    <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">
+      {contact.department}
+    </div>
+    <div className="text-lg font-black text-slate-800 tracking-tight">
+      {contact.number}
+    </div>
+  </button>
+))}
             </div>
           </div>
         </div>
