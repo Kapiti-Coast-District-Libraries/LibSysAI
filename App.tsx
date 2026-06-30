@@ -87,8 +87,7 @@ const App: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isInterruptedRef = useRef(false);
   type FlowState = "Normal" | "Ink";
-  const [selectedContact, setSelectedContact] = useState<typeof CONTACT_DIRECTORY[0] | null>(null);
-  const [noteInput, setNoteInput] = useState(''); // State for your hardcoded info
+
   const currentFlowRef = useRef<FlowState>("Normal");
 
   useEffect(() => {
@@ -262,10 +261,6 @@ for (const file of files) {
     queryLower.includes(" toner") ||
     currentFlow === "Ink";
 
-  const isRequestingContainer =
-    queryLower.includes(" container") ||
-    queryLower.includes(" containers");
-  
   let combinedContext = "";
 
   if (isRequestingInk) {
@@ -390,10 +385,6 @@ ${table.matchedRows
       const nameLower = file.name.toLowerCase();
       const pathLower = file.path.toLowerCase();
 
-      if (isRequestingContainer) {
-        if(nameLower.includes("building") || nameLower.includes("containers")){
-          score += 350;
-        }
       if (isRequestingBoolean) {
         if (
           nameLower.includes("boolean") ||
@@ -425,7 +416,7 @@ ${table.matchedRows
       });
 
       scoredFiles.push({ file, score });
-    };
+    });
 
     // ===== SORT FILES =====
     const sortedFiles = scoredFiles
@@ -446,8 +437,7 @@ ${table.matchedRows
     }
   }
 
-  );
-    return combinedContext;
+  return combinedContext;
 };
 
 
@@ -857,7 +847,7 @@ setMessages(prev =>
   return (
     <div className="flex h-screen bg-slate-50 overflow-hidden text-slate-900 font-sans text-sm">
       {/* Sidebar */}
-      <aside className="hidden lg:flex flex-col w-80 bg-white border-r border-slate-200 relative z-20">
+      <aside className="hidden lg:flex flex-col w-80 bg-white border-r border-slate-200">
         <div className="p-6 border-b border-slate-100 bg-slate-50/50">
           <div className="flex items-center gap-3">
             <span className="p-2.5 bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-100 text-xl font-bold">L</span>
@@ -899,28 +889,14 @@ setMessages(prev =>
 
           <div className="pt-6 border-t border-slate-100">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Urgent Contacts (Max Unavailable)</h3>
-              <div className="space-y-3">
-                <button
-  type="button"
-  onClick={() => alert("works")}
-  className="w-full p-4 bg-red-500 text-white rounded-xl"
->
-  Test Button
-</button>
-  {CONTACT_DIRECTORY.map((contact, idx) => (
-    <div 
-      key={idx} 
-      onClick={() => {
-  console.log("clicked", contact);
-  setSelectedContact(contact);
-}}
-      className="p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
-    >
-      <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">{contact.department}</div>
-      <div className="text-lg font-black text-slate-800 tracking-tight">{contact.number}</div>
-    </div>
-  ))}
-</div>
+            <div className="space-y-3">
+              {CONTACT_DIRECTORY.map((contact, idx) => (
+                <div key={idx} className="p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm">
+                  <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">{contact.department}</div>
+                  <div className="text-lg font-black text-slate-800 tracking-tight">{contact.number}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -1026,46 +1002,11 @@ setMessages(prev =>
                 </form>
               </div>
             </div>
-          </div>
-
-        {/* Modal: Moved outside of the flex-1 div so it covers the full viewport properly */}
-        {selectedContact && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-            <div className="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl animate-in fade-in zoom-in duration-200">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-black text-slate-800">{selectedContact.department} Details</h3>
-                <button onClick={() => setSelectedContact(null)} className="p-1 hover:bg-slate-100 rounded-lg transition-colors">
-                  <svg className="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
-              </div>
-              <div className="space-y-4">
-                <div className="p-4 bg-slate-50 rounded-xl">
-                  <p className="text-sm font-bold text-slate-500 mb-1 uppercase text-[10px]">Contact Number</p>
-                  <p className="text-2xl font-black text-blue-600">{selectedContact.number}</p>
-                </div>
-                <div>
-                  <label className="block text-[10px] font-black text-slate-400 uppercase mb-2">Additional Info</label>
-                  <textarea 
-                    value={noteInput}
-                    onChange={(e) => setNoteInput(e.target.value)}
-                    className="w-full p-3 border-2 border-slate-100 rounded-xl text-sm font-medium focus:border-blue-500 outline-none h-24 resize-none"
-                    placeholder="Add notes here..."
-                  />
-                </div>
-                <button 
-                  onClick={() => { console.log("Saving:", noteInput); setSelectedContact(null); }}
-                  className="w-full bg-slate-900 text-white font-black py-3 rounded-xl hover:bg-slate-800 transition-all active:scale-95"
-                >
-                  Save Information
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+          )
+        </div>
       </main>
     </div>
   );
 };
 
 export default App;
-}
