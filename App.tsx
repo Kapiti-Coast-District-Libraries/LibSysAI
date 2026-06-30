@@ -902,7 +902,10 @@ setMessages(prev =>
   {CONTACT_DIRECTORY.map((contact, idx) => (
     <div 
       key={idx} 
-      onClick={() => setSelectedContact(contact)}
+      onClick={() => {
+  console.log("clicked", contact);
+  setSelectedContact(contact);
+}}
       className="p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
     >
       <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">{contact.department}</div>
