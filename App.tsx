@@ -425,7 +425,7 @@ ${table.matchedRows
       });
 
       scoredFiles.push({ file, score });
-    });
+    };
 
     // ===== SORT FILES =====
     const sortedFiles = scoredFiles
