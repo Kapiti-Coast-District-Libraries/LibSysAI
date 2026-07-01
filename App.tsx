@@ -1019,10 +1019,10 @@ setMessages(prev =>
             </div>
         </div>
       </main>
-      {selectedContact && !isEditing && (
-  <div className="space-y-6">
-
-    <div className="flex justify-between items-start">
+      {selectedContact && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4">
+    
+    <div className="bg-white rounded-3xl w-full max-w-3xl shadow-2xl p-8 relative">
       <div>
         <h3 className="text-2xl font-black text-slate-800">
           {selectedContact.department}
