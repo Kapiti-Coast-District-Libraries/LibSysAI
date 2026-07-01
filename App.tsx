@@ -83,6 +83,7 @@ const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [selectedContact, setSelectedContact] = useState(null);
   const [contacts, setContacts] = useState(CONTACT_DIRECTORY);
   const [sopFiles, setSopFiles] = useState<SopFile[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
