@@ -1019,48 +1019,148 @@ setMessages(prev =>
             </div>
         </div>
       </main>
-      {selectedContact && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4">
+  {selectedContact && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4"
+    onClick={() => {
+      setSelectedContact(null);
+      setIsEditing(false);
+    }}
+  >
     
-    <div className="bg-white rounded-3xl w-full max-w-3xl shadow-2xl p-8 relative">
-      <div>
-        <h3 className="text-2xl font-black text-slate-800">
-          {selectedContact.department}
-        </h3>
-        <p className="text-slate-500 font-bold">
-          {selectedContact.hours}
-        </p>
+    {/* STOP click bubbling into backdrop */}
+    <div
+      className="bg-white rounded-3xl w-full max-w-3xl shadow-2xl p-8 flex flex-col gap-6"
+      onClick={(e) => e.stopPropagation()}
+    >
+
+      {/* HEADER */}
+      <div className="flex justify-between items-start">
+        <div>
+          <h3 className="text-2xl font-black text-slate-800">
+            {selectedContact.department}
+          </h3>
+          <p className="text-slate-500 font-bold">
+            {selectedContact.hours}
+          </p>
+        </div>
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => setIsEditing(true)}
+            className="p-2 hover:bg-slate-100 rounded-xl"
+          >
+            ✏️
+          </button>
+
+          <button
+            onClick={() => {
+              setSelectedContact(null);
+              setIsEditing(false);
+            }}
+            className="p-2 hover:bg-slate-100 rounded-xl"
+          >
+            ✕
+          </button>
+        </div>
       </div>
 
-      {/* Pencil button */}
-      <button
-        onClick={() => setIsEditing(true)}
-        className="p-2 hover:bg-slate-100 rounded-xl transition"
-      >
-        ✏️
-      </button>
-    </div>
+      {/* VIEW MODE */}
+      {!isEditing && (
+        <div className="flex flex-col gap-6">
+          
+          <div className="bg-slate-50 p-6 rounded-2xl">
+            <p className="text-xs uppercase font-black text-slate-400 mb-2">
+              Contact Number
+            </p>
+            <p className="text-3xl font-black text-blue-600">
+              {selectedContact.number}
+            </p>
+          </div>
 
-    <div className="bg-slate-50 p-6 rounded-2xl">
-      <p className="text-xs uppercase font-black text-slate-400 mb-2">
-        Contact Number
-      </p>
-      <p className="text-3xl font-black text-blue-600">
-        {selectedContact.number}
-      </p>
-    </div>
+          <div>
+            <p className="text-xs uppercase font-black text-slate-400 mb-2">
+              Notes
+            </p>
+            <div className="min-h-[140px] p-4 border-2 border-slate-100 rounded-2xl text-slate-700">
+              {selectedContact.notes?.trim()
+                ? selectedContact.notes
+                : "No notes added yet."}
+            </div>
+          </div>
 
-    <div>
-      <p className="text-xs uppercase font-black text-slate-400 mb-2">
-        Notes
-      </p>
-      <div className="bg-white border-2 border-slate-100 rounded-2xl p-4 min-h-[120px] text-slate-700">
-        {selectedContact.notes?.trim()
-          ? selectedContact.notes
-          : "No notes added yet."}
-      </div>
-    </div>
+        </div>
+      )}
 
+      {/* EDIT MODE */}
+      {isEditing && (
+        <div className="flex flex-col gap-4">
+
+          <input
+            value={selectedContact.department}
+            onChange={(e) =>
+              setSelectedContact({
+                ...selectedContact,
+                department: e.target.value,
+              })
+            }
+            className="w-full p-3 border rounded-xl font-bold"
+          />
+
+          <input
+            value={selectedContact.number}
+            onChange={(e) =>
+              setSelectedContact({
+                ...selectedContact,
+                number: e.target.value,
+              })
+            }
+            className="w-full p-3 border rounded-xl font-bold"
+          />
+
+          <textarea
+            value={selectedContact.notes || ""}
+            onChange={(e) =>
+              setSelectedContact({
+                ...selectedContact,
+                notes: e.target.value,
+              })
+            }
+            className="w-full p-4 border rounded-2xl h-40"
+            placeholder="Add notes..."
+          />
+
+          <div className="flex gap-3 pt-2">
+
+            <button
+              onClick={() => {
+                setContacts((prev) =>
+                  prev.map((c) =>
+                    c.number === selectedContact.number
+                      ? selectedContact
+                      : c
+                  )
+                );
+                setIsEditing(false);
+              }}
+              className="flex-1 bg-blue-600 text-white font-black py-3 rounded-xl"
+            >
+              Save
+            </button>
+
+            <button
+              onClick={() => setIsEditing(false)}
+              className="flex-1 bg-slate-100 font-black py-3 rounded-xl"
+            >
+              Cancel
+            </button>
+
+          </div>
+
+        </div>
+      )}
+
+    </div>
   </div>
 )}
     </div>
