@@ -15,6 +15,7 @@ export interface SupportContact {
   number: string;
   hours: string;
   priority: 'low' | 'medium' | 'high';
+  notes?: string;
 }
 
 export interface QuickAction {
