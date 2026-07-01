@@ -83,6 +83,7 @@ const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [contacts, setContacts] = useState(CONTACT_DIRECTORY);
   const [sopFiles, setSopFiles] = useState<SopFile[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isInterruptedRef = useRef(false);
@@ -890,13 +891,13 @@ setMessages(prev =>
           <div className="pt-6 border-t border-slate-100">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Urgent Contacts (Max Unavailable)</h3>
             <div className="space-y-3">
-              {CONTACT_DIRECTORY.map((contact, idx) => (
+              {contacts.map((contact, idx) => ( => (
   <button
     key={idx}
     type="button"
     onClick={() => {
       console.log("clicked", contact);
-      setSelectedContact(contact);
+     setSelectedContact({ ...contact });;
     }}
     className="w-full text-left p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
   >
@@ -1016,6 +1017,82 @@ setMessages(prev =>
             </div>
         </div>
       </main>
+      {selectedContact && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
+    <div className="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl">
+
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-lg font-black text-slate-800">
+          Edit Contact
+        </h3>
+        <button onClick={() => setSelectedContact(null)}>
+          ✕
+        </button>
+      </div>
+
+      <div className="space-y-3">
+
+        {/* Department */}
+        <input
+          value={selectedContact.department}
+          onChange={(e) =>
+            setSelectedContact({
+              ...selectedContact,
+              department: e.target.value,
+            })
+          }
+          className="w-full p-3 border rounded-xl font-bold"
+          placeholder="Department"
+        />
+
+        {/* Number */}
+        <input
+          value={selectedContact.number}
+          onChange={(e) =>
+            setSelectedContact({
+              ...selectedContact,
+              number: e.target.value,
+            })
+          }
+          className="w-full p-3 border rounded-xl font-bold"
+          placeholder="Phone number"
+        />
+
+        {/* Notes */}
+        <textarea
+          value={selectedContact.notes || ""}
+          onChange={(e) =>
+            setSelectedContact({
+              ...selectedContact,
+              notes: e.target.value,
+            })
+          }
+          className="w-full p-3 border rounded-xl h-24"
+          placeholder="Add notes..."
+        />
+
+        {/* Save */}
+        <button
+          onClick={() => {
+            setContacts((prev) =>
+              prev.map((c) =>
+                c.number === selectedContact.number
+                  ? selectedContact
+                  : c
+              )
+            );
+
+            setSelectedContact(null);
+          }}
+          className="w-full bg-blue-600 text-white font-black py-3 rounded-xl"
+        >
+          Save Changes
+        </button>
+
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };
