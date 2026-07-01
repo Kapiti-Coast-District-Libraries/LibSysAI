@@ -84,6 +84,7 @@ const App: React.FC = () => {
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [selectedContact, setSelectedContact] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
   const [contacts, setContacts] = useState(CONTACT_DIRECTORY);
   const [sopFiles, setSopFiles] = useState<SopFile[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -897,9 +898,9 @@ setMessages(prev =>
     key={idx}
     type="button"
     onClick={() => {
-      console.log("clicked", contact);
-     setSelectedContact({ ...contact });;
-    }}
+  setSelectedContact(contact);
+  setIsEditing(false); // always open in view mode
+}}
     className="w-full text-left p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
   >
     <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">
@@ -1018,80 +1019,48 @@ setMessages(prev =>
             </div>
         </div>
       </main>
-      {selectedContact && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-    <div className="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl">
+      {selectedContact && !isEditing && (
+  <div className="space-y-6">
 
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-black text-slate-800">
-          Edit Contact
+    <div className="flex justify-between items-start">
+      <div>
+        <h3 className="text-2xl font-black text-slate-800">
+          {selectedContact.department}
         </h3>
-        <button onClick={() => setSelectedContact(null)}>
-          ✕
-        </button>
+        <p className="text-slate-500 font-bold">
+          {selectedContact.hours}
+        </p>
       </div>
 
-      <div className="space-y-3">
+      {/* Pencil button */}
+      <button
+        onClick={() => setIsEditing(true)}
+        className="p-2 hover:bg-slate-100 rounded-xl transition"
+      >
+        ✏️
+      </button>
+    </div>
 
-        {/* Department */}
-        <input
-          value={selectedContact.department}
-          onChange={(e) =>
-            setSelectedContact({
-              ...selectedContact,
-              department: e.target.value,
-            })
-          }
-          className="w-full p-3 border rounded-xl font-bold"
-          placeholder="Department"
-        />
+    <div className="bg-slate-50 p-6 rounded-2xl">
+      <p className="text-xs uppercase font-black text-slate-400 mb-2">
+        Contact Number
+      </p>
+      <p className="text-3xl font-black text-blue-600">
+        {selectedContact.number}
+      </p>
+    </div>
 
-        {/* Number */}
-        <input
-          value={selectedContact.number}
-          onChange={(e) =>
-            setSelectedContact({
-              ...selectedContact,
-              number: e.target.value,
-            })
-          }
-          className="w-full p-3 border rounded-xl font-bold"
-          placeholder="Phone number"
-        />
-
-        {/* Notes */}
-        <textarea
-          value={selectedContact.notes || ""}
-          onChange={(e) =>
-            setSelectedContact({
-              ...selectedContact,
-              notes: e.target.value,
-            })
-          }
-          className="w-full p-3 border rounded-xl h-24"
-          placeholder="Add notes..."
-        />
-
-        {/* Save */}
-        <button
-          onClick={() => {
-            setContacts((prev) =>
-              prev.map((c) =>
-                c.number === selectedContact.number
-                  ? selectedContact
-                  : c
-              )
-            );
-
-            setSelectedContact(null);
-          }}
-          className="w-full bg-blue-600 text-white font-black py-3 rounded-xl"
-        >
-          Save Changes
-        </button>
-
+    <div>
+      <p className="text-xs uppercase font-black text-slate-400 mb-2">
+        Notes
+      </p>
+      <div className="bg-white border-2 border-slate-100 rounded-2xl p-4 min-h-[120px] text-slate-700">
+        {selectedContact.notes?.trim()
+          ? selectedContact.notes
+          : "No notes added yet."}
       </div>
     </div>
+
   </div>
 )}
     </div>
