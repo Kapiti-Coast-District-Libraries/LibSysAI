@@ -56,7 +56,7 @@ You are the "LibSys Support AI", a specialized technical support assistant for l
 `;
 
 export const CONTACT_DIRECTORY: SupportContact[] = [
-  { department: 'Council IT', number: '04 298 5511', hours: 'Mon-Fri 08:00 - 17:00', priority: 'high' },
+  { department: 'Council IT', number: '04 298 5511', hours: 'Mon-Fri 08:00 - 17:00', priority: 'high', notes: 'ISRGBISB' },
   { department: 'Clark', number: '027 352 6201', hours: 'Mon-Thu 09:00 - 17:00', priority: 'high' },
   { department: 'APNK Support', number: '0800 555 276', hours: '7 Days 08:30 - 17:30', priority: 'high' },
   { department: 'Civica | AEST', number: '+61 3 8676 4415', hours: '7 Days 08:30 - 17:30', priority: 'high' },
