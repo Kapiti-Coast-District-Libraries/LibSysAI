@@ -85,7 +85,7 @@ const App: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [selectedContact, setSelectedContact] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [contacts, setContacts] = useState(CONTACT_DIRECTORY);
+  const [contacts, setContacts] = useState<Contact[]>([]);
   const [sopFiles, setSopFiles] = useState<SopFile[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isInterruptedRef = useRef(false);
@@ -93,6 +93,46 @@ const App: React.FC = () => {
 
   const currentFlowRef = useRef<FlowState>("Normal");
 
+useEffect(() => {
+    loadContacts();
+}, []);
+
+async function loadContacts() {
+    const { data, error } = await supabaseClient
+        .from("contacts")
+        .select("*")
+        .order("display_order");
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    setContacts(data);
+}
+  const saveContact = async () => {
+
+    const { error } = await supabaseClient
+        .from("contacts")
+        .update({
+            note: selectedContact.note,
+            phone: selectedContact.phone,
+            avail: selectedContact.avail
+        })
+        .eq("id", selectedContact.id);
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    await loadContacts();
+    setIsEditing(false);
+};
+  
+
+
+  
   useEffect(() => {
 
   const MAX_CONCURRENT_FETCHES = 50; // adjust based on your network speed
@@ -893,7 +933,7 @@ setMessages(prev =>
           <div className="pt-6 border-t border-slate-100">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Urgent Contacts (Max Unavailable)</h3>
             <div className="space-y-3">
-              {contacts.map((contact, idx) => (
+              <div className="text-[10px] font-black text-slate-400">     {contact.contact} </div>  <div className="text-lg font-black">     {contact.phone} </div>
   <button
     key={idx}
     type="button"
@@ -904,10 +944,10 @@ setMessages(prev =>
     className="w-full text-left p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
   >
     <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">
-      {contact.department}
+      {contact.contact}
     </div>
     <div className="text-lg font-black text-slate-800 tracking-tight">
-      {contact.number}
+      {contact.phone}
     </div>
   </button>
 ))}
@@ -1074,7 +1114,7 @@ setMessages(prev =>
               Contact Number
             </p>
             <p className="text-3xl font-black text-blue-600">
-              {selectedContact.number}
+              {selectedContact.phone}
             </p>
           </div>
 
@@ -1083,8 +1123,8 @@ setMessages(prev =>
               Notes
             </p>
             <div className="min-h-[140px] p-4 border-2 border-slate-100 rounded-2xl text-slate-700">
-              {selectedContact.notes?.trim()
-                ? selectedContact.notes
+              {selectedContact.note?.trim()
+                ? selectedContact.note
                 : "No notes added yet."}
             </div>
           </div>
@@ -1108,7 +1148,7 @@ setMessages(prev =>
           />
 
           <input
-            value={selectedContact.number}
+            value={selectedContact.phone}
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
@@ -1119,7 +1159,7 @@ setMessages(prev =>
           />
 
           <textarea
-            value={selectedContact.notes || ""}
+            value={selectedcontact.note || ""}
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
@@ -1132,21 +1172,9 @@ setMessages(prev =>
 
           <div className="flex gap-3 pt-2">
 
-            <button
-              onClick={() => {
-                setContacts((prev) =>
-                  prev.map((c) =>
-                    c.number === selectedContact.number
-                      ? selectedContact
-                      : c
-                  )
-                );
-                setIsEditing(false);
-              }}
-              className="flex-1 bg-blue-600 text-white font-black py-3 rounded-xl"
-            >
+            <button onClick={saveContact}>
               Save
-            </button>
+</button>
 
             <button
               onClick={() => setIsEditing(false)}
