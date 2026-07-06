@@ -931,28 +931,36 @@ setMessages(prev =>
           </nav>
 
           <div className="pt-6 border-t border-slate-100">
-            <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Urgent Contacts (Max Unavailable)</h3>
-            <div className="space-y-3">
-              <div className="text-[10px] font-black text-slate-400">     {contact.contact} </div>  <div className="text-lg font-black">     {contact.phone} </div>
-  <button
-    key={idx}
-    type="button"
-    onClick={() => {
-  setSelectedContact(contact);
-  setIsEditing(false); // always open in view mode
-}}
-    className="w-full text-left p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
-  >
-    <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">
-      {contact.contact}
-    </div>
-    <div className="text-lg font-black text-slate-800 tracking-tight">
-      {contact.phone}
-    </div>
-  </button>
-))
-            </div>
-          </div>
+  <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">
+    Urgent Contacts (Max Unavailable)
+  </h3>
+
+  <div className="space-y-3">
+
+    {contacts.map((contact, idx) => (
+      <button
+        key={contact.id ?? idx}
+        type="button"
+        onClick={() => {
+          setSelectedContact(contact);
+          setIsEditing(false);
+        }}
+        className="w-full text-left p-4 bg-white rounded-2xl border-2 border-slate-50 shadow-sm cursor-pointer hover:border-blue-200 transition-all active:scale-[0.98]"
+      >
+
+        <div className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-tighter">
+          {contact.contact}
+        </div>
+
+        <div className="text-lg font-black text-slate-800 tracking-tight">
+          {contact.phone}
+        </div>
+
+      </button>
+    ))}
+
+  </div>
+</div>
         </div>
 
         <div className="p-4 bg-slate-900 text-white text-[9px] text-center font-black tracking-[0.3em] opacity-90 uppercase">Property Of Kapiti Coast District Council</div>
