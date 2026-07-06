@@ -950,7 +950,7 @@ setMessages(prev =>
       {contact.phone}
     </div>
   </button>
-))}
+))
             </div>
           </div>
         </div>
