@@ -1159,7 +1159,7 @@ setMessages(prev =>
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
-                number: e.target.value,
+                phone: e.target.value,
               })
             }
             className="w-full p-3 border rounded-xl font-bold"
@@ -1170,7 +1170,7 @@ setMessages(prev =>
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
-                notes: e.target.value,
+                note: e.target.value,
               })
             }
             className="w-full p-4 border rounded-2xl h-40"
