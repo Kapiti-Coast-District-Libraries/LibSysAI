@@ -83,9 +83,8 @@ const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [selectedContact, setSelectedContact] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [selectedContact, setSelectedContact] = useState<SupportContact | null>(null);  const [isEditing, setIsEditing] = useState(false);
+  const [contacts, setContacts] = useState<SupportContact[]>([]);
   const [sopFiles, setSopFiles] = useState<SopFile[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isInterruptedRef = useRef(false);
@@ -115,7 +114,7 @@ async function loadContacts() {
     const { error } = await supabaseClient
         .from("notes")
         .update({
-            note: selectedContact.note,
+            note: selectedContact.notes,
             phone: selectedContact.phone,
             avail: selectedContact.avail
         })
@@ -1131,8 +1130,8 @@ setMessages(prev =>
               Notes
             </p>
             <div className="min-h-[140px] p-4 border-2 border-slate-100 rounded-2xl text-slate-700">
-              {selectedContact.note?.trim()
-                ? selectedContact.note
+              {selectedContact.notes?.trim()
+                ? selectedContact.notes
                 : "No notes added yet."}
             </div>
           </div>
@@ -1167,7 +1166,7 @@ setMessages(prev =>
           />
 
           <textarea
-            value={selectedcontact.note || ""}
+            value={selectedContact.notes || ""}
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
