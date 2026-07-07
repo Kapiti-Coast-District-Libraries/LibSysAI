@@ -113,7 +113,7 @@ async function loadContacts() {
   const saveContact = async () => {
 
     const { error } = await supabaseClient
-        .from("contacts")
+        .from("notes")
         .update({
             note: selectedContact.note,
             phone: selectedContact.phone,
