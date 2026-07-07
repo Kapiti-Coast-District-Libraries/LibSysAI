@@ -1148,7 +1148,7 @@ setMessages(prev =>
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
-                conatct: e.target.value,
+                contact: e.target.value,
               })
             }
             className="w-full p-3 border rounded-xl font-bold"
