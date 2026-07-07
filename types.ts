@@ -11,9 +11,9 @@ export interface Message {
 }
 
 export interface SupportContact {
-  department: string;
-  number: string;
-  hours: string;
+  contact: string;
+  phone: string;
+  avail: string;
   priority: 'low' | 'medium' | 'high';
   notes?: string;
 }
