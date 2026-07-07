@@ -1086,10 +1086,10 @@ setMessages(prev =>
       <div className="flex justify-between items-start">
         <div>
           <h3 className="text-2xl font-black text-slate-800">
-            {selectedContact.department}
+            {selectedContact.contact}
           </h3>
           <p className="text-slate-500 font-bold">
-            {selectedContact.hours}
+            {selectedContact.avail}
           </p>
         </div>
 
@@ -1145,11 +1145,11 @@ setMessages(prev =>
         <div className="flex flex-col gap-4">
 
           <input
-            value={selectedContact.department}
+            value={selectedContact.contact}
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
-                department: e.target.value,
+                conatct: e.target.value,
               })
             }
             className="w-full p-3 border rounded-xl font-bold"
