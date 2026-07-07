@@ -99,7 +99,7 @@ useEffect(() => {
 
 async function loadContacts() {
     const { data, error } = await supabaseClient
-        .from("contacts")
+        .from("notes")
         .select("*")
         .order("display_order");
 
