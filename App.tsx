@@ -279,6 +279,25 @@ for (const file of files) {
    * RELEVANCE FILTER (Optimized for Boolean Queries and Lookups)
    * Prevents Token Overflows by enforcing a strict character budget.
    */
+  const linkify = (text: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  return text.split(urlRegex).map((part, index) =>
+    urlRegex.test(part) ? (
+      <a
+        key={index}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 underline hover:text-blue-800"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+};
   const getRelevantContext = (
   query: string,
   files: SopFile[],
@@ -1129,11 +1148,11 @@ setMessages(prev =>
             <p className="text-xs uppercase font-black text-slate-400 mb-2">
               Notes
             </p>
-            <div className="min-h-[140px] p-4 border-2 border-slate-100 rounded-2xl text-slate-700">
-              {selectedContact.note?.trim()
-                ? selectedContact.note
-                : "No notes added yet."}
-            </div>
+            <div className="min-h-[140px] p-4 border-2 border-slate-100 rounded-2xl text-slate-700 whitespace-pre-wrap">
+  {selectedContact.notes?.trim()
+    ? linkify(selectedContact.notes)
+    : "No notes added yet."}
+</div>
           </div>
 
         </div>
