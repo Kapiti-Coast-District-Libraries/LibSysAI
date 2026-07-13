@@ -29,7 +29,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
+        
+      - name: Generate icons.json
+        run: |
+          node generateIcons.cjs
+          
       - name: Build
         run: npm run build
         env:
