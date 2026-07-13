@@ -155,6 +155,10 @@ body{
         >
 
     </div>
+    <div
+    id="locationFilters"
+    class="flex flex-wrap gap-2 mt-5"
+></div>
 
     <!-- SUMMARY -->
 
@@ -376,7 +380,7 @@ const supabaseClient = createClient(
 
 let resources = [];
 let selectedResource = null;
-
+let selectedLocation = "All";
 // DOM Elements
 const grid = document.getElementById("resourceGrid");
 const modal = document.getElementById("resourceModal");
@@ -401,7 +405,72 @@ const closeBtn = document.getElementById("closeModal");
 // =========================
 // Load Resources
 // =========================
+function renderLocationFilters() {
 
+    const container = document.getElementById("locationFilters");
+
+    const locations = [
+        "All",
+        ...new Set(
+            resources
+                .map(r => r.location)
+                .filter(Boolean)
+                .sort()
+        )
+    ];
+
+    container.innerHTML = "";
+
+    locations.forEach(location => {
+
+        const btn = document.createElement("button");
+
+        btn.textContent = location;
+
+        btn.className =
+            "px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all " +
+            (selectedLocation === location
+                ? "bg-blue-600 text-white shadow-lg shadow-blue-100"
+                : "bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600");
+
+        btn.onclick = () => {
+
+            selectedLocation = location;
+
+            renderLocationFilters();
+
+            applyFilters();
+
+        };
+
+        container.appendChild(btn);
+
+    });
+
+}
+    function applyFilters() {
+
+    const search = searchInput.value.toLowerCase();
+
+    const filtered = resources.filter(r => {
+
+        const matchesSearch =
+            (r.resource_name || "").toLowerCase().includes(search) ||
+            (r.supplier || "").toLowerCase().includes(search) ||
+            (r.contact || "").toLowerCase().includes(search) ||
+            (r.notes || "").toLowerCase().includes(search);
+
+        const matchesLocation =
+            selectedLocation === "All" ||
+            r.location === selectedLocation;
+
+        return matchesSearch && matchesLocation;
+
+    });
+
+    renderResources(filtered);
+
+}
 async function loadResources() {
 
     const { data, error } = await supabaseClient
@@ -417,8 +486,8 @@ async function loadResources() {
 
     resources = data || [];
 
-    renderResources(resources);
-
+renderLocationFilters();
+applyFilters();
 }
 
 // =========================
@@ -468,8 +537,12 @@ function renderResources(list) {
                 </div>
 
                 <div class="text-xs uppercase tracking-widest text-slate-400 mt-1">
-                    ${resource.supplier || "No Supplier"}
-                </div>
+    📍 ${resource.location || "Unknown"}
+</div>
+
+<div class="text-xs text-slate-500 mt-1">
+    ${resource.supplier || "No Supplier"}
+</div>
 
             </div>
 
@@ -653,8 +726,7 @@ modal.onclick = (e) => {
 // Search
 // =========================
 
-searchInput.addEventListener("input", () => {
-
+searchInput.addEventListener("input", applyFilters){
     const value = searchInput.value.toLowerCase();
 
     const filtered = resources.filter(r =>
