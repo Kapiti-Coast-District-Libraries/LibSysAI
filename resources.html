@@ -369,10 +369,10 @@ body{
 <script>
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const supabase = createClient(
-    "YOUR_SUPABASE_URL",
-    "YOUR_SUPABASE_ANON_KEY"
-);
+const supabaseClient = createClient(
+    'https://ytztmtcdfqpamhityaqz.supabase.co',
+    'sb_publishable_QivpXC97wK00Ov2EedYmIg_q_xBc3fk'
+  );
 
 let resources = [];
 let selectedResource = null;
@@ -395,7 +395,7 @@ const notesInput = document.getElementById("resourceNotes");
 
 async function loadResources(){
 
-    const {data,error} = await supabase
+    const {data,error} = await supabaseClient
         .from("resources")
         .select("*")
         .order("resource_name");
