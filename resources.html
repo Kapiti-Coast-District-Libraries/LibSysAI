@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>LibSys Resources</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+body{
+    font-family:'Inter',sans-serif;
+    background:#f8fafc;
+}
+
+.custom-card{
+    background:white;
+    border:2px solid #f1f5f9;
+    border-radius:2rem;
+    box-shadow:
+        0 4px 6px -1px rgba(0,0,0,.05),
+        0 2px 4px -1px rgba(0,0,0,.03);
+}
+
+.resource-card{
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+.resource-card:hover{
+    transform:translateY(-4px);
+    border-color:#2563eb;
+    box-shadow:
+        0 20px 25px -5px rgba(37,99,235,.10),
+        0 10px 10px -5px rgba(37,99,235,.04);
+}
+
+.input-field{
+    background:#f8fafc;
+    border:2px solid #f1f5f9;
+    border-radius:1rem;
+    padding:.9rem 1rem;
+    width:100%;
+    outline:none;
+    transition:.2s;
+    font-weight:600;
+}
+
+.input-field:focus{
+    border-color:#2563eb;
+    background:white;
+    box-shadow:0 0 0 4px rgba(37,99,235,.05);
+}
+
+.modal-backdrop{
+    backdrop-filter:blur(8px);
+}
+
+.qty-circle{
+    width:80px;
+    height:80px;
+    border-radius:999px;
+    background:#eff6ff;
+    color:#2563eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    font-weight:900;
+}
+
+.fade-in{
+    animation:fadeIn .2s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body class="min-h-screen p-6 md:p-12">
+
+<div class="max-w-7xl mx-auto">
+
+    <!-- HEADER -->
+    <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+
+        <div class="flex items-center gap-4">
+
+            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl shadow-lg shadow-blue-100 flex items-center justify-center text-xl font-black">
+                R
+            </div>
+
+            <div>
+                <h1 class="text-2xl font-black text-slate-900 tracking-tight italic">
+                    Resource Inventory
+                </h1>
+
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                    Library Resources
+                </p>
+            </div>
+
+        </div>
+
+        <div class="flex gap-3">
+
+            <button
+                id="addResourceBtn"
+                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-lg shadow-blue-100 transition-all"
+            >
+                + Add Resource
+            </button>
+
+            <button
+                onclick="window.location.href='index.html'"
+                class="px-6 py-3 border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 rounded-2xl text-xs font-black transition-all bg-white shadow-sm"
+            >
+                Return to App
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- SEARCH -->
+
+    <div class="custom-card p-6 mb-8">
+
+        <div class="flex items-center gap-2 mb-4">
+
+            <span class="text-xs font-black text-slate-900 uppercase tracking-widest">
+                Search Resources
+            </span>
+
+            <div class="h-px flex-1 bg-slate-100"></div>
+
+        </div>
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search resource name, supplier, contact or notes..."
+            class="input-field"
+        >
+
+    </div>
+
+    <!-- SUMMARY -->
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+        <div class="custom-card p-8">
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">
+                Total Resources
+            </div>
+
+            <div
+                id="resourceCount"
+                class="text-5xl font-black text-blue-600 tracking-tighter"
+            >
+                0
+            </div>
+        </div>
+
+        <div class="custom-card p-8">
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">
+                Total Quantity
+            </div>
+
+            <div
+                id="qtyCount"
+                class="text-5xl font-black text-green-600 tracking-tighter"
+            >
+                0
+            </div>
+        </div>
+
+        <div class="custom-card p-8">
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">
+                Suppliers
+            </div>
+
+            <div
+                id="supplierCount"
+                class="text-5xl font-black text-slate-900 tracking-tighter"
+            >
+                0
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RESOURCE GRID -->
+
+    <div
+        id="resourceGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+    >
+
+        <!-- SAMPLE CARD -->
+
+        <div class="resource-card custom-card p-6">
+
+            <div class="flex justify-between items-start mb-6">
+
+                <div>
+                    <div class="text-lg font-black text-slate-900">
+                        Laptop
+                    </div>
+
+                    <div class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-1">
+                        Resource
+                    </div>
+                </div>
+
+                <div class="text-blue-600 text-xl">
+                    📦
+                </div>
+
+            </div>
+
+            <div class="flex justify-center mb-4">
+                <div class="qty-circle">
+                    12
+                </div>
+            </div>
+
+            <div class="text-center">
+
+                <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    Quantity Available
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL -->
+
+<div
+    id="resourceModal"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 modal-backdrop p-4"
+>
+
+    <div
+        class="bg-white rounded-3xl w-full max-w-2xl shadow-2xl overflow-hidden fade-in"
+    >
+
+        <div class="p-8 border-b border-slate-100 flex justify-between items-center">
+
+            <div>
+                <h2 class="text-2xl font-black text-slate-900">
+                    Resource Details
+                </h2>
+
+                <p class="text-xs uppercase tracking-widest font-black text-slate-400 mt-1">
+                    Inventory Record
+                </p>
+            </div>
+
+            <button
+                id="closeModal"
+                class="text-slate-400 hover:text-red-500 text-2xl font-bold"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="p-8 space-y-6">
+
+            <div>
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                    Resource Name
+                </label>
+
+                <input
+                    id="resourceName"
+                    class="input-field"
+                    type="text"
+                >
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                    Quantity
+                </label>
+
+                <input
+                    id="resourceQty"
+                    class="input-field"
+                    type="number"
+                >
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                    Supplier
+                </label>
+
+                <input
+                    id="resourceSupplier"
+                    class="input-field"
+                    type="text"
+                >
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                    Contact
+                </label>
+
+                <textarea
+                    id="resourceContact"
+                    class="input-field min-h-[100px]"
+                ></textarea>
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                    General Notes
+                </label>
+
+                <textarea
+                    id="resourceNotes"
+                    class="input-field min-h-[140px]"
+                ></textarea>
+            </div>
+
+        </div>
+
+        <div class="p-8 border-t border-slate-100 flex justify-between">
+
+            <button
+                id="deleteBtn"
+                class="px-6 py-3 bg-red-50 text-red-600 hover:bg-red-100 rounded-xl text-xs font-black uppercase tracking-widest"
+            >
+                Delete
+            </button>
+
+            <button
+                id="saveBtn"
+                class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-black uppercase tracking-widest shadow-lg shadow-blue-100"
+            >
+                Save Changes
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const supabase = createClient(
+    "YOUR_SUPABASE_URL",
+    "YOUR_SUPABASE_ANON_KEY"
+);
+
+let resources = [];
+let selectedResource = null;
+
+const grid = document.getElementById("resourceGrid");
+
+const modal = document.getElementById("resourceModal");
+
+const searchInput = document.getElementById("searchInput");
+
+const resourceCount = document.getElementById("resourceCount");
+const qtyCount = document.getElementById("qtyCount");
+const supplierCount = document.getElementById("supplierCount");
+
+const nameInput = document.getElementById("resourceName");
+const qtyInput = document.getElementById("resourceQty");
+const supplierInput = document.getElementById("resourceSupplier");
+const contactInput = document.getElementById("resourceContact");
+const notesInput = document.getElementById("resourceNotes");
+
+async function loadResources(){
+
+    const {data,error} = await supabase
+        .from("resources")
+        .select("*")
+        .order("resource_name");
+
+    if(error){
+        console.error(error);
+        return;
+    }
+
+    resources = data;
+
+    renderResources(resources);
+
+}
+
+function renderResources(list){
+
+    grid.innerHTML = "";
+
+    resourceCount.innerText = list.length;
+
+    qtyCount.innerText =
+        list.reduce((sum,r)=>sum+(r.quantity||0),0);
+
+    supplierCount.innerText =
+        new Set(list.map(r=>r.supplier).filter(Boolean)).size;
+
+    list.forEach(resource=>{
+
+        const card=document.createElement("div");
+
+        card.className="resource-card custom-card p-6";
+
+        card.innerHTML=`
+
+        <div class="flex justify-between items-start mb-6">
+
+            <div>
+
+                <div class="text-lg font-black text-slate-900">
+                    ${resource.resource_name}
+                </div>
+
+                <div class="text-xs uppercase tracking-widest text-slate-400 mt-1">
+                    ${resource.supplier || "No Supplier"}
+                </div>
+
+            </div>
+
+            <div class="text-blue-600 text-xl">
+                📦
+            </div>
+
+        </div>
+
+        <div class="flex justify-center mb-4">
+
+            <div class="qty-circle">
+                ${resource.quantity}
+            </div>
+
+        </div>
+
+        <div class="text-center">
+
+            <div class="text-[10px] uppercase font-black tracking-widest text-slate-400">
+
+                Quantity Available
+
+            </div>
+
+        </div>
+
+        `;
+
+        card.onclick=()=>openModal(resource);
+
+        grid.appendChild(card);
+
+    });
+
+}
+</script>
+
+</body>
+</html>
+```
