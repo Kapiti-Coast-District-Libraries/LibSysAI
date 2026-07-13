@@ -298,8 +298,20 @@ body{
                     class="input-field"
                     type="text"
                 >
+                
             </div>
+            <div>
+    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+        Location
+    </label>
 
+    <input
+        id="resourceLocation"
+        class="input-field"
+        type="text"
+        placeholder="e.g. Library, Room 12, Storage"
+    >
+</div>
             <div>
                 <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
                     Quantity
@@ -396,7 +408,7 @@ const qtyInput = document.getElementById("resourceQty");
 const supplierInput = document.getElementById("resourceSupplier");
 const contactInput = document.getElementById("resourceContact");
 const notesInput = document.getElementById("resourceNotes");
-
+const locationInput = document.getElementById("resourceLocation");
 const addBtn = document.getElementById("addResourceBtn");
 const saveBtn = document.getElementById("saveBtn");
 const deleteBtn = document.getElementById("deleteBtn");
@@ -585,7 +597,7 @@ function renderResources(list) {
 function openModal(resource) {
 
     selectedResource = resource;
-
+    locationInput.value = resource.location || "";
     nameInput.value = resource.resource_name || "";
     qtyInput.value = resource.quantity || 0;
     supplierInput.value = resource.supplier || "";
@@ -605,7 +617,7 @@ function openModal(resource) {
 addBtn.onclick = () => {
 
     selectedResource = null;
-
+    locationInput.value = "";
     nameInput.value = "";
     qtyInput.value = 0;
     supplierInput.value = "";
@@ -627,11 +639,12 @@ saveBtn.onclick = async () => {
     const record = {
 
         resource_name: nameInput.value.trim(),
+        location: locationInput.value.trim(),
         quantity: Number(qtyInput.value),
         supplier: supplierInput.value.trim(),
         contact: contactInput.value.trim(),
         notes: notesInput.value.trim()
-
+        
     };
 
     if (!record.resource_name) {
