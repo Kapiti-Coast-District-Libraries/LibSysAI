@@ -366,19 +366,19 @@ body{
 
 </div>
 
-<script>
+<script type="module">
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const supabaseClient = createClient(
-    'https://ytztmtcdfqpamhityaqz.supabase.co',
-    'sb_publishable_QivpXC97wK00Ov2EedYmIg_q_xBc3fk'
-  );
+    "https://ytztmtcdfqpamhityaqz.supabase.co",
+    "sb_publishable_QivpXC97wK00Ov2EedYmIg_q_xBc3fk"
+);
 
 let resources = [];
 let selectedResource = null;
 
+// DOM Elements
 const grid = document.getElementById("resourceGrid");
-
 const modal = document.getElementById("resourceModal");
 
 const searchInput = document.getElementById("searchInput");
@@ -393,43 +393,71 @@ const supplierInput = document.getElementById("resourceSupplier");
 const contactInput = document.getElementById("resourceContact");
 const notesInput = document.getElementById("resourceNotes");
 
-async function loadResources(){
+const addBtn = document.getElementById("addResourceBtn");
+const saveBtn = document.getElementById("saveBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+const closeBtn = document.getElementById("closeModal");
 
-    const {data,error} = await supabaseClient
+// =========================
+// Load Resources
+// =========================
+
+async function loadResources() {
+
+    const { data, error } = await supabaseClient
         .from("resources")
         .select("*")
         .order("resource_name");
 
-    if(error){
+    if (error) {
         console.error(error);
+        alert(error.message);
         return;
     }
 
-    resources = data;
+    resources = data || [];
 
     renderResources(resources);
 
 }
 
-function renderResources(list){
+// =========================
+// Render Cards
+// =========================
+
+function renderResources(list) {
 
     grid.innerHTML = "";
 
     resourceCount.innerText = list.length;
 
-    qtyCount.innerText =
-        list.reduce((sum,r)=>sum+(r.quantity||0),0);
+    qtyCount.innerText = list.reduce(
+        (sum, r) => sum + (Number(r.quantity) || 0),
+        0
+    );
 
-    supplierCount.innerText =
-        new Set(list.map(r=>r.supplier).filter(Boolean)).size;
+    supplierCount.innerText = new Set(
+        list.map(r => r.supplier).filter(Boolean)
+    ).size;
 
-    list.forEach(resource=>{
+    if (list.length === 0) {
 
-        const card=document.createElement("div");
+        grid.innerHTML = `
+            <div class="col-span-full text-center py-16 text-slate-400 font-bold">
+                No resources found.
+            </div>
+        `;
 
-        card.className="resource-card custom-card p-6";
+        return;
+    }
 
-        card.innerHTML=`
+    list.forEach(resource => {
+
+        const card = document.createElement("div");
+
+        card.className = "resource-card custom-card p-6";
+
+        card.innerHTML = `
 
         <div class="flex justify-between items-start mb-6">
 
@@ -445,7 +473,7 @@ function renderResources(list){
 
             </div>
 
-            <div class="text-blue-600 text-xl">
+            <div class="text-2xl">
                 📦
             </div>
 
@@ -454,32 +482,201 @@ function renderResources(list){
         <div class="flex justify-center mb-4">
 
             <div class="qty-circle">
-                ${resource.quantity}
+                ${resource.quantity || 0}
             </div>
 
         </div>
 
         <div class="text-center">
 
-            <div class="text-[10px] uppercase font-black tracking-widest text-slate-400">
-
+            <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">
                 Quantity Available
-
             </div>
 
         </div>
 
         `;
 
-        card.onclick=()=>openModal(resource);
+        card.onclick = () => openModal(resource);
 
         grid.appendChild(card);
 
     });
 
 }
-</script>
 
+// =========================
+// Open Modal
+// =========================
+
+function openModal(resource) {
+
+    selectedResource = resource;
+
+    nameInput.value = resource.resource_name || "";
+    qtyInput.value = resource.quantity || 0;
+    supplierInput.value = resource.supplier || "";
+    contactInput.value = resource.contact || "";
+    notesInput.value = resource.notes || "";
+
+    deleteBtn.classList.remove("hidden");
+
+    modal.classList.remove("hidden");
+
+}
+
+// =========================
+// New Resource
+// =========================
+
+addBtn.onclick = () => {
+
+    selectedResource = null;
+
+    nameInput.value = "";
+    qtyInput.value = 0;
+    supplierInput.value = "";
+    contactInput.value = "";
+    notesInput.value = "";
+
+    deleteBtn.classList.add("hidden");
+
+    modal.classList.remove("hidden");
+
+};
+
+// =========================
+// Save Resource
+// =========================
+
+saveBtn.onclick = async () => {
+
+    const record = {
+
+        resource_name: nameInput.value.trim(),
+        quantity: Number(qtyInput.value),
+        supplier: supplierInput.value.trim(),
+        contact: contactInput.value.trim(),
+        notes: notesInput.value.trim()
+
+    };
+
+    if (!record.resource_name) {
+
+        alert("Please enter a resource name.");
+
+        return;
+
+    }
+
+    let error;
+
+    if (selectedResource) {
+
+        ({ error } = await supabaseClient
+            .from("resources")
+            .update(record)
+            .eq("id", selectedResource.id));
+
+    } else {
+
+        ({ error } = await supabaseClient
+            .from("resources")
+            .insert(record));
+
+    }
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+
+    }
+
+    modal.classList.add("hidden");
+
+    await loadResources();
+
+};
+
+// =========================
+// Delete Resource
+// =========================
+
+deleteBtn.onclick = async () => {
+
+    if (!selectedResource) return;
+
+    if (!confirm("Delete this resource?")) return;
+
+    const { error } = await supabaseClient
+        .from("resources")
+        .delete()
+        .eq("id", selectedResource.id);
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+
+    }
+
+    modal.classList.add("hidden");
+
+    await loadResources();
+
+};
+
+// =========================
+// Close Modal
+// =========================
+
+closeBtn.onclick = () => {
+
+    modal.classList.add("hidden");
+
+};
+
+modal.onclick = (e) => {
+
+    if (e.target === modal) {
+
+        modal.classList.add("hidden");
+
+    }
+
+};
+
+// =========================
+// Search
+// =========================
+
+searchInput.addEventListener("input", () => {
+
+    const value = searchInput.value.toLowerCase();
+
+    const filtered = resources.filter(r =>
+
+        (r.resource_name || "").toLowerCase().includes(value) ||
+        (r.supplier || "").toLowerCase().includes(value) ||
+        (r.contact || "").toLowerCase().includes(value) ||
+        (r.notes || "").toLowerCase().includes(value)
+
+    );
+
+    renderResources(filtered);
+
+});
+
+// =========================
+// Initial Load
+// =========================
+
+loadResources();
+
+</script>
 </body>
 </html>
 ```
