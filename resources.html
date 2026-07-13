@@ -313,6 +313,18 @@ body{
     >
 </div>
             <div>
+    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+        Icon
+    </label>
+
+    <select
+        id="resourceIcon"
+        class="input-field"
+    >
+        <option value="">Default Box</option>
+    </select>
+</div>
+            <div>
                 <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
                     Quantity
                 </label>
@@ -398,7 +410,7 @@ const grid = document.getElementById("resourceGrid");
 const modal = document.getElementById("resourceModal");
 
 const searchInput = document.getElementById("searchInput");
-
+const iconInput = document.getElementById("resourceIcon");
 const resourceCount = document.getElementById("resourceCount");
 const qtyCount = document.getElementById("qtyCount");
 const supplierCount = document.getElementById("supplierCount");
@@ -483,6 +495,31 @@ function renderLocationFilters() {
     renderResources(filtered);
 
 }
+    async function loadIcons() {
+
+    const iconInput = document.getElementById("resourceIcon");
+
+    const response = await fetch("icons/icons.json");
+
+    const icons = await response.json();
+
+    iconInput.innerHTML =
+        '<option value="">Default Box</option>';
+
+    icons.forEach(icon => {
+
+        const option = document.createElement("option");
+
+        option.value = icon;
+
+        option.textContent =
+            icon.replace(/\.[^/.]+$/, "");
+
+        iconInput.appendChild(option);
+
+    });
+
+}
 async function loadResources() {
 
     const { data, error } = await supabaseClient
@@ -558,9 +595,15 @@ function renderResources(list) {
 
             </div>
 
-            <div class="text-2xl">
-                📦
-            </div>
+            <div class="w-12 h-12 flex items-center justify-center">
+
+    ${
+        resource.icon
+        ? `<img src="icons/${resource.icon}" class="w-10 h-10 object-contain">`
+        : "📦"
+    }
+
+</div>
 
         </div>
 
@@ -603,7 +646,7 @@ function openModal(resource) {
     supplierInput.value = resource.supplier || "";
     contactInput.value = resource.contact || "";
     notesInput.value = resource.notes || "";
-
+    iconInput.value = resource.icon || "";
     deleteBtn.classList.remove("hidden");
 
     modal.classList.remove("hidden");
@@ -623,7 +666,7 @@ addBtn.onclick = () => {
     supplierInput.value = "";
     contactInput.value = "";
     notesInput.value = "";
-
+    iconInput.value = "";
     deleteBtn.classList.add("hidden");
 
     modal.classList.remove("hidden");
@@ -644,6 +687,7 @@ saveBtn.onclick = async () => {
         supplier: supplierInput.value.trim(),
         contact: contactInput.value.trim(),
         notes: notesInput.value.trim()
+        icon: iconInput.value,
         
     };
 
@@ -683,6 +727,7 @@ saveBtn.onclick = async () => {
     modal.classList.add("hidden");
 
     await loadResources();
+    await loadIcons();
 
 };
 
