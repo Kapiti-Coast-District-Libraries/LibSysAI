@@ -686,7 +686,7 @@ saveBtn.onclick = async () => {
         quantity: Number(qtyInput.value),
         supplier: supplierInput.value.trim(),
         contact: contactInput.value.trim(),
-        notes: notesInput.value.trim()
+        notes: notesInput.value.trim(),
         icon: iconInput.value,
         
     };
@@ -792,6 +792,7 @@ searchInput.addEventListener("input", applyFilters)
         (r.resource_name || "").toLowerCase().includes(value) ||
         (r.supplier || "").toLowerCase().includes(value) ||
         (r.contact || "").toLowerCase().includes(value) ||
+        (r.location || "").toLowerCase().includes(value) ||
         (r.notes || "").toLowerCase().includes(value)
 
     );
