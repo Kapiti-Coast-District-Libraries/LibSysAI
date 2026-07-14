@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const iconsPath = path.join(__dirname, "public", "icons");
+const iconsPath = path.join(__dirname, "icons");
 
 const output = path.join(iconsPath, "icons.json");
 
