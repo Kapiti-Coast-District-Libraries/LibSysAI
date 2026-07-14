@@ -725,9 +725,9 @@ saveBtn.onclick = async () => {
     }
 
     modal.classList.add("hidden");
-
-    await loadResources();
     await loadIcons();
+    await loadResources();
+    
 
 };
 
@@ -803,8 +803,8 @@ searchInput.addEventListener("input", applyFilters)
 // Initial Load
 // =========================
 
-loadResources();
-
+await loadIcons();
+await loadResources();
 </script>
 </body>
 </html>
