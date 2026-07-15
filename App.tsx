@@ -280,8 +280,8 @@ for (const file of files) {
    * Prevents Token Overflows by enforcing a strict character budget.
    */
   const linkify = (text: string): React.ReactNode[] => {
-  return text.split(/(https?:\/\/[^\s]+)/g).map((part, i) => {
-    if (part.match(/^https?:\/\/[^\s]+$/)) {
+  return text.split(/(https?:\/\/[^\s@]+)/g).map((part, i) => {
+    if (part.match(/^https?:\/\/[^\s@]+$/)) {
       return (
         <a
           key={i}
