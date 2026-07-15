@@ -114,7 +114,7 @@ async function loadContacts() {
     const { error } = await supabaseClient
         .from("notes")
         .update({
-            note: selectedContact.note,
+            notes: selectedContact.notes,
             phone: selectedContact.phone,
             avail: selectedContact.avail
         })
@@ -1153,7 +1153,7 @@ setMessages(prev =>
             </p>
             <div className="min-h-[140px] p-4 border-2 border-slate-100 rounded-2xl text-slate-700 whitespace-pre-wrap">
   {selectedContact.notes?.trim()
-    ? linkify(selectedContact.note)
+    ? linkify(selectedContact.notes)
     : "No notes added yet."}
 </div>
           </div>
@@ -1188,11 +1188,11 @@ setMessages(prev =>
           />
 
           <textarea
-            value={selectedContact.note || ""}
+            value={selectedContact.notes || ""}
             onChange={(e) =>
               setSelectedContact({
                 ...selectedContact,
-                note: e.target.value,
+                notes: e.target.value,
               })
             }
             className="w-full p-4 border rounded-2xl h-40"
