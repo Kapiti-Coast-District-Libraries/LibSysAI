@@ -1153,7 +1153,7 @@ setMessages(prev =>
             </p>
             <div className="min-h-[140px] p-4 border-2 border-slate-100 rounded-2xl text-slate-700 whitespace-pre-wrap">
   {selectedContact.notes?.trim()
-    ? selectedContact.notes
+    ? linkify(selectedContact.notes)
     : "No notes added yet."}
 </div>
           </div>
