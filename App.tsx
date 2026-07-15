@@ -280,14 +280,29 @@ for (const file of files) {
    * Prevents Token Overflows by enforcing a strict character budget.
    */
   const linkify = (text: string): React.ReactNode[] => {
-  return text.split(/(https?:\/\/[^\s@]+)/g).map((part, i) => {
-    if (part.match(/^https?:\/\/[^\s@]+$/)) {
+  const regex =
+    /(https?:\/\/[^\s]+|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})/g;
+
+  return text.split(regex).map((part, i) => {
+    if (/^https?:\/\/[^\s]+$/.test(part)) {
       return (
         <a
           key={i}
           href={part}
           target="_blank"
           rel="noopener noreferrer"
+          className="text-blue-600 underline hover:text-blue-800 break-all"
+        >
+          {part}
+        </a>
+      );
+    }
+
+    if (/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(part)) {
+      return (
+        <a
+          key={i}
+          href={`mailto:${part}`}
           className="text-blue-600 underline hover:text-blue-800 break-all"
         >
           {part}
