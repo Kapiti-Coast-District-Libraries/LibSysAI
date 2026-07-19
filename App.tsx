@@ -940,7 +940,7 @@ setMessages(prev =>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
               Support Chat
             </button>
-            <button onClick={() => (window.location.href = "resources.html")} className={`w-full flex items-center gap-3 p-3 rounded-xl text-sm font-bold transition-all ${view === 'chat' ? 'bg-blue-50 text-blue-600' : 'text-slate-500 hover:bg-slate-50'}`}>
+            <button onClick={() => (window.location.href = "resources.html")} className={`w-full flex items-center gap-3 p-3 rounded-xl text-sm font-bold transition-all ${view === 'Resources' ? 'bg-blue-50 text-blue-600' : 'text-slate-500 hover:bg-slate-50'}`}>
               Resources
             </button>
             {user?.id === "753c187c-5c83-44c1-a01b-f02d5537ab62" && (
